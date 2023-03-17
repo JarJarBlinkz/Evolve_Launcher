@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Sovellukset</string>
+    <string name="add_group">Lisää ryhmä</string>
+    <string name="delete_group">Poista ryhmä</string>
+    <string name="edit_group">Muokkaa ryhmää</string>
+    <string name="app_details">Sovelluksen tiedot</string>
+    <string name="apps_hidden">Piilotettu</string>
+    <string name="settings_apps_enable">Salli muokkaus</string>
+    <string name="settings_apps_disable">Estä muokkaus</string>
+    <string name="settings_device">Laite asetukset</string>
+    <string name="settings_look">Mukauta</string>
+    <string name="settings_platforms">Alustat</string>
+    <string name="settings_tweaks">Järjestelmän säätöjä</string>
+    <string name="background_opacity">Taustan läpinäkyvyys</string>
+    <string name="icons_size">Ikonien koko</string>
+    <string name="show_app_names">Näytä sovellusten nimet</string>
+    <string name="start_shortcut">Avaa käynnistysohjelma käyttämällä Järjestelmätarjottimen Tutustu-kuvaketta.</string>
+    <string name="service_app_shortcut">Sovelluksen pikakuvake</string>
+    <string name="service_explore_app">Tutustu-sovellus</string>
+    <string name="service_os_updater">OS-päivitys</string>
+    <string name="explore_accessibility_event_name">[Tutustu]</string>
+</resources>

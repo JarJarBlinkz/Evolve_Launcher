@@ -16,7 +16,7 @@
     <string name="background_opacity">Przezroczystość tła</string>
     <string name="icons_size">Rozmiar ikon</string>
     <string name="show_app_names">Pokaż nazwy aplikacji</string>
-    <string name="start_shortcut">Otwórz launcher za pomocą ikony Odkrywaj z poziomu paska systemowego. W celu lepszego działania zaleca się wyłączenie aplikacji Odkrywaj.</string>
+    <string name="start_shortcut">Otwórz launcher za pomocą ikony Odkrywaj z poziomu paska systemowego.</string>
 
     <string name="service_app_shortcut">Skrót aplikacji</string>
     <string name="service_explore_app">Aplikacja Odkrywaj</string>

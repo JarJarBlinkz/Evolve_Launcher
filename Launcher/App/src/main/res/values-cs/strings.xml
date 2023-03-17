@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">.. π Launcher ..</string>
+    <string name="default_apps_group">Aplikace</string>
+    <string name="add_group">Přidat skupinu</string>
+    <string name="delete_group">Smazat skupinu</string>
+    <string name="edit_group">Upravit skupinu</string>
+    <string name="app_details">Podrobnosti aplikace</string>
+    <string name="apps_hidden">Skryté</string>
+    <string name="settings_apps_enable">Povolit úpravy</string>
+    <string name="settings_apps_disable">Zakázat úpravy</string>
+    <string name="settings_device">Nastavení zařízení</string>
+    <string name="settings_look">Přizpůsobit</string>
+    <string name="settings_platforms">Platformy</string>
+    <string name="settings_tweaks">Systémové úpravy</string>
+    <string name="background_opacity">"Průhlednost pozadí "</string>
+    <string name="icons_size">Velikost ikon</string>
+    <string name="show_app_names">Zobrazit názvy aplikací</string>
+    <string name="start_shortcut">Spouštěč otevřete pomocí ikony Prozkoumat v systémové liště.</string>
+    <string name="service_app_shortcut">Zkratka aplikace</string>
+    <string name="service_explore_app">" Aplikace Prozkoumat"</string>
+    <string name="service_os_updater">Aktualizátor OS</string>
+    <string name="explore_accessibility_event_name">[Prozkoumat]</string>
+</resources>

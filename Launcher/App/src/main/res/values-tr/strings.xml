@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Uygulamalar</string>
+    <string name="add_group">Grup ekle</string>
+    <string name="delete_group">Grubu sil</string>
+    <string name="edit_group">Grubu düzenle</string>
+    <string name="app_details">Uygulama ayrıntıları</string>
+    <string name="apps_hidden">Gizlenmiş</string>
+    <string name="settings_apps_enable">Düzenlemeyi etkinleştir</string>
+    <string name="settings_apps_disable">Düzenlemeyi devre dışı bırak</string>
+    <string name="settings_device">Cihaz ayarları</string>
+    <string name="settings_look">Özelleştirmek</string>
+    <string name="settings_platforms">Platformlar</string>
+    <string name="settings_tweaks">Sistem tweaks</string>
+    <string name="background_opacity">Arka plan opaklığı</string>
+    <string name="icons_size">Simge boyutu</string>
+    <string name="show_app_names">Uygulama adlarını göster</string>
+    <string name="start_shortcut">Sistem panosundan Keşfet simgesiyle başlatıcıyı açın.</string>
+    <string name="service_app_shortcut">Uygulama kısayolu</string>
+    <string name="service_explore_app">Uygulamayı keşfedin</string>
+    <string name="service_os_updater">OS güncelleyici</string>
+    <string name="explore_accessibility_event_name">[Keşfet]</string>
+</resources>

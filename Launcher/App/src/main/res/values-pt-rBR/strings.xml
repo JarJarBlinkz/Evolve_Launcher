@@ -1,12 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">.. \u03C0 Launcher ..</string>
     <string name="default_apps_group">Aplicativos</string>
-    <string name="add_group">Adicionar groupo</string>
-    <string name="delete_group">Deletar groupo</string>
-    <string name="edit_group">Editar groupo</string>
+    <string name="add_group">Adicionar grupo</string>
+    <string name="delete_group">Deletar grupo</string>
+    <string name="edit_group">Editar grupo</string>
     <string name="app_details">Detalhes do aplicativo</string>
     <string name="apps_hidden">Ocultos</string>
-
     <string name="settings_apps_enable">Habilitar edição</string>
     <string name="settings_apps_disable">Desabilitar edição</string>
     <string name="settings_device">Configurações do dispositivo</string>
@@ -17,10 +17,8 @@
     <string name="icons_size">Tamanho das miniaturas</string>
     <string name="show_app_names">Mostrar nome dos aplicativos</string>
     <string name="start_shortcut">Abra o launcher com o ícone Explorar no painel do sistema.</string>
-
     <string name="service_app_shortcut">Atalho do aplicativo</string>
     <string name="service_explore_app">Aplicativo Explorar</string>
     <string name="service_os_updater">Atualizador do sistema</string>
-
     <string name="explore_accessibility_event_name">[Explorar]</string>
 </resources>

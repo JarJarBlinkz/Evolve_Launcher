@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">.. \u03C0 Launcher .. / Слава Украине</string>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Программы</string>
+    <string name="add_group">Добавить группу</string>
+    <string name="delete_group">Удалить группу</string>
+    <string name="edit_group">Редактировать группу</string>
+    <string name="app_details">Сведения о приложении</string>
+    <string name="apps_hidden">Скрытый</string>
+    <string name="settings_apps_enable">Разрешить редактирование</string>
+    <string name="settings_apps_disable">Отключить редактирование</string>
+    <string name="settings_device">Настройки устройства</string>
+    <string name="settings_look">Настроить</string>
+    <string name="settings_platforms">Платформы</string>
+    <string name="settings_tweaks">Системные настройки</string>
+    <string name="background_opacity">Непрозрачность фона</string>
+    <string name="icons_size">Размер иконок</string>
+    <string name="show_app_names">Показать названия приложений</string>
+    <string name="start_shortcut">Откройте программу запуска с помощью значка «Обзор» на системной панели.</string>
+    <string name="service_app_shortcut">Ярлык приложения</string>
+    <string name="service_explore_app">приложение Обзор</string>
+    <string name="service_os_updater">Обновление ОС</string>
+    <string name="explore_accessibility_event_name">[Обзор]</string>
 </resources>

@@ -114,7 +114,7 @@ public abstract class AbstractPlatform {
 
     public static boolean isPicoHeadset() {
         String vendor = Build.MANUFACTURER.toUpperCase();
-        return vendor.startsWith("PICO");
+        return vendor.replace("İ","I").startsWith("PICO");
     }
 
     protected static boolean isVirtualRealityApp(ApplicationInfo app) {

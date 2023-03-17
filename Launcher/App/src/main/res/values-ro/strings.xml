@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Aplicații</string>
+    <string name="add_group">Adăugare grup</string>
+    <string name="delete_group">Șterge grupul</string>
+    <string name="edit_group">Editați grupul</string>
+    <string name="app_details">Detalii aplicație</string>
+    <string name="apps_hidden">Ascuns</string>
+    <string name="settings_apps_enable">Activați editarea</string>
+    <string name="settings_apps_disable">Dezactivați editarea</string>
+    <string name="settings_device">Setările dispozitivului</string>
+    <string name="settings_look">Personalizați</string>
+    <string name="settings_platforms">Platforme</string>
+    <string name="settings_tweaks">Modificări ale sistemului</string>
+    <string name="background_opacity">Opacitatea fundalului</string>
+    <string name="icons_size">Dimensiunea pictogramelor</string>
+    <string name="show_app_names">Afișați numele aplicațiilor</string>
+    <string name="start_shortcut">Deschideți lansatorul cu pictograma Explorare din tabloul de bord al sistemului.</string>
+    <string name="service_app_shortcut">Comandă rapidă pentru aplicație</string>
+    <string name="service_explore_app">Aplicația Explorează</string>
+    <string name="service_os_updater">Actualizator de sistem</string>
+    <string name="explore_accessibility_event_name">[Explorează]</string>
+</resources>

@@ -1,3 +1,23 @@
 <resources>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Aplicaciones</string>
+    <string name="add_group">Añadir grupo</string>
+    <string name="delete_group">Eliminar grupo</string>
+    <string name="edit_group">Editar grupo</string>
+    <string name="app_details">Detalles de la aplicación</string>
+    <string name="apps_hidden">Oculto</string>
+    <string name="settings_apps_enable">Permitir la edición</string>
+    <string name="settings_apps_disable">Deshabilitar edición</string>
+    <string name="settings_device">Configuración de dispositivo</string>
+    <string name="settings_look">Personaliza</string>
+    <string name="settings_platforms">Plataformas</string>
+    <string name="settings_tweaks">Ajustes del sistema</string>
+    <string name="background_opacity">Opacidad del fondo</string>
+    <string name="icons_size">Tamaño de los iconos</string>
+    <string name="show_app_names">Mostrar nombres de aplicaciones</string>
+    <string name="start_shortcut">Abra el iniciador con el icono Explorar desde el panel del sistema.</string>
+    <string name="service_app_shortcut">Atajo de aplicación</string>
+    <string name="service_explore_app">Explorar aplicación</string>
+    <string name="service_os_updater">Actualizador de SO</string>
     <string name="explore_accessibility_event_name">[Explorar]</string>
 </resources>

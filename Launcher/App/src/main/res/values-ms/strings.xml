@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="default_apps_group">Apl</string>
+    <string name="add_group">Tambah kumpulan</string>
+    <string name="delete_group">Padamkan kumpulan</string>
+    <string name="edit_group">Edit kumpulan</string>
+    <string name="app_details">App details</string>
+    <string name="apps_hidden">Tersembunyi</string>
+    <string name="settings_apps_enable">Dayakan pengeditan</string>
+    <string name="settings_apps_disable">Lumpuhkan pengeditan</string>
+    <string name="settings_device">Tetapan peranti</string>
+    <string name="settings_look">Sesuaikan</string>
+    <string name="settings_platforms">Platform</string>
+    <string name="settings_tweaks">Tweak sistem</string>
+    <string name="background_opacity">Kelegapan latar</string>
+    <string name="icons_size">Saiz ikon</string>
+    <string name="show_app_names">Tunjukkan nama apl</string>
+    <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.  DOES NOT SUPPORT ALL HEADSET LANGUAGES. SET YOUR HEADSET LANGUAGE TO ENGLISH IF THIS FEATURE DOES NOT WORK PROPERLY.</string>
+    <string name="service_app_shortcut">App shortcut</string>
+    <string name="service_explore_app">Apl Teroka</string>
+    <string name="service_os_updater">Pengemas kini OS</string>
+    <string name="explore_accessibility_event_name">[Teroka]</string>
+</resources>
