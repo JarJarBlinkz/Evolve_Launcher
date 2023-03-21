@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. π 런처 ..</string>
+    <string name="app_name">-爪 런처-</string>
     <string name="default_apps_group">앱</string>
     <string name="add_group">그룹 추가</string>
     <string name="delete_group">그룹 삭제</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[살펴보기]</string>
     <string name="accesibility_label">애플리케이살펴보기션 교체</string>
     <string name="accesibility_button">설정 열기</string>
-    <string name="accesibility_tooltip">접근성 메뉴에서 π 런처 활성화</string>
+    <string name="accesibility_tooltip">접근성 메뉴에서 爪 런처 활성화</string>
 </resources>

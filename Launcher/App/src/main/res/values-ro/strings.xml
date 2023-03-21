@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplicații</string>
     <string name="add_group">Adăugare grup</string>
     <string name="delete_group">Șterge grupul</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Explorează]</string>
     <string name="accesibility_label">Înlocuiți aplicația Explorează</string>
     <string name="accesibility_button">Deschide setările</string>
-    <string name="accesibility_tooltip">Activați lansatorul π din meniul de accesibilitate</string>
+    <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
 </resources>

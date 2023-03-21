@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplicativos</string>
     <string name="add_group">Adicionar grupo</string>
     <string name="delete_group">Deletar grupo</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Explorar]</string>
     <string name="accesibility_label">Substituir a aplicação Explore</string>
     <string name="accesibility_button">Configurações abertas</string>
-    <string name="accesibility_tooltip">Habilite o lançador π a partir do menu de acessibilidade</string>
+    <string name="accesibility_tooltip">Habilite o lançador 爪 a partir do menu de acessibilidade</string>
 </resources>

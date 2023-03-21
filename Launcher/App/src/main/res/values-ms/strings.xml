@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apl</string>
     <string name="add_group">Tambah kumpulan</string>
     <string name="delete_group">Padamkan kumpulan</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Teroka]</string>
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
-    <string name="accesibility_tooltip">Dayakan pelancar π daripada menu kebolehaksesan</string>
+    <string name="accesibility_tooltip">Dayakan pelancar 爪 daripada menu kebolehaksesan</string>
 </resources>

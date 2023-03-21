@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Программы</string>
     <string name="add_group">Добавить группу</string>
     <string name="delete_group">Удалить группу</string>
@@ -22,5 +22,5 @@
     <string name="explore_accessibility_event_name">[Обзор]</string>
     <string name="accesibility_label">Замените приложение «Обзор»</string>
     <string name="accesibility_button">Открыть настройки</string>
-    <string name="accesibility_tooltip">Включите пусковую установку π из меню специальных возможностей</string>
+    <string name="accesibility_tooltip">Включите пусковую установку 爪 из меню специальных возможностей</string>
 </resources>

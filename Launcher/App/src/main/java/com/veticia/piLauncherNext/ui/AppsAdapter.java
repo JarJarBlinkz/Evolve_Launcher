@@ -1,4 +1,4 @@
-package com.lvonasek.pilauncher.ui;
+package com.veticia.piLauncherNext.ui;
 
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -20,11 +20,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lvonasek.pilauncher.ImageUtils;
-import com.lvonasek.pilauncher.MainActivity;
-import com.lvonasek.pilauncher.R;
-import com.lvonasek.pilauncher.SettingsProvider;
-import com.lvonasek.pilauncher.platforms.AbstractPlatform;
+import com.veticia.piLauncherNext.ImageUtils;
+import com.veticia.piLauncherNext.MainActivity;
+import com.veticia.piLauncherNext.R;
+import com.veticia.piLauncherNext.SettingsProvider;
+import com.veticia.piLauncherNext.platforms.AbstractPlatform;
 
 import java.io.File;
 import java.util.ArrayList;

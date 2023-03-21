@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
     <string name="add_group">Tilføj gruppe</string>
     <string name="delete_group">Slet gruppe</string>
@@ -22,5 +22,5 @@
     <string name="explore_accessibility_event_name">[Udforsk]</string>
     <string name="accesibility_label">Udskift appen Udforsk</string>
     <string name="accesibility_button">Åbn indstillinger</string>
-    <string name="accesibility_tooltip">Aktiver π Launcher i tilgængelighedsmenuen</string>
+    <string name="accesibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
 </resources>

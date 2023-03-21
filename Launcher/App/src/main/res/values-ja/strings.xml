@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. π ランチャー ..</string>
+    <string name="app_name">"-爪 ランチャー "</string>
     <string name="default_apps_group">アプリ</string>
     <string name="add_group">グループを追加</string>
     <string name="delete_group">グループを削除</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[探索]</string>
     <string name="accesibility_label">探索アプリを置き換える</string>
     <string name="accesibility_button">設定を開く</string>
-    <string name="accesibility_tooltip">アクセシビリティ メニューで π ランチャーを有効にする</string>
+    <string name="accesibility_tooltip">アクセシビリティ メニューで 爪 ランチャーを有効にする</string>
 </resources>

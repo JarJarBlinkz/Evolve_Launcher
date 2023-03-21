@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. π Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplikace</string>
     <string name="add_group">Přidat skupinu</string>
     <string name="delete_group">Smazat skupinu</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Prozkoumat]</string>
     <string name="accesibility_label">Nahraďte aplikaci Prozkoumat</string>
     <string name="accesibility_button">Otevřete nastavení</string>
-    <string name="accesibility_tooltip">Povolte π Launcher v nabídce usnadnění</string>
+    <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
 </resources>

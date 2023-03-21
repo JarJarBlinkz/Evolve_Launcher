@@ -1,4 +1,4 @@
-package com.lvonasek.pilauncher;
+package com.veticia.piLauncherNext;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,9 +6,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
-import com.lvonasek.pilauncher.platforms.AndroidPlatform;
-import com.lvonasek.pilauncher.platforms.PSPPlatform;
-import com.lvonasek.pilauncher.platforms.VRPlatform;
+import com.veticia.piLauncherNext.platforms.AndroidPlatform;
+import com.veticia.piLauncherNext.platforms.PSPPlatform;
+import com.veticia.piLauncherNext.platforms.VRPlatform;
 
 import java.util.ArrayList;
 import java.util.HashMap;

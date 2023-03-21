@@ -1,10 +1,9 @@
-package com.lvonasek.pilauncher.platforms;
+package com.veticia.piLauncherNext.platforms;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.ImageView;
 

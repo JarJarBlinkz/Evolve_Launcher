@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Sovellukset</string>
     <string name="add_group">Lisää ryhmä</string>
     <string name="delete_group">Poista ryhmä</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Tutustu]</string>
     <string name="accesibility_label">Vaihda Tutustu-sovellus</string>
     <string name="accesibility_button">Avaa asetukset</string>
-    <string name="accesibility_tooltip">Ota käyttöön π Launcher esteettömyysvalikossa</string>
+    <string name="accesibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.lvonasek.pilauncher.platforms;
+package com.veticia.piLauncherNext.platforms;
 
 import android.app.Activity;
 import android.content.Context;

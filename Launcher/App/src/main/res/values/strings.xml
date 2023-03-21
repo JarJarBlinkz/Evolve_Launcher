@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
     <string name="add_group">Add group</string>
     <string name="delete_group">Delete group</string>
@@ -25,5 +25,5 @@
     <string name="explore_accessibility_event_name">[Explore]</string>
     <string name="accesibility_label">Replace Explore app</string>
     <string name="accesibility_button">Open settings</string>
-    <string name="accesibility_tooltip" >Enable π Launcher in accesibility menu</string>
+    <string name="accesibility_tooltip" >Enable 爪 Launcher in accesibility menu</string>
 </resources>

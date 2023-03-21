@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Uygulamalar</string>
     <string name="add_group">Grup ekle</string>
     <string name="delete_group">Grubu sil</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Keşfet]</string>
     <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
     <string name="accesibility_button">Ayarları aç</string>
-    <string name="accesibility_tooltip">Erişilebilirlik menüsünden π başlatıcıyı etkinleştirin</string>
+    <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
 </resources>

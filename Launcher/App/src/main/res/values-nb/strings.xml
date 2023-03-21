@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. \u03C0 Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apper</string>
     <string name="add_group">Legg til gruppe</string>
     <string name="delete_group">Slette gruppe</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Utforsk]</string>
     <string name="accesibility_label">Bytt ut Utforsk-applikasjonen</string>
     <string name="accesibility_button">Åpne innstillinger</string>
-    <string name="accesibility_tooltip">Aktiver π-startprogrammet fra tilgjengelighetsmenyen</string>
+    <string name="accesibility_tooltip">Aktiver 爪-startprogrammet fra tilgjengelighetsmenyen</string>
 </resources>

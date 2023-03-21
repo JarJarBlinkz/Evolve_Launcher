@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">.. π Launcher ..</string>
+    <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Εφαρμογές</string>
     <string name="add_group">Προσθήκη ομάδας</string>
     <string name="delete_group">Διαγραφή ομάδας</string>
@@ -23,5 +23,5 @@
     <string name="explore_accessibility_event_name">[Εξερευνήστε]</string>
     <string name="accesibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
     <string name="accesibility_button">Ανοίξτε τις ρυθμίσεις</string>
-    <string name="accesibility_tooltip">Ενεργοποιήστε το π Launcher στο μενού προσβασιμότητας</string>
+    <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>
 </resources>

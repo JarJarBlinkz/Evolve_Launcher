@@ -1,8 +1,6 @@
-package com.lvonasek.pilauncher;
+package com.veticia.piLauncherNext;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import com.esafirm.imagepicker.features.ImagePicker;

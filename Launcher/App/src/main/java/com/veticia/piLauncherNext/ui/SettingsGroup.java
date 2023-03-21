@@ -1,4 +1,4 @@
-package com.lvonasek.pilauncher.ui;
+package com.veticia.piLauncherNext.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lvonasek.pilauncher.R;
+import com.veticia.piLauncherNext.R;
 
 public class SettingsGroup extends LinearLayout {
 

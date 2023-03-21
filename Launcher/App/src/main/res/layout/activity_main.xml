@@ -30,19 +30,19 @@
                 android:dividerHeight="0dp"
                 android:divider="#00000000" />
 
-            <com.lvonasek.pilauncher.ui.TextView
+            <com.veticia.piLauncherNext.ui.TextView
                 android:id="@+id/pi"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="@drawable/bkg_pi"
-                android:text="\u03C0"
-                android:textColor="@android:color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
                 android:shadowColor="#80000000"
                 android:shadowRadius="5"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:text="爪"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <GridView
