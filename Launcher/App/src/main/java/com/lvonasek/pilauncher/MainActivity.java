@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
@@ -311,7 +312,12 @@ public class MainActivity extends Activity
 
     private void showSettingsLook() {
         Dialog d = showPopup(R.layout.dialog_look);
-
+        d.findViewById(R.id.open_accesibility).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                startActivity(intent);
+            }
+        });
         CheckBox names = d.findViewById(R.id.checkbox_names);
         names.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
         names.setOnCheckedChangeListener((compoundButton, value) -> {

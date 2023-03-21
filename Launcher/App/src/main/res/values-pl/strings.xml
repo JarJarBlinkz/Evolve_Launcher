@@ -23,4 +23,7 @@
     <string name="service_os_updater">Aktualizator systemu</string>
 
     <string name="explore_accessibility_event_name">[Odkrywaj]</string>
+    <string name="accesibility_label">Zastąp aplikację Odkrywaj</string>
+    <string name="accesibility_button">Otwórz ustawienia</string>
+    <string name="accesibility_tooltip">Włącz program uruchamiający π z menu ułatwień dostępu</string>
 </resources>

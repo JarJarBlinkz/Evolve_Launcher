@@ -44,7 +44,7 @@ public abstract class AbstractPlatform {
     }
 
     public static File pkg2path(Context context, String pkg) {
-        return new File(context.getApplicationInfo().dataDir, pkg + ".jpg");
+        return new File(context.getCacheDir(), pkg + ".webp");
     }
 
     public static boolean updateIcon(ImageView icon, File file, String pkg) {
@@ -82,19 +82,20 @@ public abstract class AbstractPlatform {
             fos.flush();
             fos.close();
 
-            if (outputFile.length() >= 64 * 1024) {
+            // Let's do it always to ensure same file names and image type
+            //if (outputFile.length() >= 64 * 1024) {
                 Bitmap bitmap = BitmapFactory.decodeFile(outputFile.getAbsolutePath());
                 if (bitmap != null) {
                     try {
                         fos = new FileOutputStream(outputFile);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fos);
+                        bitmap.compress(Bitmap.CompressFormat.WEBP, 100, fos);
                         fos.close();
                     }
                     catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-            }
+            //}
 
             return true;
         } catch (Exception e) {

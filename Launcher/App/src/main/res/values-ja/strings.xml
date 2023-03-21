@@ -21,4 +21,7 @@
     <string name="service_explore_app">探索アプリ</string>
     <string name="service_os_updater">OS アップデーター</string>
     <string name="explore_accessibility_event_name">[探索]</string>
+    <string name="accesibility_label">探索アプリを置き換える</string>
+    <string name="accesibility_button">設定を開く</string>
+    <string name="accesibility_tooltip">アクセシビリティ メニューで π ランチャーを有効にする</string>
 </resources>

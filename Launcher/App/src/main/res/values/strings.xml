@@ -23,4 +23,7 @@
     <string name="service_os_updater">OS updater</string>
 
     <string name="explore_accessibility_event_name">[Explore]</string>
+    <string name="accesibility_label">Replace Explore app</string>
+    <string name="accesibility_button">Open settings</string>
+    <string name="accesibility_tooltip" >Enable π Launcher in accesibility menu</string>
 </resources>

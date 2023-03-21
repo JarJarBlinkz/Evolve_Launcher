@@ -20,4 +20,7 @@
     <string name="service_explore_app">приложение Обзор</string>
     <string name="service_os_updater">Обновление ОС</string>
     <string name="explore_accessibility_event_name">[Обзор]</string>
+    <string name="accesibility_label">Замените приложение «Обзор»</string>
+    <string name="accesibility_button">Открыть настройки</string>
+    <string name="accesibility_tooltip">Включите пусковую установку π из меню специальных возможностей</string>
 </resources>

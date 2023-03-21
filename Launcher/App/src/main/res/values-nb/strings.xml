@@ -21,4 +21,7 @@
     <string name="service_explore_app">Utforsk appen</string>
     <string name="service_os_updater">Systemoppdaterer</string>
     <string name="explore_accessibility_event_name">[Utforsk]</string>
+    <string name="accesibility_label">Bytt ut Utforsk-applikasjonen</string>
+    <string name="accesibility_button">Åpne innstillinger</string>
+    <string name="accesibility_tooltip">Aktiver π-startprogrammet fra tilgjengelighetsmenyen</string>
 </resources>

@@ -21,4 +21,7 @@
     <string name="service_explore_app">Apl Teroka</string>
     <string name="service_os_updater">Pengemas kini OS</string>
     <string name="explore_accessibility_event_name">[Teroka]</string>
+    <string name="accesibility_label">Gantikan apl Teroka</string>
+    <string name="accesibility_button">Buka tetapan</string>
+    <string name="accesibility_tooltip">Dayakan pelancar π daripada menu kebolehaksesan</string>
 </resources>

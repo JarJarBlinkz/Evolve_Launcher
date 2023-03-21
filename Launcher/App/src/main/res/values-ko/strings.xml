@@ -21,4 +21,7 @@
     <string name="service_explore_app">앱 살펴보기</string>
     <string name="service_os_updater">OS 업데이터</string>
     <string name="explore_accessibility_event_name">[살펴보기]</string>
+    <string name="accesibility_label">애플리케이살펴보기션 교체</string>
+    <string name="accesibility_button">설정 열기</string>
+    <string name="accesibility_tooltip">접근성 메뉴에서 π 런처 활성화</string>
 </resources>

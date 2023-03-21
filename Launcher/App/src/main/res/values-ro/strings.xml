@@ -21,4 +21,7 @@
     <string name="service_explore_app">Aplicația Explorează</string>
     <string name="service_os_updater">Actualizator de sistem</string>
     <string name="explore_accessibility_event_name">[Explorează]</string>
+    <string name="accesibility_label">Înlocuiți aplicația Explorează</string>
+    <string name="accesibility_button">Deschide setările</string>
+    <string name="accesibility_tooltip">Activați lansatorul π din meniul de accesibilitate</string>
 </resources>

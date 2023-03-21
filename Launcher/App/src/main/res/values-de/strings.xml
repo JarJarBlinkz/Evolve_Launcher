@@ -24,4 +24,7 @@
     <string name="service_os_updater">OS Updater</string>
 
     <string name="explore_accessibility_event_name">[Erkunden]</string>
+    <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
+    <string name="accesibility_button">Einstellungen öffnen</string>
+    <string name="accesibility_tooltip">Aktivieren Sie π Launcher im Eingabehilfemenü</string>
 </resources>
