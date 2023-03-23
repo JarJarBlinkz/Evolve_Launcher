@@ -1,4 +1,4 @@
-# Latest version: [piLauncher_070.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_070.apk)
+# Latest version: [piLauncherNext_070.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_070.apk)
 
 ## Changelog
 ### 0.7.0
