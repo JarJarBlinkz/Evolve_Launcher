@@ -24,6 +24,7 @@
 
         <activity
             android:name="com.veticia.piLauncherNext.MainActivity"
+            android:launchMode="singleInstance"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true">
