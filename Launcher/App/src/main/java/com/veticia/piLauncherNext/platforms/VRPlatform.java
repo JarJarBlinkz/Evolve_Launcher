@@ -24,18 +24,18 @@ public class VRPlatform extends AbstractPlatform {
 
     @Override
     public ArrayList<ApplicationInfo> getInstalledApps(Context context) {
-        ArrayList<ApplicationInfo> output = new ArrayList<>();
+        ArrayList<ApplicationInfo> installedApps = new ArrayList<>();
         if (!isSupported(context)) {
-            return output;
+            return installedApps;
         }
 
         PackageManager pm = context.getPackageManager();
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
             if (isVirtualRealityApp(app)) {
-                output.add(app);
+                installedApps.add(app);
             }
         }
-        return output;
+        return installedApps;
     }
 
     @Override
@@ -68,16 +68,16 @@ public class VRPlatform extends AbstractPlatform {
         context.getApplicationContext().startActivity(launchIntent);
     }
 
-    private void downloadIcon(final Activity context, String pkg, String name, final Runnable callback) {
-        final File file = pkg2path(context, STYLES[style]+"."+pkg);
+    private void downloadIcon(final Activity activity, String pkg, String name, final Runnable callback) {
+        final File file = pkg2path(activity, STYLES[style]+"."+pkg);
         new Thread(() -> {
             try {
                 if (ignoredIcons.contains(STYLES[style]+"."+file.getName())) {
                     //ignored icon
-                } else if (downloadFile(ICONS1_URL + pkg + ".png", file)) {
-                    context.runOnUiThread(callback);
-                } else if (downloadFile(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
-                    context.runOnUiThread(callback);
+                } else if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
+                    activity.runOnUiThread(callback);
+                } else if (downloadIconFromUrl(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
+                    activity.runOnUiThread(callback);
                 } else {
                     Log.d("Missing icon", file.getName());
                     ignoredIcons.add(STYLES[style]+"."+file.getName());

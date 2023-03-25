@@ -61,7 +61,7 @@ public abstract class AbstractPlatform {
         return false;
     }
 
-    protected static boolean downloadFile(String url, File outputFile) {
+    protected static boolean downloadIconFromUrl(String url, File outputFile) {
         try {
             return saveStream(new URL(url).openStream(), outputFile);
         } catch (Exception e) {

@@ -74,9 +74,9 @@ public class AndroidPlatform extends AbstractPlatform {
             try {
                 if (ignoredIcons.contains(STYLES[style]+"."+file.getName())) {
                     //ignored icon
-                } else if (downloadFile(ICONS1_URL + pkg + ".png", file)) {
+                } else if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
                     context.runOnUiThread(callback);
-                } else if (downloadFile(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
+                } else if (downloadIconFromUrl(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
                     context.runOnUiThread(callback);
                 } else {
                     Log.d("Missing icon", file.getName());
