@@ -109,6 +109,7 @@ public class SettingsProvider
                 if (pkg.startsWith("com.oculus.environment")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.helpcenter")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.systemutilities")) isSystemApp = true;
+                if (pkg.startsWith("com.meta.AccountsCenter.pwa")) isSystemApp = true;
                 if (pkg.startsWith("com.pico")) isSystemApp = true;
                 if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;
                 if (pkg.startsWith("com.pico.browser")) isSystemApp = false;
