@@ -23,7 +23,6 @@
 
     <string name="default_apps_group">ปพลิเคชัน</string>
     <string name="settings_platforms">แพลตฟอร์ม</string>
-    <string name="explore_accessibility_event_name">[สำรวจ]</string>
     <string name="accesibility_label">แทนที่แอปสำรวจ</string>
     <string name="accesibility_button">เปิดการตั้งค่า</string>
     <string name="accesibility_tooltip">เปิดใช้งาน 爪 Launcher ในเมนูการเข้าถึง</string>

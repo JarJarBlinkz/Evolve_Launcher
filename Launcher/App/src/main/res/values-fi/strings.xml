@@ -20,7 +20,6 @@
     <string name="service_app_shortcut">Sovelluksen pikakuvake</string>
     <string name="service_explore_app">Tutustu-sovellus</string>
     <string name="service_os_updater">OS-päivitys</string>
-    <string name="explore_accessibility_event_name">[Tutustu]</string>
     <string name="accesibility_label">Vaihda Tutustu-sovellus</string>
     <string name="accesibility_button">Avaa asetukset</string>
     <string name="accesibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>

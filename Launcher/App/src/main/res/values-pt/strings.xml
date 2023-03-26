@@ -22,7 +22,6 @@
     <string name="service_explore_app">Aplicativo Explorar</string>
     <string name="service_os_updater">Atualizador do sistema</string>
 
-    <string name="explore_accessibility_event_name">[Explorar]</string>
     <string name="accesibility_label">Substitua o aplicativo Explorar</string>
     <string name="accesibility_button">Abrir configurações</string>
     <string name="accesibility_tooltip">Ative o iniciador 爪 no menu de acessibilidade</string>

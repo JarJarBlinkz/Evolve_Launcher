@@ -19,7 +19,6 @@
     <string name="service_app_shortcut">App-snelkoppeling</string>
     <string name="service_explore_app">Verkennen-app</string>
     <string name="service_os_updater">OS-updater</string>
-    <string name="explore_accessibility_event_name">[Verkennen]</string>
     <string name="accesibility_label">Vervang de Verkennen-app</string>
     <string name="accesibility_button">Open instellingen</string>
     <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>

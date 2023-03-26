@@ -19,7 +19,6 @@
     <string name="service_app_shortcut">Collegamento dell\'app</string>
     <string name="service_explore_app">Scopri app</string>
     <string name="service_os_updater">OS updater</string>
-    <string name="explore_accessibility_event_name">[Scopri]</string>
     <string name="accesibility_label">Sostituisci l\'app Scopri</string>
     <string name="accesibility_button">Apri le impostazioni</string>
     <string name="accesibility_tooltip">Abilita 爪 Launcher nel menu di accessibilità</string>

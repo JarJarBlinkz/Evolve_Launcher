@@ -20,7 +20,6 @@
     <string name="service_app_shortcut">Uygulama kısayolu</string>
     <string name="service_explore_app">Uygulamayı keşfedin</string>
     <string name="service_os_updater">OS güncelleyici</string>
-    <string name="explore_accessibility_event_name">[Keşfet]</string>
     <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
     <string name="accesibility_button">Ayarları aç</string>
     <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>

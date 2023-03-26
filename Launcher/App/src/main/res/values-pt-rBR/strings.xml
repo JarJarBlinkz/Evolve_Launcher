@@ -20,7 +20,6 @@
     <string name="service_app_shortcut">Atalho do aplicativo</string>
     <string name="service_explore_app">Aplicativo Explorar</string>
     <string name="service_os_updater">Atualizador do sistema</string>
-    <string name="explore_accessibility_event_name">[Explorar]</string>
     <string name="accesibility_label">Substituir a aplicação Explore</string>
     <string name="accesibility_button">Configurações abertas</string>
     <string name="accesibility_tooltip">Habilite o lançador 爪 a partir do menu de acessibilidade</string>

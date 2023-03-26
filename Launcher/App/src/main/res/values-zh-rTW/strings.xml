@@ -23,7 +23,6 @@
 
     <string name="default_apps_group">應用程序</string>
     <string name="settings_platforms">平台</string>
-    <string name="explore_accessibility_event_name">[推薦]</string>
     <string name="accesibility_label">替換瀏覽應用</string>
     <string name="accesibility_button">打開設置</string>
     <string name="accesibility_tooltip">在輔助功能菜單中啟用爪啟動器</string>

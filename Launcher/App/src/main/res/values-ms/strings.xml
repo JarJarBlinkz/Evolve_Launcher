@@ -20,7 +20,6 @@
     <string name="service_app_shortcut">App shortcut</string>
     <string name="service_explore_app">Apl Teroka</string>
     <string name="service_os_updater">Pengemas kini OS</string>
-    <string name="explore_accessibility_event_name">[Teroka]</string>
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
     <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>

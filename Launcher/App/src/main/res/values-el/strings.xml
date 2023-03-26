@@ -20,7 +20,6 @@
     <string name="service_app_shortcut">Συντόμευση εφαρμογής</string>
     <string name="service_explore_app">Εφαρμογή Εξερευνήστε</string>
     <string name="service_os_updater">Ενημερωτής OS</string>
-    <string name="explore_accessibility_event_name">[Εξερευνήστε]</string>
     <string name="accesibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
     <string name="accesibility_button">Ανοίξτε τις ρυθμίσεις</string>
     <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>

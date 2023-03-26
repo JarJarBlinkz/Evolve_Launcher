@@ -19,7 +19,6 @@
     <string name="service_app_shortcut">App genvej</string>
     <string name="service_explore_app">App Udforsk</string>
     <string name="service_os_updater">OS opdatering</string>
-    <string name="explore_accessibility_event_name">[Udforsk]</string>
     <string name="accesibility_label">Udskift appen Udforsk</string>
     <string name="accesibility_button">Åbn indstillinger</string>
     <string name="accesibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
