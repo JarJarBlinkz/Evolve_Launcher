@@ -24,4 +24,6 @@
     <string name="accesibility_label">探索アプリを置き換える</string>
     <string name="accesibility_button">設定を開く</string>
     <string name="accesibility_tooltip">アクセシビリティ メニューで 爪 ランチャーを有効にする</string>
+    <string name="icons_style">アイコンのスタイル</string>
+    <string name="update_header">新バージョンを発売</string>
 </resources>

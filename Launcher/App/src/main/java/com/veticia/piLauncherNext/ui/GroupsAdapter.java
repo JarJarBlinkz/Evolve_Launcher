@@ -136,9 +136,6 @@ public class GroupsAdapter extends BaseAdapter
             });
         });
 
-        // set the look
-        setLook(position, itemView, menu);
-
         // set drag and drop
         itemView.setOnDragListener((view, event) -> {
             if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
@@ -179,15 +176,27 @@ public class GroupsAdapter extends BaseAdapter
             textView.setText(mItems.get(position));
         }
 
+        // set the look
+        setLook(position, itemView, menu);
+
         return itemView;
     }
 
     private void setLook(int position, View itemView, View menu) {
+        View filler = mActivity.findViewById(R.id.filler);
+        View topBar = mActivity.findViewById(R.id.topBar);
+        View pi = mActivity.findViewById(R.id.pi);
+        View update = mActivity.findViewById(R.id.update);
+
+        int gap = (topBar.getWidth()-pi.getWidth()-(update!=null?update.getWidth():0))%getCount();
+        filler.setMinimumWidth(gap);
         if (mSelection.contains(mItems.get(position))) {
             int[] colors = new int[] {Color.argb(192, 255, 255, 255), Color.TRANSPARENT};
             GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
             itemView.setBackground(new GradientDrawable(orientation, colors));
-
+            if(position==getCount()-1){
+                filler.setBackground(new GradientDrawable(orientation, colors));
+            }
             if (mEditMode && (position < getCount() - 2)) {
                 menu.setVisibility(View.VISIBLE);
             } else {
@@ -196,6 +205,9 @@ public class GroupsAdapter extends BaseAdapter
         } else {
             itemView.setBackgroundColor(Color.TRANSPARENT);
             menu.setVisibility(View.GONE);
+            if(position==getCount()-1){
+                filler.setBackgroundColor(Color.TRANSPARENT);
+            }
         }
     }
 }

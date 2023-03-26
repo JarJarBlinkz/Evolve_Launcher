@@ -23,4 +23,6 @@
     <string name="accesibility_label">Замените приложение «Обзор»</string>
     <string name="accesibility_button">Открыть настройки</string>
     <string name="accesibility_tooltip">Включите пусковую установку 爪 из меню специальных возможностей</string>
+    <string name="icons_style">Иконный стиль</string>
+    <string name="update_header">Доступна новая версия</string>
 </resources>

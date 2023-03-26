@@ -24,4 +24,6 @@
     <string name="accesibility_label">애플리케이살펴보기션 교체</string>
     <string name="accesibility_button">설정 열기</string>
     <string name="accesibility_tooltip">접근성 메뉴에서 爪 런처 활성화</string>
+    <string name="icons_style">아이콘 스타일</string>
+    <string name="update_header">새 버전 사용 가능</string>
 </resources>

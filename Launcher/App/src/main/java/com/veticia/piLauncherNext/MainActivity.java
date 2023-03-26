@@ -37,19 +37,29 @@ import com.veticia.piLauncherNext.ui.AppsAdapter;
 import com.veticia.piLauncherNext.ui.GroupsAdapter;
 import com.veticia.piLauncherNext.ui.SettingsGroup;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import br.tiagohm.markdownview.MarkdownView;
+import br.tiagohm.markdownview.css.InternalStyleSheet;
+import br.tiagohm.markdownview.css.styles.Github;
 
 public class MainActivity extends Activity
 {
     private static final String CUSTOM_THEME = "theme.png";
     private static final boolean DEFAULT_NAMES = true;
     private static final int DEFAULT_OPACITY = 7;
-    private static final int DEFAULT_SCALE = 2;
+    public static final int DEFAULT_SCALE = 2;
     private static final int DEFAULT_THEME = 0;
+    public static final int DEFAULT_STYLE = 0;
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
 
@@ -61,6 +71,13 @@ public class MainActivity extends Activity
             R.drawable.bkg_skin,
             R.drawable.bkg_underwater
     };
+
+    public static final String[] STYLES = {
+            "banners",
+            "icons",
+            "tenaldo_square"
+    };
+
     private static ImageView[] mTempViews;
 
     private GridView mAppGrid;
@@ -69,7 +86,7 @@ public class MainActivity extends Activity
 
     private static MainActivity instance = null;
     private boolean mFocus;
-    private SharedPreferences mPreferences;
+    public static SharedPreferences mPreferences;
     private SettingsProvider mSettings;
 
     public static void reset(Context context) {
@@ -146,7 +163,52 @@ public class MainActivity extends Activity
             }
             return true;
         });
-    }
+
+        // Set update button
+        View update = findViewById(R.id.update);
+        update.setVisibility(View.GONE);
+        update.setOnClickListener(view -> showUpdateMain());
+        update.setOnLongClickListener(view -> {
+            boolean editMode = mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
+            if (!editMode) {
+                mSettings.setSelectedGroups(mSettings.getAppGroups());
+                reloadUI();
+            }
+            return true;
+        });
+
+        new Thread(() -> {
+            String string = "";
+            try {
+                URL url = new URL("https://raw.githubusercontent.com/Veticia/binaries/main/latestPiLauncher");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    stringBuilder.append(line);
+                    stringBuilder.append(System.lineSeparator());
+                }
+                reader.close();
+                string = stringBuilder.toString();
+            } catch (MalformedURLException e) {
+                // Handle the exception here
+            } catch (IOException e) {
+                // Handle the exception here
+            }
+            // Use the result here
+            int versionCode = BuildConfig.VERSION_CODE;
+            int newestVersion;
+            try {
+                newestVersion = Integer.parseInt(string.trim());
+            } catch (NumberFormatException e) {
+                // Handle the exception here
+                newestVersion = 0; // Set a default value
+            }
+            if(versionCode < newestVersion){
+                runOnUiThread(() -> update.setVisibility(View.VISIBLE));
+            }
+        }).start();
+   }
 
     @Override
     public void onBackPressed() {
@@ -253,6 +315,17 @@ public class MainActivity extends Activity
         views[index].setAlpha(255 * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
     }
 
+    public void setStyle(ImageView[] views, int index) {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt(SettingsProvider.KEY_CUSTOM_STYLE, index);
+        editor.commit();
+        for (ImageView image : views) {
+            image.setBackgroundColor(Color.TRANSPARENT);
+        }
+        views[index].setBackgroundColor(Color.WHITE);
+        reloadUI();
+    }
+
     public Dialog showPopup(int layout) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(layout);
@@ -310,13 +383,23 @@ public class MainActivity extends Activity
         }
     }
 
+    private void showUpdateMain() {
+        Dialog dialog = showPopup(R.layout.dialog_update);
+
+        MarkdownView mMarkdownView = dialog.findViewById(R.id.markdown_view);
+        InternalStyleSheet css = new Github();
+        css.addRule("body", "color: #FFF", "background: rgba(0,0,0,0);");
+        mMarkdownView.addStyleSheet(css);
+        mMarkdownView.setBackgroundColor(Color.TRANSPARENT);
+        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/Veticia/PiLauncherNext/main/CHANGELOG.md",
+            "**Couldn't load changelog. Check [here](https://github.com/Veticia/binaries/tree/main/releases) for the latest file.**");
+    }
+
     private void showSettingsLook() {
         Dialog d = showPopup(R.layout.dialog_look);
-        d.findViewById(R.id.open_accesibility).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                startActivity(intent);
-            }
+        d.findViewById(R.id.open_accesibility).setOnClickListener(view -> {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivity(intent);
         });
         CheckBox names = d.findViewById(R.id.checkbox_names);
         names.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
@@ -378,10 +461,10 @@ public class MainActivity extends Activity
         };
         for (ImageView image : views) {
             image.setBackgroundColor(Color.TRANSPARENT);
-            image.setAlpha(255);
+            //image.setAlpha(255);
         }
         views[theme].setBackgroundColor(Color.WHITE);
-        views[theme].setAlpha(255 * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
+        //views[theme].setAlpha(255 * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
         for (int i = 0; i < views.length; i++) {
             int index = i;
             views[i].setOnClickListener(view12 -> {
@@ -391,6 +474,23 @@ public class MainActivity extends Activity
                 } else {
                     setTheme(views, index);
                 }
+            });
+        }
+        int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
+        if (style >= STYLES.length) { style = 0; };
+        ImageView[] styles = {
+                d.findViewById(R.id.style0),
+                d.findViewById(R.id.style1),
+                d.findViewById(R.id.style2)
+        };
+        for (ImageView image : styles) {
+            image.setBackgroundColor(Color.TRANSPARENT);
+        }
+        styles[style].setBackgroundColor(Color.WHITE);
+        for (int i = 0; i < styles.length; i++) {
+            int index = i;
+            styles[i].setOnClickListener(view13 -> {
+                setStyle(styles, index);
             });
         }
     }

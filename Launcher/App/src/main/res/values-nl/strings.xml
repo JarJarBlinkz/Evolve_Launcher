@@ -23,4 +23,6 @@
     <string name="accesibility_label">Vervang de Verkennen-app</string>
     <string name="accesibility_button">Open instellingen</string>
     <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
+    <string name="icons_style">Iconen stijl</string>
+    <string name="update_header">Nieuwe versie beschikbaar</string>
 </resources>

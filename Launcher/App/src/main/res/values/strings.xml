@@ -26,4 +26,6 @@
     <string name="accesibility_label">Replace Explore app</string>
     <string name="accesibility_button">Open settings</string>
     <string name="accesibility_tooltip" >Enable 爪 Launcher in accesibility menu</string>
+    <string name="icons_style">Icons style</string>
+    <string name="update_header">New version available</string>
 </resources>

@@ -26,4 +26,6 @@
     <string name="accesibility_label">Remplacer l\'application À découvrir</string>
     <string name="accesibility_button">Ouvrir les paramètres</string>
     <string name="accesibility_tooltip">Activer 爪 Launcher dans le menu d\'accessibilité</string>
+    <string name="icons_style">Style d\'icônes</string>
+    <string name="update_header">Nouvelle version disponible</string>
 </resources>

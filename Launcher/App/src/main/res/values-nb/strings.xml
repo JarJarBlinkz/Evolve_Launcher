@@ -24,4 +24,6 @@
     <string name="accesibility_label">Bytt ut Utforsk-applikasjonen</string>
     <string name="accesibility_button">Åpne innstillinger</string>
     <string name="accesibility_tooltip">Aktiver 爪-startprogrammet fra tilgjengelighetsmenyen</string>
+    <string name="icons_style">Ikon-stil</string>
+    <string name="update_header">Ny versjon tilgjengelig</string>
 </resources>

@@ -1,5 +1,10 @@
 package com.veticia.piLauncherNext.ui;
 
+import static com.veticia.piLauncherNext.MainActivity.DEFAULT_SCALE;
+import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
+import static com.veticia.piLauncherNext.MainActivity.STYLES;
+import static com.veticia.piLauncherNext.MainActivity.mPreferences;
+
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
@@ -32,6 +37,7 @@ import java.util.List;
 
 public class AppsAdapter extends BaseAdapter
 {
+    int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
     private MainActivity mContext;
     private List<ApplicationInfo> mInstalledApps;
     private boolean mEditMode;
@@ -93,6 +99,9 @@ public class AppsAdapter extends BaseAdapter
         ProgressBar progressBar = gridView.findViewById(R.id.progress_bar);
         TextView textView = gridView.findViewById(R.id.textLabel);
         textView.setText(name);
+        int kScale = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
+        float textSize = textView.getTextSize();
+        textView.setTextSize(Math.max(10, textSize / 5 * kScale));
         textView.setVisibility(mNames ? View.VISIBLE : View.GONE);
 
         if (mEditMode) {
@@ -154,7 +163,7 @@ public class AppsAdapter extends BaseAdapter
             mTempImage.setImageBitmap(bitmap);
         } else {
             mTempImage.setImageDrawable(mTempIcon);
-            AbstractPlatform.updateIcon(mTempImage, mTempFile, mTempPackage);
+            AbstractPlatform.updateIcon(mTempImage, mTempFile, STYLES[style]+"."+mTempPackage);
         }
         mContext.reloadUI();
     }
@@ -188,7 +197,7 @@ public class AppsAdapter extends BaseAdapter
         mTempImage.setOnClickListener(view1 -> {
             mTempIcon = actApp.loadIcon(pm);
             mTempPackage = actApp.packageName;
-            mTempFile = AbstractPlatform.pkg2path(mContext, actApp.packageName);
+            mTempFile = AbstractPlatform.pkg2path(mContext, STYLES[style]+"."+actApp.packageName);
             if (mTempFile.exists()) {
                 mTempFile.delete();
             }

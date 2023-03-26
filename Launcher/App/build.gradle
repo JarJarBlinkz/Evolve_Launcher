@@ -1,13 +1,29 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file(var1)
+            storePassword var2
+            keyPassword var3
+            keyAlias var4
+        }
+        release {
+            storeFile file(var1)
+            storePassword var2
+            keyPassword var3
+            keyAlias var4
+        }
+    }
     compileSdkVersion 29
 
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 23
-        versionCode 70
-        versionName "0.7.0"
+        minSdkVersion 26
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 26
+        versionCode 80
+        versionName "0.8.0"
+        signingConfig signingConfigs.release
     }
 
     compileOptions {
@@ -30,4 +46,5 @@ android {
 dependencies {
     implementation 'com.github.bkhezry:android-image-picker:1.4.0'
     implementation 'com.github.stephenc.java-iso-tools:loopy-vfs:1.2.2'
+    implementation 'com.github.Veticia.MarkdownView:library:a17137d215'
 }

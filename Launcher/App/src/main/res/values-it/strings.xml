@@ -23,4 +23,6 @@
     <string name="accesibility_label">Sostituisci l\'app Scopri</string>
     <string name="accesibility_button">Apri le impostazioni</string>
     <string name="accesibility_tooltip">Abilita 爪 Launcher nel menu di accessibilità</string>
+    <string name="icons_style">Stile dell\'icona</string>
+    <string name="update_header">Nuova versione disponibile</string>
 </resources>

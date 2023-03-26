@@ -27,4 +27,6 @@
     <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
     <string name="accesibility_button">Einstellungen öffnen</string>
     <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Eingabehilfemenü</string>
+    <string name="icons_style">Icons-Stil</string>
+    <string name="update_header">Neue Version verfügbar</string>
 </resources>

@@ -24,6 +24,7 @@ public class SettingsProvider
     public static final String KEY_CUSTOM_OPACITY = "KEY_CUSTOM_OPACITY";
     public static final String KEY_CUSTOM_SCALE = "KEY_CUSTOM_SCALE";
     public static final String KEY_CUSTOM_THEME = "KEY_CUSTOM_THEME";
+    public static final String KEY_CUSTOM_STYLE = "KEY_CUSTOM_STYLE";
     public static final String KEY_EDITMODE = "KEY_EDITMODE";
     public static final String KEY_PLATFORM_ANDROID = "KEY_PLATFORM_ANDROID";
     public static final String KEY_PLATFORM_PSP = "KEY_PLATFORM_PSP";
@@ -110,8 +111,10 @@ public class SettingsProvider
                 if (pkg.startsWith("com.pico")) isSystemApp = true;
                 if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;
                 if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;
+                if (pkg.startsWith("com.pico.browser")) isSystemApp = false;
                 if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
+                if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;
                 if (!isSystemApp && !isEnvironment) {
                     if(!installedApplication.packageName.equals(ownPackageName)) {
                         appMap.put(installedApplication.packageName, installedApplication);

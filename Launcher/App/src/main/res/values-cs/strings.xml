@@ -24,4 +24,6 @@
     <string name="accesibility_label">Nahraďte aplikaci Prozkoumat</string>
     <string name="accesibility_button">Otevřete nastavení</string>
     <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
+    <string name="icons_style">Styl ikon</string>
+    <string name="update_header">K dispozici je nová verze</string>
 </resources>

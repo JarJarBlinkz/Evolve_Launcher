@@ -24,4 +24,6 @@
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
     <string name="accesibility_tooltip">Dayakan pelancar 爪 daripada menu kebolehaksesan</string>
+    <string name="icons_style">Gaya ikon</string>
+    <string name="update_header">Versi baharu tersedia</string>
 </resources>

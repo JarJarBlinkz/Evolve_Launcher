@@ -24,4 +24,6 @@
     <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
     <string name="accesibility_button">Ayarları aç</string>
     <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
+    <string name="icons_style">Simge stili</string>
+    <string name="update_header">Yeni sürüm mevcut</string>
 </resources>
