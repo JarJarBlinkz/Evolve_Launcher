@@ -95,10 +95,14 @@ public class AppsAdapter extends BaseAdapter
             if(mNames) {
                 params.height = (int) (mScale * 0.8);
             }else{
-                params.height = (int) (mScale * 0.65);
+                params.height = (int) (mScale * 0.6525);
             }
         } else {
-            params.height = mScale;
+            if(mNames) {
+                params.height = (int) (mScale * 1.18);
+            }else{
+                params.height = mScale;
+            }
         }
         layout.setLayoutParams(params);
 
