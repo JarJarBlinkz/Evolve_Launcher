@@ -72,7 +72,6 @@ public class VRPlatform extends AbstractPlatform {
         final File file = pkg2path(context, STYLES[style]+"."+pkg);
         new Thread(() -> {
             try {
-                String autogen = null;
                 if (ignoredIcons.contains(STYLES[style]+"."+file.getName())) {
                     //ignored icon
                 } else if (downloadFile(ICONS1_URL + pkg + ".png", file)) {

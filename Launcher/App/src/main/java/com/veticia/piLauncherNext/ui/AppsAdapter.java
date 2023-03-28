@@ -89,8 +89,17 @@ public class AppsAdapter extends BaseAdapter
         // Set size of items
         RelativeLayout layout = gridView.findViewById(R.id.layout);
         ViewGroup.LayoutParams params = layout.getLayoutParams();
+
         params.width = mScale;
-        params.height = mScale;
+        if (style == 0) {
+            if(mNames) {
+                params.height = (int) (mScale * 0.8);
+            }else{
+                params.height = (int) (mScale * 0.65);
+            }
+        } else {
+            params.height = mScale;
+        }
         layout.setLayoutParams(params);
 
         // set value into textview
