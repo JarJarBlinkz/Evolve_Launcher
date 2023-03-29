@@ -168,15 +168,6 @@ public class MainActivity extends Activity
         View update = findViewById(R.id.update);
         update.setVisibility(View.GONE);
         update.setOnClickListener(view -> showUpdateMain());
-        update.setOnLongClickListener(view -> {
-            boolean editMode = mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
-            if (!editMode) {
-                mSettings.setSelectedGroups(mSettings.getAppGroups());
-                reloadUI();
-            }
-            return true;
-        });
-
         new Thread(() -> {
             String string = "";
             try {
