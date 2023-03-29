@@ -63,7 +63,7 @@ public class MainActivity extends Activity
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
 
-    private static final int[] SCALES = {55, 70, 95, 130, 210};
+    private static final int[] SCALES = {82, 99, 125, 165, 236};
     private static final int[] THEMES = {
             R.drawable.bkg_default,
             R.drawable.bkg_glass,
