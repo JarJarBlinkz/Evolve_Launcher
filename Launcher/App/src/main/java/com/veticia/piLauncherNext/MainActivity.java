@@ -309,10 +309,10 @@ public class MainActivity extends Activity
 
         for (ImageView image : views) {
             image.setBackgroundColor(Color.TRANSPARENT);
-            image.setAlpha(255);
+            image.setAlpha(1f);
         }
         views[index].setBackgroundColor(Color.WHITE);
-        views[index].setAlpha(255 * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
+        views[index].setAlpha(1f * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
     }
 
     public void setStyle(ImageView[] views, int index) {
@@ -461,10 +461,10 @@ public class MainActivity extends Activity
         };
         for (ImageView image : views) {
             image.setBackgroundColor(Color.TRANSPARENT);
-            //image.setAlpha(255);
+            image.setAlpha(1f);
         }
         views[theme].setBackgroundColor(Color.WHITE);
-        //views[theme].setAlpha(255 * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
+        views[theme].setAlpha(1f * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
         for (int i = 0; i < views.length; i++) {
             int index = i;
             views[i].setOnClickListener(view12 -> {
@@ -477,7 +477,7 @@ public class MainActivity extends Activity
             });
         }
         int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-        if (style >= STYLES.length) { style = 0; };
+        if (style >= STYLES.length) { style = 0; }
         ImageView[] styles = {
                 d.findViewById(R.id.style0),
                 d.findViewById(R.id.style1),
@@ -489,9 +489,7 @@ public class MainActivity extends Activity
         styles[style].setBackgroundColor(Color.WHITE);
         for (int i = 0; i < styles.length; i++) {
             int index = i;
-            styles[i].setOnClickListener(view13 -> {
-                setStyle(styles, index);
-            });
+            styles[i].setOnClickListener(view13 -> setStyle(styles, index));
         }
     }
 
