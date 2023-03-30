@@ -274,14 +274,16 @@ public class MainActivity extends Activity
         mAppGrid.setColumnWidth(scale);
         if (theme < THEMES.length) {
             Drawable d = getDrawable(THEMES[theme]);
-            d.setAlpha(255 * opacity / 10);
-            mBackground.setImageDrawable(d);
+            Drawable dCopy = d.getConstantState().newDrawable().mutate();
+            dCopy.setAlpha(255 * opacity / 10);
+            mBackground.setImageDrawable(dCopy);
         } else {
             File file = new File(getApplicationInfo().dataDir, CUSTOM_THEME);
             Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             Drawable d = new BitmapDrawable(getResources(), bitmap);
-            d.setAlpha(255 * opacity / 10);
-            mBackground.setImageDrawable(d);
+            Drawable dCopy = d.getConstantState().newDrawable().mutate();
+            dCopy.setAlpha(255 * opacity / 10);
+            mBackground.setImageDrawable(dCopy);
         }
 
         // set context
@@ -300,10 +302,8 @@ public class MainActivity extends Activity
 
         for (ImageView image : views) {
             image.setBackgroundColor(Color.TRANSPARENT);
-            image.setAlpha(1f);
         }
         views[index].setBackgroundColor(Color.WHITE);
-        views[index].setAlpha(1f * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
     }
 
     public void setStyle(ImageView[] views, int index) {
@@ -452,10 +452,8 @@ public class MainActivity extends Activity
         };
         for (ImageView image : views) {
             image.setBackgroundColor(Color.TRANSPARENT);
-            image.setAlpha(1f);
         }
         views[theme].setBackgroundColor(Color.WHITE);
-        views[theme].setAlpha(1f * mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY) / 10);
         for (int i = 0; i < views.length; i++) {
             int index = i;
             views[i].setOnClickListener(view12 -> {
