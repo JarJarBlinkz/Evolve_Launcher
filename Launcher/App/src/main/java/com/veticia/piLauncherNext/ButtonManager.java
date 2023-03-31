@@ -26,7 +26,7 @@ public class ButtonManager extends AccessibilityService
         super.onServiceConnected();
     }
 
-    public static boolean isAccesibilityInitialized(Context context)
+    public static boolean isAccessibilityInitialized(Context context)
     {
         try {
             android.provider.Settings.Secure.getInt(

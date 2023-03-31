@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">-爪 启动器-</string>
+    <string name="add_group">添加分组</string>
+    <string name="delete_group">删除分组</string>
+    <string name="edit_group">编辑分区</string>
+    <string name="app_details">应用详情</string>
+    <string name="apps_hidden">隐藏</string>
+
+    <string name="settings_apps_enable">启用编辑</string>
+    <string name="settings_apps_disable">禁用编辑</string>
+    <string name="settings_device">设备设置</string>
+    <string name="settings_look">自定义</string>
+    <string name="settings_tweaks">系统调节</string>
+    <string name="background_opacity">背景透明度</string>
+    <string name="icons_size">图标大小</string>
+    <string name="show_app_names">显示应用名称</string>
+    <string name="start_shortcut">使用系统栏中的【浏览器】图标来启动。</string>
+
+    <string name="service_app_shortcut">应用捷径</string>
+    <string name="service_explore_app">浏览器应用</string>
+    <string name="service_os_updater">系统升级</string>
+
+    <string name="default_apps_group">应用程序</string>
+    <string name="settings_platforms">平台</string>
+    <string name="explore_accessibility_event_name">[推荐]</string>
+    <string name="accesibility_label">替换浏览应用</string>
+    <string name="accesibility_button">打开设置</string>
+    <string name="accesibility_tooltip">在辅助功能菜单中启用爪启动器</string>
+    <string name="icons_style">图标样式</string>
+    <string name="update_header">有新版本可用</string>
+</resources>

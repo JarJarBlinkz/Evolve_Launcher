@@ -521,7 +521,7 @@ public class MainActivity extends Activity
         Dialog d = showPopup(R.layout.dialog_tweaks);
 
         d.findViewById(R.id.service_app_shortcut).setOnClickListener(view -> {
-            ButtonManager.isAccesibilityInitialized(this);
+            ButtonManager.isAccessibilityInitialized(this);
             ButtonManager.requestAccessibility(this);
         });
         d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
