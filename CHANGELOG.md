@@ -1,6 +1,13 @@
-# Latest version: [piLauncherNext_080.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_080.apk)
+# Latest version: [piLauncherNext_081.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_081.apk)
 
 ## Changelog
+### 0.8.1
+- Added support for Chinese and Thai.
+- Made icons larger and reduced whitespace to make the interface more compact (especially with labels turned off).
+- Fine-tuned the scale slider to make it more granular and made lower values more useful on Pico.
+- UI bug fix: Clicking on background themes no longer changes the theme icon opacity.
+- Small changes and code cleanup.
+
 ### 0.8.0
 - Updater
 - Scalable text under icons
