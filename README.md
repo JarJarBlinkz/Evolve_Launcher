@@ -1,4 +1,4 @@
-# PiLauncher
+# PiLauncherNext
 This is a simple launcher for Pico VR headsets supporting official/SideQuest apps and games.
 
 [My builds](https://github.com/Veticia/binaries/tree/main/releases),
