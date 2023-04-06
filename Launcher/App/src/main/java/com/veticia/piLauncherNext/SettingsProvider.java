@@ -115,6 +115,7 @@ public class SettingsProvider
                 if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
                 if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;
+                if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;
                 if (!isSystemApp && !isEnvironment) {
                     if(!installedApplication.packageName.equals(ownPackageName)) {
                         appMap.put(installedApplication.packageName, installedApplication);
