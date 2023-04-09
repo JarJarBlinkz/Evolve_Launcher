@@ -18,11 +18,11 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        minSdkVersion 26
+        minSdkVersion 23
         //noinspection ExpiredTargetSdkVersion
-        targetSdkVersion 26
-        versionCode 81
-        versionName "0.8.1"
+        targetSdkVersion 23
+        versionCode 82
+        versionName "0.8.2"
         signingConfig signingConfigs.release
     }
 
