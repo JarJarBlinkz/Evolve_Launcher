@@ -1,6 +1,9 @@
-# Latest version: [piLauncherNext_081.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_081.apk)
+# Latest version: [piLauncherNext_082.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_082.apk)
 
 ## Changelog
+### 0.8.2
+- Fixed fuckup that made PSP games not work
+
 ### 0.8.1
 - Added support for Chinese and Thai.
 - Made icons larger and reduced whitespace to make the interface more compact (especially with labels turned off).
