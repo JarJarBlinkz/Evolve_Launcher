@@ -19,10 +19,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -111,7 +113,7 @@ public class AppsAdapter extends BaseAdapter
         // set value into textview
         PackageManager pm = mContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mContext, actApp.packageName, actApp.loadLabel(pm));
-        ProgressBar progressBar = gridView.findViewById(R.id.progress_bar);
+        ImageView progressBar = gridView.findViewById(R.id.progress_bar);
         TextView textView = gridView.findViewById(R.id.textLabel);
         textView.setText(name);
         int kScale = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
@@ -154,8 +156,20 @@ public class AppsAdapter extends BaseAdapter
         } else {
             layout.setOnClickListener(view -> {
                 progressBar.setVisibility(View.VISIBLE);
+                RotateAnimation rotateAnimation = new RotateAnimation(
+                        0, 360,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f
+                );
+                rotateAnimation.setDuration(1000);
+                rotateAnimation.setRepeatCount(Animation.INFINITE);
+                rotateAnimation.setInterpolator(new LinearInterpolator());
+                progressBar.startAnimation(rotateAnimation);
                 mContext.openApp(actApp);
-                if(actApp.packageName.equals("com.picovr.picostreamassistant")) progressBar.setVisibility(View.GONE);
+                if(actApp.packageName.equals("com.picovr.picostreamassistant")) {
+                    progressBar.setVisibility(View.GONE);
+                    progressBar.clearAnimation();
+                }
             });
             layout.setOnLongClickListener(view -> {
                 showAppDetails(actApp);

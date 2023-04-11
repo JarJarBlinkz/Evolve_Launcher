@@ -25,12 +25,12 @@
                 android:scaleType="fitCenter"
                 android:src="@android:drawable/ic_menu_gallery" />
 
-            <ProgressBar
+            <ImageView
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:theme="@style/ThemeOverlay.Holo"
+                android:src="@drawable/loading_indicator"
                 android:visibility="gone" />
         </RelativeLayout>
 
