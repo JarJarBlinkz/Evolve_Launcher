@@ -1,6 +1,11 @@
-# Latest version: [piLauncherNext_082.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_082.apk)
+# Latest version: [piLauncherNext_083.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_083.apk)
 
 ## Changelog
+### 0.8.3
+- Added Streaming Assistant (Pico)
+- Removed some common app plugins (that we cannot run anyway)
+- Sexy spinner
+
 ### 0.8.2
 - Fixed fuckup that made PSP games not work
 
