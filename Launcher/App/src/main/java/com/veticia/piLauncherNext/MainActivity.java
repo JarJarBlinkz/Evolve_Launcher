@@ -1,6 +1,7 @@
 package com.veticia.piLauncherNext;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -41,7 +43,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -84,23 +86,26 @@ public class MainActivity extends Activity
     private ImageView mBackground;
     private GridView mGroupPanel;
 
-    private static MainActivity instance = null;
+    private static WeakReference<MainActivity> instance = null;
+
     private boolean mFocus;
     public static SharedPreferences mPreferences;
     private SettingsProvider mSettings;
 
     public static void reset(Context context) {
         try {
-            if (instance != null) {
-                instance.finishAffinity();
-                instance = null;
+            MainActivity activity = instance.get();
+            if (activity != null) {
+                activity.finishAffinity();
             }
+            instance = null;
             context.startActivity(context.getPackageManager().getLaunchIntentForPackage(context.getPackageName()));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -111,7 +116,7 @@ public class MainActivity extends Activity
         }
         mPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         mSettings = SettingsProvider.getInstance(this);
-        instance = this;
+        instance = new WeakReference<>(this);
 
         // Get UI instances
         mAppGrid = findViewById(R.id.appsView);
@@ -181,8 +186,6 @@ public class MainActivity extends Activity
                 }
                 reader.close();
                 string = stringBuilder.toString();
-            } catch (MalformedURLException e) {
-                // Handle the exception here
             } catch (IOException e) {
                 // Handle the exception here
             }
@@ -342,7 +345,9 @@ public class MainActivity extends Activity
         boolean editMode = !mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
         apps.setIcon(editMode ? R.drawable.ic_editing_on : R.drawable.ic_editing_off);
         apps.setText(getString(editMode ? R.string.settings_apps_enable : R.string.settings_apps_disable));
-        apps.setTooltipText(getString(editMode ? R.string.settings_apps_enable : R.string.settings_apps_disable));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            apps.setTooltipText(getString(editMode ? R.string.settings_apps_enable : R.string.settings_apps_disable));
+        }
         apps.setOnClickListener(view1 -> {
             ArrayList<String> selected = mSettings.getAppGroupsSorted(true);
             if (editMode && (selected.size() > 1)) {
@@ -419,7 +424,9 @@ public class MainActivity extends Activity
         });
         opacity.setProgress(mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
         opacity.setMax(10);
-        opacity.setMin(0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            opacity.setMin(0);
+        }
 
         SeekBar scale = d.findViewById(R.id.bar_scale);
         scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -439,7 +446,9 @@ public class MainActivity extends Activity
         });
         scale.setProgress(mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
         scale.setMax(SCALES.length - 1);
-        scale.setMin(0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            scale.setMin(0);
+        }
 
         int theme = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
         ImageView[] views = {

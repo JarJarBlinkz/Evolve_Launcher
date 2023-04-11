@@ -11,8 +11,7 @@ import android.util.AttributeSet;
 
 import com.veticia.piLauncherNext.R;
 
-public class TextView extends android.widget.TextView {
-
+public class TextView extends androidx.appcompat.widget.AppCompatTextView {
 	private float strokeWidth;
 	private Integer strokeColor;
 	
@@ -40,6 +39,7 @@ public class TextView extends android.widget.TextView {
 				strokeWidth = a.getDimensionPixelSize(R.styleable.TextView_strokeWidth, 1);
 				strokeColor = a.getColor(R.styleable.TextView_strokeColor, 0xff000000);
 			}
+			a.recycle();
 		}
 	}
 
