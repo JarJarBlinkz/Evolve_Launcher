@@ -5,6 +5,7 @@ import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
 import static com.veticia.piLauncherNext.MainActivity.STYLES;
 import static com.veticia.piLauncherNext.MainActivity.mPreferences;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
@@ -47,7 +48,7 @@ public class AppsAdapter extends BaseAdapter
 
     private static Drawable mTempIcon;
     private static File mTempFile;
-    private static ImageView mTempImage;
+    private ImageView mTempImage;
     private static String mTempPackage;
     private static long mTempTimestamp;
 
@@ -80,6 +81,7 @@ public class AppsAdapter extends BaseAdapter
         return position;
     }
 
+    @SuppressLint("NewApi")
     public View getView(int position, View convertView, ViewGroup parent)
     {
         final ApplicationInfo actApp = mInstalledApps.get(position);
@@ -153,6 +155,7 @@ public class AppsAdapter extends BaseAdapter
             layout.setOnClickListener(view -> {
                 progressBar.setVisibility(View.VISIBLE);
                 mContext.openApp(actApp);
+                if(actApp.packageName.equals("com.picovr.picostreamassistant")) progressBar.setVisibility(View.GONE);
             });
             layout.setOnLongClickListener(view -> {
                 showAppDetails(actApp);

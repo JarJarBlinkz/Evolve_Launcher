@@ -549,7 +549,7 @@ public class MainActivity extends Activity
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (mFocus) {
+            if (mFocus && !app.packageName.equals("com.picovr.picostreamassistant")) {
                 openAppDetails(app.packageName);
             }
         }).start();
