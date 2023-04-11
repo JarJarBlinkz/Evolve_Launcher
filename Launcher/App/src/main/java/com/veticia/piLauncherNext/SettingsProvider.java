@@ -110,12 +110,20 @@ public class SettingsProvider
                 if (pkg.startsWith("com.oculus.systemutilities")) isSystemApp = true;
                 if (pkg.startsWith("com.pico")) isSystemApp = true;
                 if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;
-                if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;
                 if (pkg.startsWith("com.pico.browser")) isSystemApp = false;
                 if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;
+                if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;
+                if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
                 if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;
                 if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;
+                if (pkg.startsWith("com.samsung.android.filter")) isSystemApp = true;
+                if (pkg.startsWith("com.samsung.SMT.lang")) isSystemApp = true;
+                if (pkg.startsWith("com.candycamera.android.filter")) isSystemApp = true;
+                if (pkg.startsWith("eu.kanade.tachiyomi.extension")) isSystemApp = true;
+                if (pkg.startsWith("com.mixplorer.addon")) isSystemApp = true;
+                if (pkg.startsWith("com.ghisler.tcplugins")) isSystemApp = true;
+
                 if (!isSystemApp && !isEnvironment) {
                     if(!installedApplication.packageName.equals(ownPackageName)) {
                         appMap.put(installedApplication.packageName, installedApplication);
