@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">-爪 Launcher-</string>
+    <string name="app_name">-爪 Pelancar-</string>
     <string name="default_apps_group">Apl</string>
     <string name="add_group">Tambah kumpulan</string>
     <string name="delete_group">Padamkan kumpulan</string>
@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Dayakan pengeditan</string>
     <string name="settings_apps_disable">Lumpuhkan pengeditan</string>
     <string name="settings_device">Tetapan peranti</string>
-    <string name="settings_look">Sesuaikan</string>
+    <string name="settings_look">Tetapan pelancar</string>
     <string name="settings_platforms">Platform</string>
     <string name="settings_tweaks">Tweak sistem</string>
     <string name="background_opacity">Kelegapan latar</string>
@@ -23,7 +23,8 @@
     <string name="explore_accessibility_event_name">[Teroka]</string>
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
-    <string name="accesibility_tooltip">Dayakan pelancar 爪 daripada menu kebolehaksesan</string>
+    <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>
     <string name="icons_style">Gaya ikon</string>
     <string name="update_header">Versi baharu tersedia</string>
+    <string name="autorun">Mulakan 爪 Pelancar dengan set kepala (autolari)</string>
 </resources>

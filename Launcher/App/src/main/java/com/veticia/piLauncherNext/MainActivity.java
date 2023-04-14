@@ -79,6 +79,7 @@ public class MainActivity extends Activity
             "icons",
             "tenaldo_square"
     };
+    private static final boolean DEFAULT_AUTORUN = true;
 
     private static ImageView[] mTempViews;
 
@@ -489,6 +490,13 @@ public class MainActivity extends Activity
             int index = i;
             styles[i].setOnClickListener(view13 -> setStyle(styles, index));
         }
+        CheckBox autorun = d.findViewById(R.id.checkbox_autorun);
+        autorun.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_AUTORUN, DEFAULT_AUTORUN));
+        autorun.setOnCheckedChangeListener((compoundButton, value) -> {
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putBoolean(SettingsProvider.KEY_AUTORUN, value);
+            editor.apply();
+        });
     }
 
 

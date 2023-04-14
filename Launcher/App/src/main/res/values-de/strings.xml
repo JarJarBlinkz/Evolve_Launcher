@@ -11,7 +11,7 @@
     <string name="settings_apps_enable">Editieren aktivieren</string>
     <string name="settings_apps_disable">Editieren deaktivieren</string>
     <string name="settings_device">Geräteeinstellungen</string>
-    <string name="settings_look">Anpassen</string>
+    <string name="settings_look">Launcher-Einstellungen</string>
     <string name="settings_platforms">Plattformen</string>
     <string name="settings_tweaks">System Tweaks</string>
     <string name="background_opacity">Hintergrund sichtbarkeit</string>
@@ -29,4 +29,5 @@
     <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Eingabehilfemenü</string>
     <string name="icons_style">Icons-Stil</string>
     <string name="update_header">Neue Version verfügbar</string>
+    <string name="autorun">Starten Sie 爪 Launcher mit Headset (Autostart)</string>
 </resources>

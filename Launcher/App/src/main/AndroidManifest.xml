@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -13,6 +14,13 @@
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         android:allowBackup="true">
+
+        <receiver android:enabled="true" android:exported="false" android:name=".BootBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="com.veticia.piLauncherNext.MainActivity"

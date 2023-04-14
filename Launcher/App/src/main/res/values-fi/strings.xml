@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Salli muokkaus</string>
     <string name="settings_apps_disable">Estä muokkaus</string>
     <string name="settings_device">Laite asetukset</string>
-    <string name="settings_look">Mukauta</string>
+    <string name="settings_look">Käynnistimen asetukset</string>
     <string name="settings_platforms">Alustat</string>
     <string name="settings_tweaks">Järjestelmän säätöjä</string>
     <string name="background_opacity">Taustan läpinäkyvyys</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>
     <string name="icons_style">Kuvakkeet tyyli</string>
     <string name="update_header">Uusi versio on saatavilla</string>
+    <string name="autorun">Käynnistä 爪 Launcher VR-lasit (automaattinen käynnistys)</string>
 </resources>

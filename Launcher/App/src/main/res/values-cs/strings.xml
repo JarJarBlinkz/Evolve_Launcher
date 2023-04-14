@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Povolit úpravy</string>
     <string name="settings_apps_disable">Zakázat úpravy</string>
     <string name="settings_device">Nastavení zařízení</string>
-    <string name="settings_look">Přizpůsobit</string>
+    <string name="settings_look">Nastavení spouštěče</string>
     <string name="settings_platforms">Platformy</string>
     <string name="settings_tweaks">Systémové úpravy</string>
     <string name="background_opacity">"Průhlednost pozadí "</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">K dispozici je nová verze</string>
+    <string name="autorun">Start 爪 Launcher med headset (autokør)</string>
 </resources>

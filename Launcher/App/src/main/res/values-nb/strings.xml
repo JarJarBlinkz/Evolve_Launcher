@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Aktiver redigering</string>
     <string name="settings_apps_disable">Deaktiver redigering</string>
     <string name="settings_device">Enhetsinnstillinger</string>
-    <string name="settings_look">Tilpasse</string>
+    <string name="settings_look">Oppstartinnstillinger</string>
     <string name="settings_platforms">Plattformer</string>
     <string name="settings_tweaks">Systemtweaks</string>
     <string name="background_opacity">Bakgrunnsopasitet</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Aktiver 爪-startprogrammet fra tilgjengelighetsmenyen</string>
     <string name="icons_style">Ikon-stil</string>
     <string name="update_header">Ny versjon tilgjengelig</string>
+    <string name="autorun">Start 爪 Launcher med hodesett (autokjør)</string>
 </resources>

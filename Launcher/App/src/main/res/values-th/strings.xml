@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">เปิดใช้งานการแก้ไข</string>
     <string name="settings_apps_disable">ปิดใช้งานการแก้ไข</string>
     <string name="settings_device">การตั้งค่าระบบ</string>
-    <string name="settings_look">การปรับแต่ง</string>
+    <string name="settings_look">การตั้งค่าตัวเรียกใช้งาน</string>
     <string name="settings_tweaks">การปรับแต่งระบบ</string>
     <string name="background_opacity">ความทึบของพื้นหลัง</string>
     <string name="icons_size">ขนาดไอคอน</string>
@@ -29,4 +29,5 @@
     <string name="accesibility_tooltip">เปิดใช้งาน 爪 Launcher ในเมนูการเข้าถึง</string>
     <string name="icons_style">สไตล์ไอคอน</string>
     <string name="update_header">มีเวอร์ชันใหม่</string>
+    <string name="autorun">เริ่มต้นเปิดใช้งาน爪 Launcher ด้วย แว่น VR (เริ่มต้นอัตโนมัติ)</string>
 </resources>

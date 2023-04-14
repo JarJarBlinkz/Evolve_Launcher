@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Düzenlemeyi etkinleştir</string>
     <string name="settings_apps_disable">Düzenlemeyi devre dışı bırak</string>
     <string name="settings_device">Cihaz ayarları</string>
-    <string name="settings_look">Özelleştirmek</string>
+    <string name="settings_look">Başlatıcı ayarları</string>
     <string name="settings_platforms">Platformlar</string>
     <string name="settings_tweaks">Sistem tweaks</string>
     <string name="background_opacity">Arka plan opaklığı</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
     <string name="icons_style">Simge stili</string>
     <string name="update_header">Yeni sürüm mevcut</string>
+    <string name="autorun">VR kulaklığı ile 爪 Launcher’ı başlatın (otomatik başlatma)</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Activați editarea</string>
     <string name="settings_apps_disable">Dezactivați editarea</string>
     <string name="settings_device">Setările dispozitivului</string>
-    <string name="settings_look">Personalizați</string>
+    <string name="settings_look">Setări pentru lansator</string>
     <string name="settings_platforms">Platforme</string>
     <string name="settings_tweaks">Modificări ale sistemului</string>
     <string name="background_opacity">Opacitatea fundalului</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
     <string name="icons_style">Stilul icoanei</string>
     <string name="update_header">Noua versiune disponibilă</string>
+    <string name="autorun">Porniți 爪 Lansatorul cu setul cu cască (pornire automată)</string>
 </resources>

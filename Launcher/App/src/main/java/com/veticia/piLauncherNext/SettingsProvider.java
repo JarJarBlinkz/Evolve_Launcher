@@ -26,6 +26,7 @@ public class SettingsProvider
     public static final String KEY_CUSTOM_THEME = "KEY_CUSTOM_THEME";
     public static final String KEY_CUSTOM_STYLE = "KEY_CUSTOM_STYLE";
     public static final String KEY_EDITMODE = "KEY_EDITMODE";
+    public static final String KEY_AUTORUN = "KEY_AUTORUN";
     public static final String KEY_PLATFORM_ANDROID = "KEY_PLATFORM_ANDROID";
     public static final String KEY_PLATFORM_PSP = "KEY_PLATFORM_PSP";
     public static final String KEY_PLATFORM_VR = "KEY_PLATFORM_VR";

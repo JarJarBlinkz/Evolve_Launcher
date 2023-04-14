@@ -9,7 +9,7 @@
     <string name="settings_apps_enable">Permitir la edición</string>
     <string name="settings_apps_disable">Deshabilitar edición</string>
     <string name="settings_device">Configuración de dispositivo</string>
-    <string name="settings_look">Personaliza</string>
+    <string name="settings_look">Configuración del lanzador</string>
     <string name="settings_platforms">Plataformas</string>
     <string name="settings_tweaks">Ajustes del sistema</string>
     <string name="background_opacity">Opacidad del fondo</string>
@@ -25,4 +25,5 @@
     <string name="accesibility_tooltip">Habilitar el lanzador 爪 del menú de accesibilidad</string>
     <string name="icons_style">Estilo icono</string>
     <string name="update_header">Nueva versión disponible</string>
+    <string name="autorun">Iniciar 爪 Launcher con casco de realidad virtual (autoarranque)</string>
 </resources>

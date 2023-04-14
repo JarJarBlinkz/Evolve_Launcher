@@ -9,7 +9,7 @@
     <string name="settings_apps_enable">Bewerken inschakelen</string>
     <string name="settings_apps_disable">Bewerken uitschakelen</string>
     <string name="settings_device">"Instellingen apparaat "</string>
-    <string name="settings_look">Pas aan</string>
+    <string name="settings_look">Launcher-instellingen</string>
     <string name="settings_platforms">Platformen</string>
     <string name="settings_tweaks">Systeem tweaks</string>
     <string name="background_opacity">Achtergronddekking</string>
@@ -25,4 +25,5 @@
     <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
     <string name="icons_style">Iconen stijl</string>
     <string name="update_header">Nieuwe versie beschikbaar</string>
+    <string name="autorun">Start 爪 Launcher met headset (autostart)</string>
 </resources>

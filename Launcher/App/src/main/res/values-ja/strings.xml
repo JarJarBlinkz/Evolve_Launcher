@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">編集を有効に</string>
     <string name="settings_apps_disable">編集の無効化</string>
     <string name="settings_device">デバイスの設定</string>
-    <string name="settings_look">カスタマイズ</string>
+    <string name="settings_look">ランチャーの設定</string>
     <string name="settings_platforms">プラットフォーム</string>
     <string name="settings_tweaks">システム調整</string>
     <string name="background_opacity">背景の不透明度</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">アクセシビリティ メニューで 爪 ランチャーを有効にする</string>
     <string name="icons_style">アイコンのスタイル</string>
     <string name="update_header">新バージョンを発売</string>
+    <string name="autorun">ヘッドセットで爪ランチャーを発射（自動実行）</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">Ενεργοποιήστε την επεξεργασία</string>
     <string name="settings_apps_disable">Απενεργοποιήστε την επεξεργασία</string>
     <string name="settings_device">Ρυθμίσεις συσκευής</string>
-    <string name="settings_look">Προσαρμογή</string>
+    <string name="settings_look">Ρυθμίσεις εκκινητή</string>
     <string name="settings_platforms">Πλατφόρμες</string>
     <string name="settings_tweaks">Τροποποιήσεις συστήματος</string>
     <string name="background_opacity">Διαφάνεια φόντου</string>
@@ -26,4 +26,5 @@
     <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>
     <string name="icons_style">Στυλ εικονίδιο</string>
     <string name="update_header">Διαθέσιμη νέα έκδοση</string>
+    <string name="autorun">Ξεκινήστε τον εκτοξευτή 爪 με headset (αυτόματη εκκίνηση)</string>
 </resources>

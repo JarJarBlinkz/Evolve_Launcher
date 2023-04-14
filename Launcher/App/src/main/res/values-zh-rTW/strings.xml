@@ -10,7 +10,7 @@
     <string name="settings_apps_enable">啟用編輯</string>
     <string name="settings_apps_disable">禁用編輯</string>
     <string name="settings_device">設備設置</string>
-    <string name="settings_look">自定義</string>
+    <string name="settings_look">启动器设置</string>
     <string name="settings_tweaks">系統調節</string>
     <string name="background_opacity">背景透明度</string>
     <string name="icons_size">圖標大小</string>
@@ -29,4 +29,5 @@
     <string name="accesibility_tooltip">在輔助功能菜單中啟用爪啟動器</string>
     <string name="icons_style">圖標樣式</string>
     <string name="update_header">有新版本可用</string>
+    <string name="autorun">啟動爪發射器與VR頭盔（自動運行）</string>
 </resources>

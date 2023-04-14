@@ -1,6 +1,11 @@
-# Latest version: [piLauncherNext_083.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_083.apk)
+# Latest version: [piLauncherNext_084.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_084.apk)
 
 ## Changelog
+### 0.8.4
+- Added autorun option (enabled by default)
+- More consistent and grammatically correct Russian translation [@Levkonlev](https://github.com/Levkonlev)
+- Adjusted wording in other languages
+
 ### 0.8.3
 - Added Streaming Assistant (Pico)
 - Removed some common app plugins (that we cannot run anyway)
