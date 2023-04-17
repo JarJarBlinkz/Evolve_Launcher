@@ -1,4 +1,4 @@
-# Latest version: [piLauncherNext_084.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_085.apk)
+# Latest version: [piLauncherNext_085.apk](https://github.coxm/Veticia/binaries/raw/main/releases/piLauncherNext_085.apk)
 
 ## Changelog
 ### 0.8.5
