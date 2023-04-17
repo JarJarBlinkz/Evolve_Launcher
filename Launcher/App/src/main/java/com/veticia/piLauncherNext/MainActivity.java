@@ -553,7 +553,7 @@ public class MainActivity extends Activity
         //fallback action
         new Thread(() -> {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
