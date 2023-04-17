@@ -1,6 +1,9 @@
-# Latest version: [piLauncherNext_084.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_084.apk)
+# Latest version: [piLauncherNext_084.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_085.apk)
 
 ## Changelog
+### 0.8.5
+- Fixed possible crash when changing icon
+
 ### 0.8.4
 - Added autorun option (enabled by default)
 - More consistent and grammatically correct Russian translation [@Levkonlev](https://github.com/Levkonlev)
