@@ -50,7 +50,7 @@ public class AppsAdapter extends BaseAdapter
 
     private static Drawable mTempIcon;
     private static File mTempFile;
-    private ImageView mTempImage;
+    private static ImageView mTempImage;
     private static String mTempPackage;
     private static long mTempTimestamp;
 
