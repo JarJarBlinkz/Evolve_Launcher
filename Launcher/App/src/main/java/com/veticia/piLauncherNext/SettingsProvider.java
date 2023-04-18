@@ -11,6 +11,7 @@ import com.veticia.piLauncherNext.platforms.PSPPlatform;
 import com.veticia.piLauncherNext.platforms.VRPlatform;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -154,7 +155,7 @@ public class SettingsProvider
         // Create new list of apps
         PackageManager pm = context.getPackageManager();
         ArrayList<ApplicationInfo> output = new ArrayList<>(appMap.values());
-        output.sort((a, b) -> {
+        Collections.sort(output, (a, b) -> {
             String na = getAppDisplayName(context, a.packageName, a.loadLabel(pm)).toUpperCase();
             String nb = getAppDisplayName(context, b.packageName, b.loadLabel(pm)).toUpperCase();
             return na.compareTo(nb);
@@ -205,7 +206,7 @@ public class SettingsProvider
     {
         readValues();
         ArrayList<String> output = new ArrayList<>(selected ? mSelectedGroups : mAppGroups);
-        output.sort((a, b) -> {
+        Collections.sort(output, (a, b) -> {
             String name1 = simplifyName(a.toUpperCase());
             String name2 = simplifyName(b.toUpperCase());
             return name1.compareTo(name2);

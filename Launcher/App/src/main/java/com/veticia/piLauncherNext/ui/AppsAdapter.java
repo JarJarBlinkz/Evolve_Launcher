@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -130,7 +131,11 @@ public class AppsAdapter extends BaseAdapter
                     mTempTimestamp = System.currentTimeMillis();
                     ClipData data = ClipData.newPlainText(name, name);
                     View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    view.startDragAndDrop(data, shadowBuilder, view, 0);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        view.startDragAndDrop(data, shadowBuilder, view, 0);
+                    } else {
+                        view.startDrag(data, shadowBuilder, view, 0);
+                    }
                 }
                 return false;
             });
