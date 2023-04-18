@@ -29,4 +29,5 @@
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">Dostępna nowa wersja</string>
     <string name="autorun">Uruchom 爪 Launcher przy starcie headsetu (autostart)</string>
+    <string name="failed_to_launch">Nie udało się uruchomić</string>
 </resources>

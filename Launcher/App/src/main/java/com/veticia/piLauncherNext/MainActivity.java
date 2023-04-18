@@ -19,15 +19,18 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
@@ -557,22 +560,31 @@ public class MainActivity extends Activity
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
-    public void openApp(ApplicationInfo app) {
-        //fallback action
-        new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if (mFocus && !app.packageName.equals("com.picovr.picostreamassistant")) {
-                openAppDetails(app.packageName);
-            }
-        }).start();
+    private final Handler handler = new Handler();
 
-        //open the app
+    public boolean openApp(ApplicationInfo app) {
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
-        platform.runApp(this, app, false);
+        if(!platform.runApp(this, app, false)){
+            TextView toastText = findViewById(R.id.toast_text);
+            toastText.setText(R.string.failed_to_launch);
+            toastText.setVisibility(View.VISIBLE);
+            AlphaAnimation fadeIn = new AlphaAnimation(0, 1);
+            fadeIn.setDuration(500);
+            fadeIn.setFillAfter(true);
+            toastText.startAnimation(fadeIn);
+
+            // Remove any previously scheduled Runnables
+            handler.removeCallbacksAndMessages(null);
+
+            handler.postDelayed(() -> {
+                AlphaAnimation fadeOut = new AlphaAnimation(1, 0);
+                fadeOut.setDuration(1000);
+                fadeOut.setFillAfter(true);
+                toastText.startAnimation(fadeOut);
+            }, 2000);
+            return false;
+        }
+        return true;
     }
 
     public void openAppDetails(String pkg) {

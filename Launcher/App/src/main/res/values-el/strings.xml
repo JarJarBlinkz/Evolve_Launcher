@@ -27,4 +27,5 @@
     <string name="icons_style">Στυλ εικονίδιο</string>
     <string name="update_header">Διαθέσιμη νέα έκδοση</string>
     <string name="autorun">Ξεκινήστε τον εκτοξευτή 爪 με headset (αυτόματη εκκίνηση)</string>
+    <string name="failed_to_launch">Αποτυχία εκκίνησης</string>
 </resources>

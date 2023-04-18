@@ -29,4 +29,5 @@
     <string name="icons_style">Style d\'icônes</string>
     <string name="update_header">Nouvelle version disponible</string>
     <string name="autorun">Démarrer 爪 Launcher avec casque (autorun)</string>
+    <string name="failed_to_launch">Échec du lancement</string>
 </resources>

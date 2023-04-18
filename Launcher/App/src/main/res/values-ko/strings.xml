@@ -27,4 +27,5 @@
     <string name="icons_style">아이콘 스타일</string>
     <string name="update_header">새 버전 사용 가능</string>
     <string name="autorun">헤드셋과 함께 爪 런처 시작(자동 실행)</string>
+    <string name="failed_to_launch">시작 실패</string>
 </resources>

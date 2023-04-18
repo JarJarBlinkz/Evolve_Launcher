@@ -26,4 +26,5 @@
     <string name="icons_style">Стиль иконок</string>
     <string name="update_header">Доступна новая версия</string>
     <string name="autorun">Запускать 爪 Launcher вместе со шлемом (автозапуск)</string>
+    <string name="failed_to_launch">Не удалось запустить</string>
 </resources>

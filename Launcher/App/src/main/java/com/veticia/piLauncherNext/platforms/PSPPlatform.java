@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -81,13 +82,24 @@ public class PSPPlatform  extends AbstractPlatform {
     }
 
     @Override
-    public void runApp(Context context, ApplicationInfo app, boolean multiwindow) {
-        String path = app.packageName.substring(PACKAGE_PREFIX.length());
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse("file://" + path), "*/*");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setPackage(EMULATOR_PACKAGE);
-        context.getApplicationContext().startActivity(intent);
+    public boolean runApp(Context context, ApplicationInfo app, boolean multiwindow) {
+        if (context == null || app == null || app.packageName == null) {
+            Log.e("runApp", "Failed to launch");
+            return false;
+        }
+
+        try {
+            String path = app.packageName.substring(PACKAGE_PREFIX.length());
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.parse("file://" + path), "*/*");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setPackage(EMULATOR_PACKAGE);
+            context.getApplicationContext().startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            Log.e("runApp", "Failed to launch");
+            return false;
+        }
     }
 
     private ArrayList<String> locateGames() {

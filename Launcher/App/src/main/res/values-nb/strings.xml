@@ -27,4 +27,5 @@
     <string name="icons_style">Ikon-stil</string>
     <string name="update_header">Ny versjon tilgjengelig</string>
     <string name="autorun">Start 爪 Launcher med hodesett (autokjør)</string>
+    <string name="failed_to_launch">Kunne ikke starte</string>
 </resources>

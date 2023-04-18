@@ -75,13 +75,22 @@ public class AndroidPlatform extends AbstractPlatform {
     }
 
     @Override
-    public void runApp(Context context, ApplicationInfo app, boolean multiwindow) {
+    public boolean runApp(Context context, ApplicationInfo app, boolean multiwindow) {
         Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
-        if (multiwindow) {
-            context.getApplicationContext().startActivity(launchIntent);
-        } else {
-            context.startActivity(launchIntent);
+        if (launchIntent != null) {
+            if (multiwindow) {
+                context.getApplicationContext().startActivity(launchIntent);
+            } else {
+                context.startActivity(launchIntent);
+            }
+        }else{
+            // Handle the case where the app doesn't have a launch intent
+            //Toast's don't work in pico apparently
+            //Toast.makeText(context.getApplicationContext(), "Failed to launch", Toast.LENGTH_LONG).show();
+            Log.e("runApp", "Failed to launch");
+            return false;
         }
+        return true;
     }
 
     private void downloadIcon(final Activity context, String pkg, String name, final Runnable callback) {

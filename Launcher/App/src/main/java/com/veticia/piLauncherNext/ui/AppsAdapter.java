@@ -165,8 +165,7 @@ public class AppsAdapter extends BaseAdapter
                 rotateAnimation.setRepeatCount(Animation.INFINITE);
                 rotateAnimation.setInterpolator(new LinearInterpolator());
                 progressBar.startAnimation(rotateAnimation);
-                mContext.openApp(actApp);
-                if(actApp.packageName.equals("com.picovr.picostreamassistant")) {
+                if(!mContext.openApp(actApp)) {
                     progressBar.setVisibility(View.GONE);
                     progressBar.clearAnimation();
                 }

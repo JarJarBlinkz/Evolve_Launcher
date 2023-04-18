@@ -30,4 +30,5 @@
     <string name="icons_style">สไตล์ไอคอน</string>
     <string name="update_header">มีเวอร์ชันใหม่</string>
     <string name="autorun">เริ่มต้นเปิดใช้งาน爪 Launcher ด้วย แว่น VR (เริ่มต้นอัตโนมัติ)</string>
+    <string name="failed_to_launch">เริ่มต้นไม่สำเร็จ</string>
 </resources>

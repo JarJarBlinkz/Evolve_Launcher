@@ -30,4 +30,5 @@
     <string name="icons_style">图标样式</string>
     <string name="update_header">有新版本可用</string>
     <string name="autorun">启动爪发射器与VR头盔（自动运行）</string>
+    <string name="failed_to_launch">启动失败</string>
 </resources>

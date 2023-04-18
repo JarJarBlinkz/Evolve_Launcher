@@ -27,4 +27,5 @@
     <string name="icons_style">Simge stili</string>
     <string name="update_header">Yeni sürüm mevcut</string>
     <string name="autorun">VR kulaklığı ile 爪 Launcher’ı başlatın (otomatik başlatma)</string>
+    <string name="failed_to_launch">Başlatma başarısız oldu</string>
 </resources>

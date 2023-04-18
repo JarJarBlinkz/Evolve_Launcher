@@ -26,7 +26,7 @@ public abstract class AbstractPlatform {
     public abstract ArrayList<ApplicationInfo> getInstalledApps(Context context);
     public abstract boolean isSupported(Context context);
     public abstract void loadIcon(Activity activity, ImageView icon, ApplicationInfo app, String name);
-    public abstract void runApp(Context context, ApplicationInfo app, boolean multiwindow);
+    public abstract boolean runApp(Context context, ApplicationInfo app, boolean multiwindow);
 
     public static void clearIconCache() {
         ignoredIcons.clear();

@@ -27,4 +27,5 @@
     <string name="icons_style">Kuvakkeet tyyli</string>
     <string name="update_header">Uusi versio on saatavilla</string>
     <string name="autorun">Käynnistä 爪 Launcher VR-lasit (automaattinen käynnistys)</string>
+    <string name="failed_to_launch">Käynnistys epäonnistui</string>
 </resources>

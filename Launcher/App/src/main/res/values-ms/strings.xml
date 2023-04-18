@@ -27,4 +27,5 @@
     <string name="icons_style">Gaya ikon</string>
     <string name="update_header">Versi baharu tersedia</string>
     <string name="autorun">Mulakan 爪 Pelancar dengan set kepala (autolari)</string>
+    <string name="failed_to_launch">Gagal melancarkan</string>
 </resources>

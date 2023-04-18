@@ -30,4 +30,5 @@
     <string name="icons_style">Icons-Stil</string>
     <string name="update_header">Neue Version verfügbar</string>
     <string name="autorun">Starten Sie 爪 Launcher mit Headset (Autostart)</string>
+    <string name="failed_to_launch">Start fehlgeschlagen</string>
 </resources>

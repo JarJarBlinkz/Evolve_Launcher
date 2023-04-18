@@ -70,17 +70,31 @@
             android:id="@+id/appsView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:numColumns="auto_fit"
-            android:columnWidth="101dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center"
             android:layout_weight="1"
-            android:scrollbarStyle="outsideOverlay"
+            android:columnWidth="101dp"
+            android:gravity="center"
             android:horizontalSpacing="15dp"
-            android:verticalSpacing="15dp"/>
+            android:numColumns="auto_fit"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:scrollbarStyle="insideOverlay"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="15dp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/toast_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bkg_dialog"
+        android:padding="20dp"
+        android:text="@string/failed_to_launch"
+        android:textColor="@color/ef_colorTextPrimary"
+        android:textSize="@dimen/ef_font_medium"
+        android:visibility="gone" />
 </RelativeLayout>

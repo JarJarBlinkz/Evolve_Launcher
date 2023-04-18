@@ -26,4 +26,5 @@
     <string name="icons_style">Stile dell\'icona</string>
     <string name="update_header">Nuova versione disponibile</string>
     <string name="autorun">Avvia 爪 Launcher con visore VR (autorun)</string>
+    <string name="failed_to_launch">Avvio non riuscito</string>
 </resources>
