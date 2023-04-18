@@ -29,4 +29,11 @@
     <string name="icons_style">Icons style</string>
     <string name="update_header">New version available</string>
     <string name="autorun">Start 爪 Launcher with headset (autorun)</string>
+
+    <string-array name="sort_options">
+        <item>↓ Name</item>
+        <item>↑ Name</item>
+        <item>↓ Install date</item>
+        <item>↑ Install date</item>
+    </string-array>
 </resources>

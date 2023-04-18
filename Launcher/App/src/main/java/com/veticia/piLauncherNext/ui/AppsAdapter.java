@@ -36,6 +36,7 @@ import com.veticia.piLauncherNext.platforms.AbstractPlatform;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AppsAdapter extends BaseAdapter
@@ -53,6 +54,9 @@ public class AppsAdapter extends BaseAdapter
     private static ImageView mTempImage;
     private static String mTempPackage;
     private static long mTempTimestamp;
+
+    public static enum SORT_MODE { APP_NAME, INSTALL_DATE, RECENT_DATE }
+    public static enum SORT_ORDER { ASCENDING, DESCENDING }
 
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
     {
@@ -196,6 +200,36 @@ public class AppsAdapter extends BaseAdapter
             AbstractPlatform.updateIcon(mTempImage, mTempFile, STYLES[style]+"."+mTempPackage);
         }
         mContext.reloadUI();
+    }
+
+    public void sort(SORT_MODE mode, SORT_ORDER order) {
+        PackageManager pm = mContext.getPackageManager();
+        Collections.sort(mInstalledApps, (a, b) -> {
+            String na = "";
+            String nb = "";
+            switch (mode) {
+                case APP_NAME:
+                    na = SettingsProvider.getAppDisplayName(mContext, a.packageName, a.loadLabel(pm)).toUpperCase();
+                    nb = SettingsProvider.getAppDisplayName(mContext, b.packageName, b.loadLabel(pm)).toUpperCase();
+                    break;
+
+                case INSTALL_DATE:
+                    if (a.taskAffinity != null) {
+                        na = a.taskAffinity;
+                    } else {
+                        na = "0";
+                    }
+                    if (b.taskAffinity != null) {
+                        nb = b.taskAffinity;
+                    } else {
+                        nb = "0";
+                    }
+                    break;
+            }
+            int result = na.compareTo(nb);
+            return order == SORT_ORDER.ASCENDING ? result : -result;
+        });
+        this.notifyDataSetChanged();
     }
 
     private void showAppDetails(ApplicationInfo actApp) {

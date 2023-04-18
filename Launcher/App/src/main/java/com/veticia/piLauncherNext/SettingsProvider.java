@@ -115,7 +115,7 @@ public class SettingsProvider
                 if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;
                 if (pkg.startsWith("com.pico4.settings")) isSystemApp = false;
                 if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;
-                if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;
+                if (pkg.startsWith("com.picovr.picostreamassistant")) { isSystemApp = false; installedApplication.taskAffinity = "0"; }     //value for sorting on install date
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
                 if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;
                 if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;
