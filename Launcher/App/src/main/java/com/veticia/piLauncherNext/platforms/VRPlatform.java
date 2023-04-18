@@ -15,6 +15,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.ImageView;
 
+import androidx.core.content.res.ResourcesCompat;
+
 import com.veticia.piLauncherNext.SettingsProvider;
 
 import java.io.File;
@@ -60,7 +62,7 @@ public class VRPlatform extends AbstractPlatform {
         if (iconId == 0) {
             iconId = android.R.drawable.sym_def_app_icon;
         }
-        Drawable appIcon = resources.getDrawableForDensity(iconId, DisplayMetrics.DENSITY_XXXHIGH, null);
+        Drawable appIcon = ResourcesCompat.getDrawableForDensity(resources, iconId, DisplayMetrics.DENSITY_XXXHIGH, null);
         icon.setImageDrawable(appIcon);
 
         String pkg = app.packageName;
