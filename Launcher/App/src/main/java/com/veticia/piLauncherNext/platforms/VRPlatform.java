@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.veticia.piLauncherNext.SettingsProvider;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class VRPlatform extends AbstractPlatform {
     int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
@@ -32,6 +34,14 @@ public class VRPlatform extends AbstractPlatform {
         PackageManager pm = context.getPackageManager();
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
             if (isVirtualRealityApp(app)) {
+                try {
+                    PackageInfo packageInfo = pm.getPackageInfo(app.packageName, 0);
+                    long installDate = packageInfo.firstInstallTime;
+                    app.taskAffinity = Long.toString(installDate);
+                }
+                catch (PackageManager.NameNotFoundException e) {
+                    app.taskAffinity = "0";
+                }
                 output.add(app);
             }
         }

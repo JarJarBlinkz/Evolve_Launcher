@@ -51,6 +51,21 @@
                 android:src="@android:drawable/stat_notify_sync"
                 android:visibility="gone" />
 
+            <Spinner
+                android:id="@+id/sort"
+                android:theme="@style/spinnerItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:dropDownVerticalOffset="40dp"
+                android:popupBackground="@drawable/bkg_dropdown"
+                android:background="@drawable/bkg_pi"
+                android:spinnerMode="dropdown"
+                android:textColor="@color/ef_colorTextPrimary"
+                android:scaleType="fitCenter"
+                android:shadowColor="#80000000"
+                android:shadowRadius="5"
+            />
+
             <ImageView
                 android:id="@+id/pi"
                 android:layout_width="60dp"

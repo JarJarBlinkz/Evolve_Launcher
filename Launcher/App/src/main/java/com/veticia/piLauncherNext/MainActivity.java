@@ -24,10 +24,13 @@ import android.provider.Settings;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
@@ -92,6 +95,8 @@ public class MainActivity extends Activity
     private boolean mFocus;
     public static SharedPreferences mPreferences;
     private SettingsProvider mSettings;
+    private AppsAdapter.SORT_MODE mSortMode = AppsAdapter.SORT_MODE.APP_NAME;
+    private AppsAdapter.SORT_ORDER mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
 
     public static void reset(Context context) {
         try {
@@ -168,6 +173,38 @@ public class MainActivity extends Activity
                 reloadUI();
             }
             return true;
+        });
+
+        // Set sort button
+        Spinner sortSpinner = findViewById(R.id.sort);
+        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(this, R.array.sort_options, android.R.layout.simple_spinner_dropdown_item);
+        sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(sortAdapter);
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                boolean swapOrder = false;
+                AppsAdapter.SORT_MODE newMode = mSortMode;
+                if (pos == 0) {
+                    mSortMode = AppsAdapter.SORT_MODE.APP_NAME;
+                    mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                } else if (pos == 1) {
+                    mSortMode = AppsAdapter.SORT_MODE.APP_NAME;
+                    mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
+                } else if (pos == 2) {
+                    mSortMode = AppsAdapter.SORT_MODE.INSTALL_DATE;
+                    mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                } else if (pos == 3) {
+                    mSortMode = AppsAdapter.SORT_MODE.INSTALL_DATE;
+                    mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
+                }
+                ((AppsAdapter)mAppGrid.getAdapter()).sort(mSortMode, mSortOrder);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
         });
 
         // Set update button
