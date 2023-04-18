@@ -82,7 +82,6 @@ public class SettingsProvider
                     mAppList.put(app.packageName, context.getString(R.string.default_tools_group));
                 }
             }
-
             installedApplications.addAll(androidApps);
         }
         if (isPlatformEnabled(KEY_PLATFORM_PSP) && new PSPPlatform().isSupported(context)) {
