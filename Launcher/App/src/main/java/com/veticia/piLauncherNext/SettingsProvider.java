@@ -76,10 +76,24 @@ public class SettingsProvider
         Map<String, String> apps = getAppList();
         ArrayList<ApplicationInfo> installedApplications = new ArrayList<>();
         if (isPlatformEnabled(KEY_PLATFORM_ANDROID)) {
-            installedApplications.addAll(new AndroidPlatform().getInstalledApps(context));
+            List<ApplicationInfo> androidApps = new AndroidPlatform().getInstalledApps(context);
+            for (ApplicationInfo app : androidApps) {
+                if (!mAppList.containsKey(app.packageName)) {
+                    mAppList.put(app.packageName, context.getString(R.string.default_tools_group));
+                }
+            }
+
+            installedApplications.addAll(androidApps);
         }
-        if (isPlatformEnabled(KEY_PLATFORM_PSP)) {
-            installedApplications.addAll(new PSPPlatform().getInstalledApps(context));
+        if (isPlatformEnabled(KEY_PLATFORM_PSP) && new PSPPlatform().isSupported(context)) {
+            // only add PSP apps if the platform is supported
+            List<ApplicationInfo> pspApps = new PSPPlatform().getInstalledApps(context);
+            for (ApplicationInfo app : pspApps) {
+                if (!mAppList.containsKey(app.packageName)) {
+                    mAppList.put(app.packageName, "PSP");
+                }
+            }
+            installedApplications.addAll(pspApps);
         }
         if (isPlatformEnabled(KEY_PLATFORM_VR)) {
             installedApplications.addAll(new VRPlatform().getInstalledApps(context));
@@ -203,8 +217,14 @@ public class SettingsProvider
         {
             Set<String> def = new HashSet<>();
             def.add(context.getString(R.string.default_apps_group));
+            Set<String> defClone = new HashSet<>();
+            defClone.add(context.getString(R.string.default_apps_group));
+            mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
+            def.add(context.getString(R.string.default_tools_group));
+            if (new PSPPlatform().isSupported(context)) {
+                def.add("PSP");
+            }
             mAppGroups = mPreferences.getStringSet(KEY_APP_GROUPS, def);
-            mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, def);
 
             mAppList.clear();
             Set<String> apps = new HashSet<>();
@@ -234,7 +254,7 @@ public class SettingsProvider
             }
             editor.putStringSet(KEY_APP_LIST, apps);
 
-            editor.commit();
+            editor.apply();
         }
         catch(Exception e)
         {
@@ -282,7 +302,7 @@ public class SettingsProvider
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(appInfo.packageName, newName);
-        editor.commit();
+        editor.apply();
     }
 
     public String simplifyName(String name) {

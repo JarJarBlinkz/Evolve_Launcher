@@ -30,4 +30,5 @@
     <string name="update_header">Neue Version verfügbar</string>
     <string name="autorun">Starten Sie 爪 Launcher mit Headset (Autostart)</string>
     <string name="failed_to_launch">Start fehlgeschlagen</string>
+    <string name="default_tools_group">Werkzeuge</string>
 </resources>

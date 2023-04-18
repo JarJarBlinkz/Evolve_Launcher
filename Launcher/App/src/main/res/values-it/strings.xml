@@ -26,4 +26,5 @@
     <string name="update_header">Nuova versione disponibile</string>
     <string name="autorun">Avvia 爪 Launcher con visore VR (autorun)</string>
     <string name="failed_to_launch">Avvio non riuscito</string>
+    <string name="default_tools_group">Strumenti</string>
 </resources>

@@ -26,4 +26,5 @@
     <string name="update_header">Nieuwe versie beschikbaar</string>
     <string name="autorun">Start 爪 Launcher met headset (autostart)</string>
     <string name="failed_to_launch">Starten mislukt</string>
+    <string name="default_tools_group">Gereedschap</string>
 </resources>

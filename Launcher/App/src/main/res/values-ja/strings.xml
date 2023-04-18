@@ -27,4 +27,5 @@
     <string name="update_header">新バージョンを発売</string>
     <string name="autorun">ヘッドセットで爪ランチャーを発射（自動実行）</string>
     <string name="failed_to_launch">起動に失敗しました</string>
+    <string name="default_tools_group">ツール</string>
 </resources>

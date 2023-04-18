@@ -26,4 +26,5 @@
     <string name="update_header">Ny version tilgængelig</string>
     <string name="autorun">Start 爪 Launcher med headset (autostart)</string>
     <string name="failed_to_launch">Kunne ikke starte</string>
+    <string name="default_tools_group">Værktøjer</string>
 </resources>
