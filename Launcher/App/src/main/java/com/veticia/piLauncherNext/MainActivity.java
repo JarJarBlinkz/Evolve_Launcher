@@ -339,6 +339,8 @@ public class MainActivity extends Activity
         return dialog;
     }
 
+    private boolean isSettingsLookOpen = false;
+
     private void showSettingsMain() {
 
         Dialog dialog = showPopup(R.layout.dialog_settings);
@@ -363,7 +365,12 @@ public class MainActivity extends Activity
             dialog.dismiss();
         });
 
-        dialog.findViewById(R.id.settings_look).setOnClickListener(view -> showSettingsLook());
+        dialog.findViewById(R.id.settings_look).setOnClickListener(view -> {
+            if (!isSettingsLookOpen) {
+                isSettingsLookOpen = true;
+                showSettingsLook();
+            }
+        });
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
         dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
@@ -394,6 +401,7 @@ public class MainActivity extends Activity
 
     private void showSettingsLook() {
         Dialog d = showPopup(R.layout.dialog_look);
+        d.setOnDismissListener(dialogInterface -> isSettingsLookOpen = false);
         d.findViewById(R.id.open_accesibility).setOnClickListener(view -> {
             Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
             startActivity(intent);
@@ -553,7 +561,7 @@ public class MainActivity extends Activity
         //fallback action
         new Thread(() -> {
             try {
-                Thread.sleep(1500);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
