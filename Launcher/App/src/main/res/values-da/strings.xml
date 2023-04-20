@@ -11,14 +11,10 @@
     <string name="settings_device">Enhedsindstillinger</string>
     <string name="settings_look">Launcher-indstillinger</string>
     <string name="settings_platforms">Platforme</string>
-    <string name="settings_tweaks">System tweaks</string>
     <string name="background_opacity">Baggrunds opacitet</string>
     <string name="icons_size">Ikoner størrelse</string>
     <string name="show_app_names">Vis appnavne</string>
     <string name="start_shortcut">Åbn startprogrammet med ikonet Udforsk fra systemets dashboard.</string>
-    <string name="service_app_shortcut">App genvej</string>
-    <string name="service_explore_app">App Udforsk</string>
-    <string name="service_os_updater">OS opdatering</string>
     <string name="accesibility_label">Udskift appen Udforsk</string>
     <string name="accesibility_button">Åbn indstillinger</string>
     <string name="accesibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>

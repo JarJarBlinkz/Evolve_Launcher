@@ -11,14 +11,10 @@
     <string name="settings_device">Enhetsinställningar</string>
     <string name="settings_look">Startinställningar</string>
     <string name="settings_platforms">Plattformar</string>
-    <string name="settings_tweaks">Systemtweaks</string>
     <string name="background_opacity">Bakgrundens opacitet</string>
     <string name="icons_size">Ikoner storlek</string>
     <string name="show_app_names">Visa appnamn</string>
     <string name="start_shortcut">Öppna startprogrammet med ikonen Utforska från systemets instrumentpanel.</string>
-    <string name="service_app_shortcut">App-genväg</string>
-    <string name="service_explore_app">Utforska appen</string>
-    <string name="service_os_updater">OS-uppdatering</string>
     <string name="accesibility_label">Byt ut appen Utforska</string>
     <string name="accesibility_button">Öppna Inställningar</string>
     <string name="accesibility_tooltip">Aktivera startprogrammet 爪 från tillgänglighetsmenyn</string>

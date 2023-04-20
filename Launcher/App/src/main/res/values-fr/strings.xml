@@ -12,15 +12,10 @@
     <string name="settings_device">Parametre de l\'appareil</string>
     <string name="settings_look">Paramètres du lanceur</string>
     <string name="settings_platforms">Plateformes</string>
-    <string name="settings_tweaks">Réglages systeme</string>
     <string name="background_opacity">Opacité du background</string>
     <string name="icons_size">Taille des icones</string>
     <string name="show_app_names">Montrer le nom des applications</string>
     <string name="start_shortcut">Ouvrir le launcher via l\'icone À découvrir du dashboard.</string>
-
-    <string name="service_app_shortcut">raccourci d\'application</string>
-    <string name="service_explore_app">À découvrir app</string>
-    <string name="service_os_updater">Mise a jour de l\'OS</string>
 
     <string name="accesibility_label">Remplacer l\'application À découvrir</string>
     <string name="accesibility_button">Ouvrir les paramètres</string>

@@ -11,14 +11,10 @@
     <string name="settings_device">"Instellingen apparaat "</string>
     <string name="settings_look">Launcher-instellingen</string>
     <string name="settings_platforms">Platformen</string>
-    <string name="settings_tweaks">Systeem tweaks</string>
     <string name="background_opacity">Achtergronddekking</string>
     <string name="icons_size">Pictogrammen grootte</string>
     <string name="show_app_names">Toon app-namen</string>
     <string name="start_shortcut">Open de launcher met het pictogram Verkennen op het systeemdashboard.</string>
-    <string name="service_app_shortcut">App-snelkoppeling</string>
-    <string name="service_explore_app">Verkennen-app</string>
-    <string name="service_os_updater">OS-updater</string>
     <string name="accesibility_label">Vervang de Verkennen-app</string>
     <string name="accesibility_button">Open instellingen</string>
     <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
