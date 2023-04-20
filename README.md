@@ -10,3 +10,6 @@ This is a simple launcher for Pico VR headsets supporting official/SideQuest app
 * Open **Launcher** in Android Studio
 * Ensure USB debugging is enabled on your headset
 * Hit play button in Android Studio
+
+## Similar Projects
+Also check out [DreamGrid](https://github.com/basti564/DreamGrid), a more Oculus-centric fork of PiLauncher.
