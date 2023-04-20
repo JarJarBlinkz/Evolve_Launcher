@@ -241,17 +241,23 @@ public class MainActivity extends Activity
         }
     }
 
+    private ImageView mSelectedImageView;
+
+    public void setSelectedImageView(ImageView imageView) {
+        mSelectedImageView = imageView;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_ICON_CODE) {
             if (resultCode == RESULT_OK) {
                 for (Image image : ImagePicker.getImages(data)) {
-                    ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(image.getPath());
+                    ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(image.getPath(), mSelectedImageView);
                     break;
                 }
             } else {
-                ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(null);
+                ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(null, mSelectedImageView);
             }
         } else if (requestCode == PICK_THEME_CODE) {
             if (resultCode == RESULT_OK) {

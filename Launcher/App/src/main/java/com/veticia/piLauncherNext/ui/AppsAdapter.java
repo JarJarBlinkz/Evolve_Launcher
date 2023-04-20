@@ -51,7 +51,6 @@ public class AppsAdapter extends BaseAdapter
 
     private static Drawable mTempIcon;
     private static File mTempFile;
-    private static ImageView mTempImage;
     private static String mTempPackage;
     private static long mTempTimestamp;
 
@@ -189,17 +188,18 @@ public class AppsAdapter extends BaseAdapter
         return gridView;
     }
 
-    public void onImageSelected(String path) {
+    public void onImageSelected(String path, ImageView selectedImageView) {
         AbstractPlatform.clearIconCache();
         if (path != null) {
             Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(path), 450);
             ImageUtils.saveBitmap(bitmap, mTempFile);
-            mTempImage.setImageBitmap(bitmap);
+            selectedImageView.setImageBitmap(bitmap);
         } else {
-            mTempImage.setImageDrawable(mTempIcon);
-            AbstractPlatform.updateIcon(mTempImage, mTempFile, STYLES[style]+"."+mTempPackage);
+            selectedImageView.setImageDrawable(mTempIcon);
+            AbstractPlatform.updateIcon(selectedImageView, mTempFile, STYLES[style]+"."+mTempPackage);
         }
         mContext.reloadUI();
+        this.notifyDataSetChanged(); // for real time updates
     }
 
     private void showAppDetails(ApplicationInfo actApp) {
@@ -226,19 +226,21 @@ public class AppsAdapter extends BaseAdapter
             dialog.dismiss();
         });
 
-        //set icon
-        mTempImage = dialog.findViewById(R.id.app_icon);
-        mTempImage.setOnClickListener(view1 -> {
+        // load icon
+        ImageView tempImage = dialog.findViewById(R.id.app_icon);
+        AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
+        platform.loadIcon(mContext, tempImage, actApp, name);
+
+        tempImage.setOnClickListener(view1 -> {
             mTempIcon = actApp.loadIcon(pm);
             mTempPackage = actApp.packageName;
             mTempFile = AbstractPlatform.pkg2path(mContext, STYLES[style]+"."+actApp.packageName);
             if (mTempFile.exists()) {
                 mTempFile.delete();
             }
+            mContext.setSelectedImageView(tempImage);
             ImageUtils.showImagePicker(mContext, MainActivity.PICK_ICON_CODE);
         });
-        AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
-        platform.loadIcon(mContext, mTempImage, actApp, name);
     }
 
     public String getSelectedPackage() {
