@@ -3,7 +3,7 @@ package com.veticia.piLauncherNext.ui;
 import static com.veticia.piLauncherNext.MainActivity.DEFAULT_SCALE;
 import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
 import static com.veticia.piLauncherNext.MainActivity.STYLES;
-import static com.veticia.piLauncherNext.MainActivity.mPreferences;
+import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -43,7 +43,7 @@ import java.util.List;
 
 public class AppsAdapter extends BaseAdapter
 {
-    int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
+    int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
     private static Drawable iconDrawable;
     private static File iconFile;
     private static String packageName;
@@ -136,7 +136,7 @@ public class AppsAdapter extends BaseAdapter
         PackageManager pm = mainActivityContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mainActivityContext, currentApp.packageName, currentApp.loadLabel(pm));
         holder.textView.setText(name);
-        int kScale = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
+        int kScale = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
         float textSize = holder.textView.getTextSize();
         holder.textView.setTextSize(Math.max(10, textSize / 5 * kScale));
         holder.textView.setVisibility(showTextLabels ? View.VISIBLE : View.GONE);

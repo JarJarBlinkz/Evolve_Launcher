@@ -46,7 +46,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -84,26 +83,22 @@ public class MainActivity extends Activity
     };
     private static final boolean DEFAULT_AUTORUN = true;
 
-    private static ImageView[] mTempViews;
+    private static ImageView[] selectedThemeImageViews;
 
-    private GridView mAppGrid;
-    private ImageView mBackground;
-    private GridView mGroupPanel;
+    private GridView appGridView;
+    private ImageView backgroundImageView;
+    private GridView groupPanelGridView;
 
-    private static WeakReference<MainActivity> instance = null;
-
-    private boolean mFocus;
-    public static SharedPreferences mPreferences;
-    private SettingsProvider mSettings;
+    private boolean activityHasFocus;
+    public static SharedPreferences sharedPreferences;
+    private SettingsProvider settingsProvider;
 
     public static void reset(Context context) {
         try {
-            MainActivity activity = instance.get();
-            if (activity != null) {
-                activity.finishAffinity();
-            }
-            instance = null;
-            context.startActivity(context.getPackageManager().getLaunchIntentForPackage(context.getPackageName()));
+            Intent intent = new Intent(context, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+            ((Activity)context).finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,33 +113,32 @@ public class MainActivity extends Activity
         if (AbstractPlatform.isMagicLeapHeadset()) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        mSettings = SettingsProvider.getInstance(this);
-        instance = new WeakReference<>(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        settingsProvider = SettingsProvider.getInstance(this);
 
         // Get UI instances
-        mAppGrid = findViewById(R.id.appsView);
-        mBackground = findViewById(R.id.background);
-        mGroupPanel = findViewById(R.id.groupsView);
+        appGridView = findViewById(R.id.appsView);
+        backgroundImageView = findViewById(R.id.background);
+        groupPanelGridView = findViewById(R.id.groupsView);
 
         // Handle group click listener
-        mGroupPanel.setOnItemClickListener((parent, view, position, id) -> {
-            List<String> groups = mSettings.getAppGroupsSorted(false);
+        groupPanelGridView.setOnItemClickListener((parent, view, position, id) -> {
+            List<String> groups = settingsProvider.getAppGroupsSorted(false);
             if (position == groups.size()) {
-                mSettings.selectGroup(GroupsAdapter.HIDDEN_GROUP);
+                settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
             } else if (position == groups.size() + 1) {
-                mSettings.selectGroup(mSettings.addGroup());
+                settingsProvider.selectGroup(settingsProvider.addGroup());
             } else {
-                mSettings.selectGroup(groups.get(position));
+                settingsProvider.selectGroup(groups.get(position));
             }
             reloadUI();
         });
 
         // Multiple group selection
-        mGroupPanel.setOnItemLongClickListener((parent, view, position, id) -> {
-            if (!mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false)) {
-                List<String> groups = mSettings.getAppGroupsSorted(false);
-                Set<String> selected = mSettings.getSelectedGroups();
+        groupPanelGridView.setOnItemLongClickListener((parent, view, position, id) -> {
+            if (!sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false)) {
+                List<String> groups = settingsProvider.getAppGroupsSorted(false);
+                Set<String> selected = settingsProvider.getSelectedGroups();
 
                 String item = groups.get(position);
                 if (selected.contains(item)) {
@@ -155,7 +149,7 @@ public class MainActivity extends Activity
                 if (selected.isEmpty()) {
                     selected.add(groups.get(0));
                 }
-                mSettings.setSelectedGroups(selected);
+                settingsProvider.setSelectedGroups(selected);
                 reloadUI();
             }
             return true;
@@ -165,9 +159,9 @@ public class MainActivity extends Activity
         View pi = findViewById(R.id.pi);
         pi.setOnClickListener(view -> showSettingsMain());
         pi.setOnLongClickListener(view -> {
-            boolean editMode = mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
+            boolean editMode = sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
             if (!editMode) {
-                mSettings.setSelectedGroups(mSettings.getAppGroups());
+                settingsProvider.setSelectedGroups(settingsProvider.getAppGroups());
                 reloadUI();
             }
             return true;
@@ -220,13 +214,13 @@ public class MainActivity extends Activity
     @Override
     protected void onPause() {
         super.onPause();
-        mFocus = false;
+        activityHasFocus = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mFocus = true;
+        activityHasFocus = true;
 
         String[] permissions = {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -253,11 +247,11 @@ public class MainActivity extends Activity
         if (requestCode == PICK_ICON_CODE) {
             if (resultCode == RESULT_OK) {
                 for (Image image : ImagePicker.getImages(data)) {
-                    ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(image.getPath(), mSelectedImageView);
+                    ((AppsAdapter) appGridView.getAdapter()).onImageSelected(image.getPath(), mSelectedImageView);
                     break;
                 }
             } else {
-                ((AppsAdapter)mAppGrid.getAdapter()).onImageSelected(null, mSelectedImageView);
+                ((AppsAdapter) appGridView.getAdapter()).onImageSelected(null, mSelectedImageView);
             }
         } else if (requestCode == PICK_THEME_CODE) {
             if (resultCode == RESULT_OK) {
@@ -265,7 +259,7 @@ public class MainActivity extends Activity
                 for (Image image : ImagePicker.getImages(data)) {
                     Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(image.getPath()), 1280);
                     ImageUtils.saveBitmap(bitmap, new File(getApplicationInfo().dataDir, CUSTOM_THEME));
-                    setTheme(mTempViews, THEMES.length);
+                    setTheme(selectedThemeImageViews, THEMES.length);
                     reloadUI();
                     break;
                 }
@@ -274,41 +268,41 @@ public class MainActivity extends Activity
     }
 
     public String getSelectedPackage() {
-        return ((AppsAdapter)mAppGrid.getAdapter()).getSelectedPackage();
+        return ((AppsAdapter) appGridView.getAdapter()).getSelectedPackage();
     }
 
     public void reloadUI() {
 
         // set customization
-        boolean names = mPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES);
-        int opacity = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY);
-        int theme = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
-        int scale = getPixelFromDip(SCALES[mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE)]);
-        mAppGrid.setColumnWidth(scale);
+        boolean names = sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES);
+        int opacity = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY);
+        int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
+        int scale = getPixelFromDip(SCALES[sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE)]);
+        appGridView.setColumnWidth(scale);
         if (theme < THEMES.length) {
             Drawable d = getDrawable(THEMES[theme]);
             Drawable dCopy = d.getConstantState().newDrawable().mutate();
             dCopy.setAlpha(255 * opacity / 10);
-            mBackground.setImageDrawable(dCopy);
+            backgroundImageView.setImageDrawable(dCopy);
         } else {
             File file = new File(getApplicationInfo().dataDir, CUSTOM_THEME);
             Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             Drawable d = new BitmapDrawable(getResources(), bitmap);
             Drawable dCopy = d.getConstantState().newDrawable().mutate();
             dCopy.setAlpha(255 * opacity / 10);
-            mBackground.setImageDrawable(dCopy);
+            backgroundImageView.setImageDrawable(dCopy);
         }
 
         // set context
         scale += getPixelFromDip(8);
-        boolean editMode = mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
-        mAppGrid.setAdapter(new AppsAdapter(this, editMode, scale, names));
-        mGroupPanel.setAdapter(new GroupsAdapter(this, editMode));
-        mGroupPanel.setNumColumns(Math.min(mGroupPanel.getAdapter().getCount(), GroupsAdapter.MAX_GROUPS - 1));
+        boolean editMode = sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
+        appGridView.setAdapter(new AppsAdapter(this, editMode, scale, names));
+        groupPanelGridView.setAdapter(new GroupsAdapter(this, editMode));
+        groupPanelGridView.setNumColumns(Math.min(groupPanelGridView.getAdapter().getCount(), GroupsAdapter.MAX_GROUPS - 1));
     }
 
     public void setTheme(ImageView[] views, int index) {
-        SharedPreferences.Editor editor = mPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(SettingsProvider.KEY_CUSTOM_THEME, index);
         editor.apply();
         reloadUI();
@@ -320,7 +314,7 @@ public class MainActivity extends Activity
     }
 
     public void setStyle(ImageView[] views, int index) {
-        SharedPreferences.Editor editor = mPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(SettingsProvider.KEY_CUSTOM_STYLE, index);
         editor.apply();
         for (ImageView image : views) {
@@ -354,20 +348,20 @@ public class MainActivity extends Activity
 
         Dialog dialog = showPopup(R.layout.dialog_settings);
         SettingsGroup apps = dialog.findViewById(R.id.settings_apps);
-        boolean editMode = !mPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
+        boolean editMode = !sharedPreferences.getBoolean(SettingsProvider.KEY_EDITMODE, false);
         apps.setIcon(editMode ? R.drawable.ic_editing_on : R.drawable.ic_editing_off);
         apps.setText(getString(editMode ? R.string.settings_apps_enable : R.string.settings_apps_disable));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             apps.setTooltipText(getString(editMode ? R.string.settings_apps_enable : R.string.settings_apps_disable));
         }
         apps.setOnClickListener(view1 -> {
-            ArrayList<String> selected = mSettings.getAppGroupsSorted(true);
+            ArrayList<String> selected = settingsProvider.getAppGroupsSorted(true);
             if (editMode && (selected.size() > 1)) {
                 Set<String> selectFirst = new HashSet<>();
                 selectFirst.add(selected.get(0));
-                mSettings.setSelectedGroups(selectFirst);
+                settingsProvider.setSelectedGroups(selectFirst);
             }
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_EDITMODE, editMode);
             editor.apply();
             reloadUI();
@@ -412,9 +406,9 @@ public class MainActivity extends Activity
             startActivity(intent);
         });
         CheckBox names = d.findViewById(R.id.checkbox_names);
-        names.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
+        names.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
         names.setOnCheckedChangeListener((compoundButton, value) -> {
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_CUSTOM_NAMES, value);
             editor.apply();
             reloadUI();
@@ -424,7 +418,7 @@ public class MainActivity extends Activity
         opacity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                SharedPreferences.Editor editor = mPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(SettingsProvider.KEY_CUSTOM_OPACITY, value);
                 editor.apply();
                 reloadUI();
@@ -436,7 +430,7 @@ public class MainActivity extends Activity
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
-        opacity.setProgress(mPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
+        opacity.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
         opacity.setMax(10);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             opacity.setMin(0);
@@ -446,7 +440,7 @@ public class MainActivity extends Activity
         scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
-                SharedPreferences.Editor editor = mPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(SettingsProvider.KEY_CUSTOM_SCALE, value);
                 editor.apply();
                 reloadUI();
@@ -458,13 +452,13 @@ public class MainActivity extends Activity
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
-        scale.setProgress(mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
+        scale.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
         scale.setMax(SCALES.length - 1);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             scale.setMin(0);
         }
 
-        int theme = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
+        int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
         ImageView[] views = {
                 d.findViewById(R.id.theme0),
                 d.findViewById(R.id.theme1),
@@ -481,14 +475,14 @@ public class MainActivity extends Activity
             int index = i;
             views[i].setOnClickListener(view12 -> {
                 if (index >= THEMES.length) {
-                    mTempViews = views;
+                    selectedThemeImageViews = views;
                     ImageUtils.showImagePicker(this, PICK_THEME_CODE);
                 } else {
                     setTheme(views, index);
                 }
             });
         }
-        int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
+        int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
         if (style >= STYLES.length) { style = 0; }
         ImageView[] styles = {
                 d.findViewById(R.id.style0),
@@ -504,9 +498,9 @@ public class MainActivity extends Activity
             styles[i].setOnClickListener(view13 -> setStyle(styles, index));
         }
         CheckBox autorun = d.findViewById(R.id.checkbox_autorun);
-        autorun.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_AUTORUN, DEFAULT_AUTORUN));
+        autorun.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_AUTORUN, DEFAULT_AUTORUN));
         autorun.setOnCheckedChangeListener((compoundButton, value) -> {
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_AUTORUN, value);
             editor.apply();
         });
@@ -517,9 +511,9 @@ public class MainActivity extends Activity
         Dialog d = showPopup(R.layout.dialog_platforms);
 
         CheckBox android = d.findViewById(R.id.checkbox_android);
-        android.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, true));
+        android.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, true));
         android.setOnCheckedChangeListener((compoundButton, value) -> {
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, value);
             editor.apply();
             reloadUI();
@@ -527,9 +521,9 @@ public class MainActivity extends Activity
         d.findViewById(R.id.layout_android).setVisibility(new AndroidPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
 
         CheckBox psp = d.findViewById(R.id.checkbox_psp);
-        psp.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_PSP, true));
+        psp.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_PSP, true));
         psp.setOnCheckedChangeListener((compoundButton, value) -> {
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_PLATFORM_PSP, value);
             editor.apply();
             reloadUI();
@@ -537,9 +531,9 @@ public class MainActivity extends Activity
         d.findViewById(R.id.layout_psp).setVisibility(new PSPPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
 
         CheckBox vr = d.findViewById(R.id.checkbox_vr);
-        vr.setChecked(mPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_VR, true));
+        vr.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_VR, true));
         vr.setOnCheckedChangeListener((compoundButton, value) -> {
-            SharedPreferences.Editor editor = mPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(SettingsProvider.KEY_PLATFORM_VR, value);
             editor.apply();
             reloadUI();

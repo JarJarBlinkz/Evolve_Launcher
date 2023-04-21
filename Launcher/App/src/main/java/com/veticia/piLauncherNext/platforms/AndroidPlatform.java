@@ -2,7 +2,7 @@ package com.veticia.piLauncherNext.platforms;
 
 import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
 import static com.veticia.piLauncherNext.MainActivity.STYLES;
-import static com.veticia.piLauncherNext.MainActivity.mPreferences;
+import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class AndroidPlatform extends AbstractPlatform {
-    int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
+    int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
     private final String ICONS1_URL = "https://raw.githubusercontent.com/Veticia/binaries/main/"+STYLES[style]+"/";
     private static final String ICONS_FALLBACK_URL = "https://pilauncher.lwiczka.pl/get_icon.php?id=";
 
