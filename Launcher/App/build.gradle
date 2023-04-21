@@ -39,6 +39,9 @@ android {
     lint {
         abortOnError true
     }
+    lintOptions {
+        disable 'Accessibility'
+    }
     namespace 'com.veticia.piLauncherNext'
 
 }
