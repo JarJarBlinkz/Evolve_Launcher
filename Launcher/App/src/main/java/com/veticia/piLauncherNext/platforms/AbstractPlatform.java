@@ -123,6 +123,16 @@ public abstract class AbstractPlatform {
     }
 
     protected static boolean isVirtualRealityApp(ApplicationInfo app) {
+        String[] nonVrApps = {
+                "com.pico4.settings",
+                "com.pico.browser",
+                "com.ss.android.ttvr"
+        };
+        for (String nonVrApp : nonVrApps) {
+            if (app.packageName.startsWith(nonVrApp)) {
+                return false;
+            }
+        }
         if (app.metaData != null) {
             for (String key : app.metaData.keySet()) {
                 if (key.startsWith("notch.config")) {
