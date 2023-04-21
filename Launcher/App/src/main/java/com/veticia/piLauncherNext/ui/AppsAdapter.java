@@ -11,10 +11,12 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -183,8 +185,11 @@ public class AppsAdapter extends BaseAdapter
         // set application icon
         AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
         ImageView imageView = gridView.findViewById(R.id.imageLabel);
-        platform.loadIcon(mContext, imageView, actApp, name);
-
+        try {
+            platform.loadIcon(mContext, imageView, actApp, name);
+        } catch (Resources.NotFoundException e) {
+            Log.e("loadIcon", "Error loading icon for app: " + actApp.packageName, e);
+        }
         return gridView;
     }
 
