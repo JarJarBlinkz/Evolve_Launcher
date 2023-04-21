@@ -108,37 +108,37 @@ public class AppsAdapter extends BaseAdapter
             holder.textView = convertView.findViewById(R.id.textLabel);
             holder.progressBar = convertView.findViewById(R.id.progress_bar);
             convertView.setTag(holder);
+
+            // Set size of items
+            ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
+
+            params.width = itemScale;
+            if (style == 0) {
+                if(showTextLabels) {
+                    params.height = (int) (itemScale * 0.8);
+                }else{
+                    params.height = (int) (itemScale * 0.6525);
+                }
+            } else {
+                if(showTextLabels) {
+                    params.height = (int) (itemScale * 1.18);
+                }else{
+                    params.height = itemScale;
+                }
+            }
+            holder.layout.setLayoutParams(params);
+            int kScale = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
+            float textSize = holder.textView.getTextSize();
+            holder.textView.setTextSize(Math.max(10, textSize / 5 * kScale));
         } else {
             // ViewHolder already exists, reuse it
             holder = (ViewHolder) convertView.getTag();
         }
 
-        // Set size of items
-        ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
-
-        params.width = itemScale;
-        if (style == 0) {
-            if(showTextLabels) {
-                params.height = (int) (itemScale * 0.8);
-            }else{
-                params.height = (int) (itemScale * 0.6525);
-            }
-        } else {
-            if(showTextLabels) {
-                params.height = (int) (itemScale * 1.18);
-            }else{
-                params.height = itemScale;
-            }
-        }
-        holder.layout.setLayoutParams(params);
-
         // set value into textview
         PackageManager pm = mainActivityContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mainActivityContext, currentApp.packageName, currentApp.loadLabel(pm));
         holder.textView.setText(name);
-        int kScale = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
-        float textSize = holder.textView.getTextSize();
-        holder.textView.setTextSize(Math.max(10, textSize / 5 * kScale));
         holder.textView.setVisibility(showTextLabels ? View.VISIBLE : View.GONE);
 
         if (isEditMode) {
