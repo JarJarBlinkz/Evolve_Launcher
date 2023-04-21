@@ -46,8 +46,8 @@ public class AppsAdapter extends BaseAdapter
     int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
     private final MainActivity mContext;
     private final List<ApplicationInfo> mInstalledApps;
-    private final boolean mEditMode;
-    private final boolean mNames;
+    private final boolean isEditMode;
+    private final boolean showTextLabels;
     private final int mScale;
     private final SettingsProvider mSettings;
 
@@ -59,8 +59,8 @@ public class AppsAdapter extends BaseAdapter
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
     {
         mContext = context;
-        mEditMode = editMode;
-        mNames = names;
+        isEditMode = editMode;
+        showTextLabels = names;
         mScale = scale;
         mSettings = SettingsProvider.getInstance(mContext);
 
@@ -68,6 +68,13 @@ public class AppsAdapter extends BaseAdapter
         ArrayList<String> selected = mSettings.getAppGroupsSorted(true);
         boolean first = !selected.isEmpty() && !groups.isEmpty() && selected.get(0).compareTo(groups.get(0)) == 0;
         mInstalledApps = mSettings.getInstalledApps(context, selected, first);
+    }
+
+    private static class ViewHolder {
+        RelativeLayout layout;
+        ImageView imageView;
+        TextView textView;
+        ImageView progressBar;
     }
 
     public int getCount()
@@ -88,44 +95,56 @@ public class AppsAdapter extends BaseAdapter
     @SuppressLint("NewApi")
     public View getView(int position, View convertView, ViewGroup parent)
     {
+        ViewHolder holder;
+
         final ApplicationInfo actApp = mInstalledApps.get(position);
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View gridView = inflater.inflate(R.layout.lv_app, parent, false);
+
+        if (convertView == null) {
+            // Create a new ViewHolder and inflate the layout
+            convertView = inflater.inflate(R.layout.lv_app, parent, false);
+            holder = new ViewHolder();
+            holder.layout = convertView.findViewById(R.id.layout);
+            holder.imageView = convertView.findViewById(R.id.imageLabel);
+            holder.textView = convertView.findViewById(R.id.textLabel);
+            holder.progressBar = convertView.findViewById(R.id.progress_bar);
+            convertView.setTag(holder);
+        } else {
+            // ViewHolder already exists, reuse it
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         // Set size of items
-        RelativeLayout layout = gridView.findViewById(R.id.layout);
-        ViewGroup.LayoutParams params = layout.getLayoutParams();
+        ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
 
         params.width = mScale;
         if (style == 0) {
-            if(mNames) {
+            if(showTextLabels) {
                 params.height = (int) (mScale * 0.8);
             }else{
                 params.height = (int) (mScale * 0.6525);
             }
         } else {
-            if(mNames) {
+            if(showTextLabels) {
                 params.height = (int) (mScale * 1.18);
             }else{
                 params.height = mScale;
             }
         }
-        layout.setLayoutParams(params);
+        holder.layout.setLayoutParams(params);
 
         // set value into textview
         PackageManager pm = mContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mContext, actApp.packageName, actApp.loadLabel(pm));
-        ImageView progressBar = gridView.findViewById(R.id.progress_bar);
-        TextView textView = gridView.findViewById(R.id.textLabel);
-        textView.setText(name);
+        holder.textView.setText(name);
         int kScale = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
-        float textSize = textView.getTextSize();
-        textView.setTextSize(Math.max(10, textSize / 5 * kScale));
-        textView.setVisibility(mNames ? View.VISIBLE : View.GONE);
+        float textSize = holder.textView.getTextSize();
+        holder.textView.setTextSize(Math.max(10, textSize / 5 * kScale));
+        holder.textView.setVisibility(showTextLabels ? View.VISIBLE : View.GONE);
 
-        if (mEditMode) {
+        if (isEditMode) {
             // short click for app details, long click to activate drag and drop
-            layout.setOnTouchListener((view, motionEvent) -> {
+            holder.layout.setOnTouchListener((view, motionEvent) -> {
                 if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
                         (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
                     mTempPackage = actApp.packageName;
@@ -142,7 +161,7 @@ public class AppsAdapter extends BaseAdapter
             });
 
             // drag and drop
-            layout.setOnDragListener((view, event) -> {
+            holder.layout.setOnDragListener((view, event) -> {
                 if (actApp.packageName.compareTo(mTempPackage) == 0) {
                     if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                         view.setVisibility(View.INVISIBLE);
@@ -160,8 +179,8 @@ public class AppsAdapter extends BaseAdapter
                 return true;
             });
         } else {
-            layout.setOnClickListener(view -> {
-                progressBar.setVisibility(View.VISIBLE);
+            holder.layout.setOnClickListener(view -> {
+                holder.progressBar.setVisibility(View.VISIBLE);
                 RotateAnimation rotateAnimation = new RotateAnimation(
                         0, 360,
                         Animation.RELATIVE_TO_SELF, 0.5f,
@@ -170,13 +189,13 @@ public class AppsAdapter extends BaseAdapter
                 rotateAnimation.setDuration(1000);
                 rotateAnimation.setRepeatCount(Animation.INFINITE);
                 rotateAnimation.setInterpolator(new LinearInterpolator());
-                progressBar.startAnimation(rotateAnimation);
+                holder.progressBar.startAnimation(rotateAnimation);
                 if(!mContext.openApp(actApp)) {
-                    progressBar.setVisibility(View.GONE);
-                    progressBar.clearAnimation();
+                    holder.progressBar.setVisibility(View.GONE);
+                    holder.progressBar.clearAnimation();
                 }
             });
-            layout.setOnLongClickListener(view -> {
+            holder.layout.setOnLongClickListener(view -> {
                 showAppDetails(actApp);
                 return false;
             });
@@ -184,13 +203,12 @@ public class AppsAdapter extends BaseAdapter
 
         // set application icon
         AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
-        ImageView imageView = gridView.findViewById(R.id.imageLabel);
         try {
-            platform.loadIcon(mContext, imageView, actApp, name);
+            platform.loadIcon(mContext, holder.imageView, actApp, name);
         } catch (Resources.NotFoundException e) {
             Log.e("loadIcon", "Error loading icon for app: " + actApp.packageName, e);
         }
-        return gridView;
+        return convertView;
     }
 
     public void onImageSelected(String path, ImageView selectedImageView) {
