@@ -32,7 +32,8 @@ public class AndroidPlatform extends AbstractPlatform {
         PackageManager pm = context.getPackageManager();
         ArrayList<ApplicationInfo> output = new ArrayList<>();
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
-            if (!isVirtualRealityApp(app)) {
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
+            if (!isVirtualRealityApp(app) && launchIntent != null) {
                 output.add(app);
             }
         }

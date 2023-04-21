@@ -36,7 +36,8 @@ public class VRPlatform extends AbstractPlatform {
 
         PackageManager pm = context.getPackageManager();
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
-            if (isVirtualRealityApp(app)) {
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
+            if (isVirtualRealityApp(app) && launchIntent != null) {
                 installedApps.add(app);
             }
         }
