@@ -16,12 +16,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -91,6 +93,7 @@ public class AppsAdapter extends BaseAdapter
         return position;
     }
 
+    private final Handler handler = new Handler();
     @SuppressLint("NewApi")
     public View getView(int position, View convertView, ViewGroup parent)
     {
@@ -193,6 +196,18 @@ public class AppsAdapter extends BaseAdapter
                     holder.progressBar.setVisibility(View.GONE);
                     holder.progressBar.clearAnimation();
                 }
+
+                handler.removeCallbacksAndMessages(null);
+                handler.postDelayed(() -> {
+                    AlphaAnimation fadeOut = new AlphaAnimation(1, 0);
+                    fadeOut.setDuration(1000);
+                    fadeOut.setFillAfter(true);
+                    holder.progressBar.startAnimation(fadeOut);
+                }, 2000);
+                handler.postDelayed(() -> {
+                    holder.progressBar.setVisibility(View.GONE);
+                    holder.progressBar.clearAnimation();
+                }, 3000);
             });
             holder.layout.setOnLongClickListener(view -> {
                 showAppDetails(currentApp);
