@@ -20,7 +20,8 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <GridView
                 android:id="@+id/groupsView"
@@ -79,9 +80,11 @@
             android:paddingTop="5dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
-            android:scrollbarStyle="insideOverlay"
+            android:scrollbarStyle="outsideOverlay"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="15dp" />
+            android:verticalSpacing="15dp"
+            android:baselineAligned="false"
+            android:scrollbars="none"/>
     </LinearLayout>
 
     <TextView
