@@ -44,30 +44,29 @@ import java.util.List;
 public class AppsAdapter extends BaseAdapter
 {
     int style = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-    private final MainActivity mContext;
-    private final List<ApplicationInfo> mInstalledApps;
+    private static Drawable iconDrawable;
+    private static File iconFile;
+    private static String packageName;
+    private static long lastClickTime;
+    private final MainActivity mainActivityContext;
+    private final List<ApplicationInfo> appList;
     private final boolean isEditMode;
     private final boolean showTextLabels;
-    private final int mScale;
-    private final SettingsProvider mSettings;
-
-    private static Drawable mTempIcon;
-    private static File mTempFile;
-    private static String mTempPackage;
-    private static long mTempTimestamp;
+    private final int itemScale;
+    private final SettingsProvider settingsProvider;
 
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
     {
-        mContext = context;
+        mainActivityContext = context;
         isEditMode = editMode;
         showTextLabels = names;
-        mScale = scale;
-        mSettings = SettingsProvider.getInstance(mContext);
+        itemScale = scale;
+        settingsProvider = SettingsProvider.getInstance(mainActivityContext);
 
-        ArrayList<String> groups = mSettings.getAppGroupsSorted(false);
-        ArrayList<String> selected = mSettings.getAppGroupsSorted(true);
-        boolean first = !selected.isEmpty() && !groups.isEmpty() && selected.get(0).compareTo(groups.get(0)) == 0;
-        mInstalledApps = mSettings.getInstalledApps(context, selected, first);
+        ArrayList<String> sortedGroups = settingsProvider.getAppGroupsSorted(false);
+        ArrayList<String> sortedSelectedGroups = settingsProvider.getAppGroupsSorted(true);
+        boolean isFirstGroupSelected = !sortedSelectedGroups.isEmpty() && !sortedGroups.isEmpty() && sortedSelectedGroups.get(0).compareTo(sortedGroups.get(0)) == 0;
+        appList = settingsProvider.getInstalledApps(context, sortedSelectedGroups, isFirstGroupSelected);
     }
 
     private static class ViewHolder {
@@ -79,12 +78,12 @@ public class AppsAdapter extends BaseAdapter
 
     public int getCount()
     {
-        return mInstalledApps.size();
+        return appList.size();
     }
 
     public Object getItem(int position)
     {
-        return mInstalledApps.get(position);
+        return appList.get(position);
     }
 
     public long getItemId(int position)
@@ -97,8 +96,8 @@ public class AppsAdapter extends BaseAdapter
     {
         ViewHolder holder;
 
-        final ApplicationInfo actApp = mInstalledApps.get(position);
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final ApplicationInfo currentApp = appList.get(position);
+        LayoutInflater inflater = (LayoutInflater) mainActivityContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
             // Create a new ViewHolder and inflate the layout
@@ -117,25 +116,25 @@ public class AppsAdapter extends BaseAdapter
         // Set size of items
         ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
 
-        params.width = mScale;
+        params.width = itemScale;
         if (style == 0) {
             if(showTextLabels) {
-                params.height = (int) (mScale * 0.8);
+                params.height = (int) (itemScale * 0.8);
             }else{
-                params.height = (int) (mScale * 0.6525);
+                params.height = (int) (itemScale * 0.6525);
             }
         } else {
             if(showTextLabels) {
-                params.height = (int) (mScale * 1.18);
+                params.height = (int) (itemScale * 1.18);
             }else{
-                params.height = mScale;
+                params.height = itemScale;
             }
         }
         holder.layout.setLayoutParams(params);
 
         // set value into textview
-        PackageManager pm = mContext.getPackageManager();
-        String name = SettingsProvider.getAppDisplayName(mContext, actApp.packageName, actApp.loadLabel(pm));
+        PackageManager pm = mainActivityContext.getPackageManager();
+        String name = SettingsProvider.getAppDisplayName(mainActivityContext, currentApp.packageName, currentApp.loadLabel(pm));
         holder.textView.setText(name);
         int kScale = mPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
         float textSize = holder.textView.getTextSize();
@@ -147,14 +146,14 @@ public class AppsAdapter extends BaseAdapter
             holder.layout.setOnTouchListener((view, motionEvent) -> {
                 if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
                         (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
-                    mTempPackage = actApp.packageName;
-                    mTempTimestamp = System.currentTimeMillis();
-                    ClipData data = ClipData.newPlainText(name, name);
+                    packageName = currentApp.packageName;
+                    lastClickTime = System.currentTimeMillis();
+                    ClipData dragData = ClipData.newPlainText(name, name);
                     View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        view.startDragAndDrop(data, shadowBuilder, view, 0);
+                        view.startDragAndDrop(dragData, shadowBuilder, view, 0);
                     } else {
-                        view.startDrag(data, shadowBuilder, view, 0);
+                        view.startDrag(dragData, shadowBuilder, view, 0);
                     }
                 }
                 return false;
@@ -162,16 +161,16 @@ public class AppsAdapter extends BaseAdapter
 
             // drag and drop
             holder.layout.setOnDragListener((view, event) -> {
-                if (actApp.packageName.compareTo(mTempPackage) == 0) {
+                if (currentApp.packageName.compareTo(packageName) == 0) {
                     if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                         view.setVisibility(View.INVISIBLE);
                     } else if (event.getAction() == DragEvent.ACTION_DRAG_ENDED) {
-                        mContext.reloadUI();
+                        mainActivityContext.reloadUI();
                     } else if (event.getAction() == DragEvent.ACTION_DROP) {
-                        if (System.currentTimeMillis() - mTempTimestamp < 250) {
-                            showAppDetails(actApp);
+                        if (System.currentTimeMillis() - lastClickTime < 250) {
+                            showAppDetails(currentApp);
                         } else {
-                            mContext.reloadUI();
+                            mainActivityContext.reloadUI();
                         }
                     }
                     return event.getAction() != DragEvent.ACTION_DROP;
@@ -190,23 +189,23 @@ public class AppsAdapter extends BaseAdapter
                 rotateAnimation.setRepeatCount(Animation.INFINITE);
                 rotateAnimation.setInterpolator(new LinearInterpolator());
                 holder.progressBar.startAnimation(rotateAnimation);
-                if(!mContext.openApp(actApp)) {
+                if(!mainActivityContext.openApp(currentApp)) {
                     holder.progressBar.setVisibility(View.GONE);
                     holder.progressBar.clearAnimation();
                 }
             });
             holder.layout.setOnLongClickListener(view -> {
-                showAppDetails(actApp);
+                showAppDetails(currentApp);
                 return false;
             });
         }
 
         // set application icon
-        AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
+        AbstractPlatform platform = AbstractPlatform.getPlatform(currentApp);
         try {
-            platform.loadIcon(mContext, holder.imageView, actApp, name);
+            platform.loadIcon(mainActivityContext, holder.imageView, currentApp, name);
         } catch (Resources.NotFoundException e) {
-            Log.e("loadIcon", "Error loading icon for app: " + actApp.packageName, e);
+            Log.e("loadIcon", "Error loading icon for app: " + currentApp.packageName, e);
         }
         return convertView;
     }
@@ -215,20 +214,20 @@ public class AppsAdapter extends BaseAdapter
         AbstractPlatform.clearIconCache();
         if (path != null) {
             Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(path), 450);
-            ImageUtils.saveBitmap(bitmap, mTempFile);
+            ImageUtils.saveBitmap(bitmap, iconFile);
             selectedImageView.setImageBitmap(bitmap);
         } else {
-            selectedImageView.setImageDrawable(mTempIcon);
-            AbstractPlatform.updateIcon(selectedImageView, mTempFile, STYLES[style]+"."+mTempPackage);
+            selectedImageView.setImageDrawable(iconDrawable);
+            AbstractPlatform.updateIcon(selectedImageView, iconFile, STYLES[style]+"."+ packageName);
         }
-        mContext.reloadUI();
+        mainActivityContext.reloadUI();
         this.notifyDataSetChanged(); // for real time updates
     }
 
     private void showAppDetails(ApplicationInfo actApp) {
 
         //set layout
-        Context context = mContext;
+        Context context = mainActivityContext;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(R.layout.dialog_app_details);
         AlertDialog dialog = builder.create();
@@ -236,37 +235,37 @@ public class AppsAdapter extends BaseAdapter
         dialog.show();
 
         //info action
-        dialog.findViewById(R.id.info).setOnClickListener(view13 -> mContext.openAppDetails(actApp.packageName));
+        dialog.findViewById(R.id.info).setOnClickListener(view13 -> mainActivityContext.openAppDetails(actApp.packageName));
 
         //set name
-        PackageManager pm = mContext.getPackageManager();
-        String name = SettingsProvider.getAppDisplayName(mContext, actApp.packageName, actApp.loadLabel(pm));
+        PackageManager pm = mainActivityContext.getPackageManager();
+        String name = SettingsProvider.getAppDisplayName(mainActivityContext, actApp.packageName, actApp.loadLabel(pm));
         final EditText input = dialog.findViewById(R.id.app_name);
         input.setText(name);
         dialog.findViewById(R.id.ok).setOnClickListener(view12 -> {
-            mSettings.setAppDisplayName(context, actApp, input.getText().toString());
-            mContext.reloadUI();
+            settingsProvider.setAppDisplayName(context, actApp, input.getText().toString());
+            mainActivityContext.reloadUI();
             dialog.dismiss();
         });
 
         // load icon
         ImageView tempImage = dialog.findViewById(R.id.app_icon);
         AbstractPlatform platform = AbstractPlatform.getPlatform(actApp);
-        platform.loadIcon(mContext, tempImage, actApp, name);
+        platform.loadIcon(mainActivityContext, tempImage, actApp, name);
 
         tempImage.setOnClickListener(view1 -> {
-            mTempIcon = actApp.loadIcon(pm);
-            mTempPackage = actApp.packageName;
-            mTempFile = AbstractPlatform.pkg2path(mContext, STYLES[style]+"."+actApp.packageName);
-            if (mTempFile.exists()) {
-                mTempFile.delete();
+            iconDrawable = actApp.loadIcon(pm);
+            packageName = actApp.packageName;
+            iconFile = AbstractPlatform.pkg2path(mainActivityContext, STYLES[style]+"."+actApp.packageName);
+            if (iconFile.exists()) {
+                iconFile.delete();
             }
-            mContext.setSelectedImageView(tempImage);
-            ImageUtils.showImagePicker(mContext, MainActivity.PICK_ICON_CODE);
+            mainActivityContext.setSelectedImageView(tempImage);
+            ImageUtils.showImagePicker(mainActivityContext, MainActivity.PICK_ICON_CODE);
         });
     }
 
     public String getSelectedPackage() {
-        return mTempPackage;
+        return packageName;
     }
 }
