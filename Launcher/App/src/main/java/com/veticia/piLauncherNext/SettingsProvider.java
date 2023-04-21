@@ -117,25 +117,28 @@ public class SettingsProvider
             {
                 // Check for system app
                 boolean isSystemApp = (installedApplication.flags & ApplicationInfo.FLAG_SYSTEM) == 1;
-                if (pkg.startsWith("com.oculus.browser")) isSystemApp = false;
+                if (pkg.startsWith("com.oculus.browser")) isSystemApp = false;              //X
                 if (pkg.startsWith("metapwa")) isSystemApp = true;
                 if (pkg.startsWith("oculuspwa")) isSystemApp = true;
                 if (pkg.startsWith("com.facebook.arvr")) isSystemApp = true;
                 if (pkg.startsWith("com.meta.environment")) isSystemApp = true;
+                if (pkg.startsWith("com.oculus.accountscenter")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.avatar2")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.environment")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.helpcenter")) isSystemApp = true;
+                if (pkg.startsWith("com.oculus.mobile_mrc_setup")) isSystemApp = true;
+                if (pkg.startsWith("com.oculus.remotedesktop")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.systemutilities")) isSystemApp = true;
                 if (pkg.startsWith("com.meta.AccountsCenter.pwa")) isSystemApp = true;
                 if (pkg.startsWith("com.pico")) isSystemApp = true;
-                if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;
-                if (pkg.startsWith("com.pico.browser")) isSystemApp = false;
-                if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;
-                if (pkg.startsWith("com.pico4.settings")) isSystemApp = false;
-                if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;
-                if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;
+                if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;                //X
+                if (pkg.startsWith("com.pico.browser")) isSystemApp = false;                //X
+                if (pkg.startsWith("com.pico.metricstool")) isSystemApp = false;            //X
+                if (pkg.startsWith("com.pico4.settings")) isSystemApp = false;              //X
+                if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;       //X
+                if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;  //X
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
-                if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;
+                if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;             //X
                 if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;
                 if (pkg.startsWith("com.samsung.android.filter")) isSystemApp = true;
                 if (pkg.startsWith("com.samsung.SMT.lang")) isSystemApp = true;
