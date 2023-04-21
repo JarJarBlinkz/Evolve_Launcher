@@ -82,20 +82,24 @@ public abstract class AbstractPlatform {
             fos.flush();
             fos.close();
 
-            // Let's do it always to ensure same file names and image type
-            //if (outputFile.length() >= 64 * 1024) {
-                Bitmap bitmap = BitmapFactory.decodeFile(outputFile.getAbsolutePath());
-                if (bitmap != null) {
-                    try {
-                        fos = new FileOutputStream(outputFile);
-                        bitmap.compress(Bitmap.CompressFormat.WEBP, 100, fos);
-                        fos.close();
-                    }
-                    catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            Bitmap bitmap = BitmapFactory.decodeFile(outputFile.getAbsolutePath());
+            if (bitmap != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                float aspectRatio = (float) width / height;
+                if (width > 512) {
+                    width = 512;
+                    height = Math.round(width / aspectRatio);
+                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false);
                 }
-            //}
+                try {
+                    fos = new FileOutputStream(outputFile);
+                    bitmap.compress(Bitmap.CompressFormat.WEBP, 75, fos);
+                    fos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
             return true;
         } catch (Exception e) {
