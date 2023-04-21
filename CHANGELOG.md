@@ -1,6 +1,20 @@
-# Latest version: [piLauncherNext_085.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_085.apk)
+# Latest version: [piLauncherNext_090.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_090.apk)
 
 ## Changelog
+### 0.9.0
+- Improved performance (faster icon generation and loading, less stuttering while scrolling)
+- Automatic categories (android apps and other tools in separate category by default)
+- Not displaying apps that cannot be launched anyway
+- Loading higher quality icons (if we don't have them in our repo)
+- Improved Launcher Settings layout
+- Improved Explore replacement
+- Adjusted german translation
+- Removed Tweaks menu (Oculus only)
+- Fixed bug that allowed Launcher settings to be opened twice
+- Fixed memory leak... twice
+- Fixed possible crash if launched without categories
+- Many other minor code improvements
+
 ### 0.8.5
 - Fixed possible crash when changing icon
 
