@@ -239,7 +239,7 @@ public class AppsAdapter extends BaseAdapter
     public void onImageSelected(String path, ImageView selectedImageView) {
         AbstractPlatform.clearIconCache();
         if (path != null) {
-            Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(path), 450);
+            Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(path), 512);
             ImageUtils.saveBitmap(bitmap, iconFile);
             selectedImageView.setImageBitmap(bitmap);
         } else {
