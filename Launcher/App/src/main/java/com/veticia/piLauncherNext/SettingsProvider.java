@@ -50,6 +50,7 @@ public class SettingsProvider
         }
         return SettingsProvider.instance;
     }
+    private final boolean isPSPSupported;
 
     //storage
     private final SharedPreferences mPreferences;
@@ -60,6 +61,7 @@ public class SettingsProvider
     private SettingsProvider(Context context) {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SettingsProvider.context = context;
+        isPSPSupported = new PSPPlatform().isSupported(context);
     }
 
     public void setAppList(Map<String, String> appList)
@@ -230,7 +232,7 @@ public class SettingsProvider
             defClone.add(context.getString(R.string.default_apps_group));
             mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
             def.add(context.getString(R.string.default_tools_group));
-            if (new PSPPlatform().isSupported(context)) {
+            if (isPSPSupported) {
                 def.add("PSP");
             }
             mAppGroups = mPreferences.getStringSet(KEY_APP_GROUPS, def);
