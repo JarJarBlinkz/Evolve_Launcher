@@ -25,4 +25,11 @@
     <string name="autorun">Start 爪 Launcher with headset (autorun)</string>
     <string name="failed_to_launch">Failed to launch</string>
     <string name="default_tools_group">Tools</string>
+
+    <string-array name="sort_options">
+        <item>↓ Name</item>
+        <item>↑ Name</item>
+        <item>↓ Install date</item>
+        <item>↑ Install date</item>
+    </string-array>
 </resources>

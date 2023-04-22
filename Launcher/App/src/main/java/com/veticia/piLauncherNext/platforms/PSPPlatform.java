@@ -9,14 +9,14 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageView;
 
+import net.didion.loopy.iso9660.ISO9660FileEntry;
+import net.didion.loopy.iso9660.ISO9660FileSystem;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Scanner;
-
-import net.didion.loopy.iso9660.ISO9660FileEntry;
-import net.didion.loopy.iso9660.ISO9660FileSystem;
 
 public class PSPPlatform  extends AbstractPlatform {
 
@@ -37,7 +37,12 @@ public class PSPPlatform  extends AbstractPlatform {
             ApplicationInfo app = new ApplicationInfo();
             app.name = path.substring(path.lastIndexOf('/') + 1);
             app.packageName = PACKAGE_PREFIX + path;
+            File file = new File(path);
+            long lastModDate = file.lastModified();
+            app.taskAffinity = Long.toString(lastModDate);
             output.add(app);
+            //debug
+            //Log.e("PSPmDate", app.name + " @ " + app.taskAffinity);
         }
         return output;
     }

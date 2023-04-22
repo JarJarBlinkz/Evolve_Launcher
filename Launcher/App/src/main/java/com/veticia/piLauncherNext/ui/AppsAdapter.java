@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -41,6 +42,7 @@ import com.veticia.piLauncherNext.platforms.AbstractPlatform;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AppsAdapter extends BaseAdapter
@@ -57,6 +59,9 @@ public class AppsAdapter extends BaseAdapter
     private final int itemScale;
     private final SettingsProvider settingsProvider;
 
+    public static enum SORT_FIELD { APP_NAME, INSTALL_DATE, RECENT_DATE }
+    public static enum SORT_ORDER { ASCENDING, DESCENDING }
+
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
     {
         mainActivityContext = context;
@@ -69,6 +74,10 @@ public class AppsAdapter extends BaseAdapter
         ArrayList<String> sortedSelectedGroups = settingsProvider.getAppGroupsSorted(true);
         boolean isFirstGroupSelected = !sortedSelectedGroups.isEmpty() && !sortedGroups.isEmpty() && sortedSelectedGroups.get(0).compareTo(sortedGroups.get(0)) == 0;
         appList = settingsProvider.getInstalledApps(context, sortedSelectedGroups, isFirstGroupSelected);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mainActivityContext);
+        SORT_FIELD sortField = SORT_FIELD.values()[sharedPreferences.getInt(SettingsProvider.KEY_SORT_FIELD, 0)];
+        SORT_ORDER sortOrder = SORT_ORDER.values()[sharedPreferences.getInt(SettingsProvider.KEY_SORT_ORDER, 0)];
+        this.sort(sortField, sortOrder);
     }
 
     private static class ViewHolder {
@@ -237,6 +246,53 @@ public class AppsAdapter extends BaseAdapter
         }
         mainActivityContext.reloadUI();
         this.notifyDataSetChanged(); // for real time updates
+    }
+
+    public void sort(SORT_FIELD field, SORT_ORDER order) {
+        PackageManager pm = mainActivityContext.getPackageManager();
+        Collections.sort(appList, (a, b) -> {
+            String na = "";
+            String nb = "";
+            long naL = 0L;
+            long nbL = 0L;
+            int result = 0;
+            switch (field) {
+                case APP_NAME:
+                    na = SettingsProvider.getAppDisplayName(mainActivityContext, a.packageName, a.loadLabel(pm)).toUpperCase();
+                    nb = SettingsProvider.getAppDisplayName(mainActivityContext, b.packageName, b.loadLabel(pm)).toUpperCase();
+                    result = na.compareTo(nb);
+                    break;
+
+                case INSTALL_DATE:
+                    if (a.taskAffinity != null) {
+                        na = a.taskAffinity;
+                    } else {
+                        na = "0";
+                    }
+                    if (b.taskAffinity != null) {
+                        nb = b.taskAffinity;
+                    } else {
+                        nb = "0";
+                    }
+                    try{
+                        naL = Long.parseLong(na);
+                        nbL = Long.parseLong(nb);
+                    }catch (NumberFormatException e){
+                        // result 0 is already defined by default
+                        break;
+                    }
+                    if (naL < nbL) {
+                        result = -1;
+                    } else if (naL > nbL) {
+                        result = 1;
+                    }
+                    // result 0 is already defined by default
+                    break;
+            }
+
+            return order == SORT_ORDER.ASCENDING ? result : -result;
+        });
+        this.notifyDataSetChanged();
     }
 
     private void showAppDetails(ApplicationInfo actApp) {

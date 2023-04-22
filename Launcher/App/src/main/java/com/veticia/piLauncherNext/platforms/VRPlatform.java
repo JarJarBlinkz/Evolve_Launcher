@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -38,7 +39,17 @@ public class VRPlatform extends AbstractPlatform {
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
             Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
             if (isVirtualRealityApp(app) && launchIntent != null) {
+                try {
+                    PackageInfo packageInfo = pm.getPackageInfo(app.packageName, 0);
+                    long installDate = packageInfo.firstInstallTime;
+                    app.taskAffinity = Long.toString(installDate);
+                }
+                catch (PackageManager.NameNotFoundException e) {
+                    app.taskAffinity = "0";
+                }
                 installedApps.add(app);
+                //debug
+                //Log.e("VRPmDate", app.packageName + " @ " + app.taskAffinity);
             }
         }
         return installedApps;
