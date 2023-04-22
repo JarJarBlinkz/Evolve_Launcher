@@ -1,6 +1,14 @@
-# Latest version: [piLauncherNext_090.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_090.apk)
+# Latest version: [piLauncherNext_100.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_100.apk)
 
 ## Changelog
+### 1.0.0
+- Sorting options (by name, recently launched, install date) [@Maarten van Dillen](https://github.com/maartenvandillen/)
+- Greatly improved UI performance
+- Improved icons loading (fixed broken icons bug, faster PSP icon)
+- Improved custom icons quality
+- Adjusted translations (thanks habhabi for help with German and Italian)
+- Minor code improvements
+
 ### 0.9.0
 - Improved performance (faster icon generation and loading, less stuttering while scrolling)
 - Automatic categories (android apps and other tools in separate category by default)
