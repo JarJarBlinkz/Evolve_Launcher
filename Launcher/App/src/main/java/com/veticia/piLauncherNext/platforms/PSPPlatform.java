@@ -9,6 +9,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.veticia.piLauncherNext.MainActivity;
+
 import net.didion.loopy.iso9660.ISO9660FileEntry;
 import net.didion.loopy.iso9660.ISO9660FileSystem;
 
@@ -21,7 +23,6 @@ import java.util.Scanner;
 public class PSPPlatform  extends AbstractPlatform {
 
     private static final String CONFIG_FILE = Environment.getExternalStorageDirectory().getPath() + "/PSP/SYSTEM/ppssppvr.ini";
-    private static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
     private static final String FILENAME_PREFIX = "FileName";
     private static final String RECENT_TAG = "[Recent]";
     public static final String PACKAGE_PREFIX = "psp/";
@@ -50,7 +51,7 @@ public class PSPPlatform  extends AbstractPlatform {
     @Override
     public boolean isSupported(Context context) {
         for (ApplicationInfo app : new VRPlatform().getInstalledApps(context)) {
-            if (app.packageName.startsWith(EMULATOR_PACKAGE)) {
+            if (app.packageName.startsWith(MainActivity.EMULATOR_PACKAGE)) {
                 return true;
             }
         }
@@ -100,7 +101,7 @@ public class PSPPlatform  extends AbstractPlatform {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.parse("file://" + path), "*/*");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setPackage(EMULATOR_PACKAGE);
+            intent.setPackage(MainActivity.EMULATOR_PACKAGE);
             context.getApplicationContext().startActivity(intent);
             return true;
         } catch (Exception e) {

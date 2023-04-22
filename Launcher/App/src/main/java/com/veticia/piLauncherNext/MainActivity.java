@@ -85,6 +85,7 @@ public class MainActivity extends Activity
             "tenaldo_square"
     };
     private static final boolean DEFAULT_AUTORUN = true;
+    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
 
     private static ImageView[] selectedThemeImageViews;
 
