@@ -28,6 +28,8 @@
     <string-array name="sort_options">
         <item>↓ Navn</item>
         <item>↑ Navn</item>
+        <item>↓ Nylig</item>
+        <item>↑ Nylig</item>
         <item>↓ Installasjonsdato</item>
         <item>↑ Installasjonsdato</item>
     </string-array>

@@ -28,6 +28,8 @@
     <string-array name="sort_options">
         <item>↓ Název</item>
         <item>↑ Název</item>
+        <item>↓ Nedávné</item>
+        <item>↑ Nedávné</item>
         <item>↓ Datum instalace</item>
         <item>↑ Datum instalace</item>
     </string-array>

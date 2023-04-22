@@ -27,6 +27,8 @@
     <string-array name="sort_options">
         <item>↓ Namn</item>
         <item>↑ Namn</item>
+        <item>↓ Senaste</item>
+        <item>↑ Senaste</item>
         <item>↓ Installationsdatum</item>
         <item>↑ Installationsdatum</item>
     </string-array>
