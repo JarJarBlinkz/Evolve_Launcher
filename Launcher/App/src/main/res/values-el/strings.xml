@@ -24,4 +24,11 @@
     <string name="autorun">Ξεκινήστε τον εκτοξευτή 爪 με headset (αυτόματη εκκίνηση)</string>
     <string name="failed_to_launch">Αποτυχία εκκίνησης</string>
     <string name="default_tools_group">Εργαλεία</string>
+
+    <string-array name="sort_options">
+        <item>↓ Όνομα</item>
+        <item>↑ Όνομα</item>
+        <item>↓ Ημερομηνία εγκατάστασης</item>
+        <item>↑ Ημερομηνία εγκατάστασης</item>
+    </string-array>
 </resources>

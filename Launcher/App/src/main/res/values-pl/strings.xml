@@ -25,4 +25,11 @@
     <string name="autorun">Uruchom 爪 Launcher przy starcie headsetu (autostart)</string>
     <string name="failed_to_launch">Nie udało się uruchomić</string>
     <string name="default_tools_group">Narzędzia</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nazwa</item>
+        <item>↑ Nazwa</item>
+        <item>↓ Data instalacji</item>
+        <item>↑ Data instalacji</item>
+    </string-array>
 </resources>

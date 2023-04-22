@@ -24,4 +24,11 @@
     <string name="autorun">Käynnistä 爪 Launcher VR-lasit (automaattinen käynnistys)</string>
     <string name="failed_to_launch">Käynnistys epäonnistui</string>
     <string name="default_tools_group">Työkalut</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nimi</item>
+        <item>↑ Nimi</item>
+        <item>↓ Asennuspäivämäärä</item>
+        <item>↑ Asennuspäivämäärä</item>
+    </string-array>
 </resources>

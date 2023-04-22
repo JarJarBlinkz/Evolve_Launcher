@@ -27,4 +27,11 @@
     <string name="autorun">Starten Sie 爪 Launcher mit Headset (Autostart)</string>
     <string name="failed_to_launch">Start fehlgeschlagen</string>
     <string name="default_tools_group">Werkzeuge</string>
+
+    <string-array name="sort_options">
+        <item>↓ Name</item>
+        <item>↑ Name</item>
+        <item>↓ Installationsdatum</item>
+        <item>↑ Installationsdatum</item>
+    </string-array>
 </resources>

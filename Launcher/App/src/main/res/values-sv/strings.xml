@@ -23,4 +23,11 @@
     <string name="autorun">Starta 爪 Launcher med headset (autostart)</string>
     <string name="failed_to_launch">Misslyckades att starta</string>
     <string name="default_tools_group">Verktyg</string>
+
+    <string-array name="sort_options">
+        <item>↓ Namn</item>
+        <item>↑ Namn</item>
+        <item>↓ Installationsdatum</item>
+        <item>↑ Installationsdatum</item>
+    </string-array>
 </resources>

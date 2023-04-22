@@ -15,7 +15,7 @@
     <string name="background_opacity">Kelegapan latar</string>
     <string name="icons_size">Saiz ikon</string>
     <string name="show_app_names">Tunjukkan nama apl</string>
-    <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.  DOES NOT SUPPORT ALL HEADSET LANGUAGES. SET YOUR HEADSET LANGUAGE TO ENGLISH IF THIS FEATURE DOES NOT WORK PROPERLY.</string>
+    <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.</string>
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
     <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>
@@ -24,4 +24,11 @@
     <string name="autorun">Mulakan 爪 Pelancar dengan set kepala (autolari)</string>
     <string name="failed_to_launch">Gagal melancarkan</string>
     <string name="default_tools_group">Alat-alat</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nama</item>
+        <item>↑ Nama</item>
+        <item>↓ Tarikh pemasangan</item>
+        <item>↑ Tarikh pemasangan</item>
+    </string-array>
 </resources>

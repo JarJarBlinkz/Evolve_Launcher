@@ -23,4 +23,11 @@
     <string name="autorun">Start 爪 Launcher med headset (autostart)</string>
     <string name="failed_to_launch">Kunne ikke starte</string>
     <string name="default_tools_group">Værktøjer</string>
+
+    <string-array name="sort_options">
+        <item>↓ Navn</item>
+        <item>↑ Navn</item>
+        <item>↓ Installationsdato</item>
+        <item>↑ Installationsdato</item>
+    </string-array>
 </resources>

@@ -23,4 +23,11 @@
     <string name="autorun">Avvia 爪 Launcher con visore VR (autorun)</string>
     <string name="failed_to_launch">Avvio non riuscito</string>
     <string name="default_tools_group">Strumenti</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nome</item>
+        <item>↑ Nome</item>
+        <item>↓ Data di installazione</item>
+        <item>↑ Data di installazione</item>
+    </string-array>
 </resources>

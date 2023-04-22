@@ -23,4 +23,11 @@
     <string name="autorun">Запускать 爪 Launcher вместе со шлемом (автозапуск)</string>
     <string name="failed_to_launch">Не удалось запустить</string>
     <string name="default_tools_group">Инструменты</string>
+
+    <string-array name="sort_options">
+        <item>↓ Имя</item>
+        <item>↑ Имя</item>
+        <item>↓ Дата установки</item>
+        <item>↑ Дата установки</item>
+    </string-array>
 </resources>

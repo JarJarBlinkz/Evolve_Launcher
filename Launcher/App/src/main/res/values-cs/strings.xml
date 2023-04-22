@@ -24,4 +24,11 @@
     <string name="autorun">Start 爪 Launcher med headset (autokør)</string>
     <string name="failed_to_launch">Spuštění se nezdařilo</string>
     <string name="default_tools_group">Nástroje</string>
+
+    <string-array name="sort_options">
+        <item>↓ Název</item>
+        <item>↑ Název</item>
+        <item>↓ Datum instalace</item>
+        <item>↑ Datum instalace</item>
+    </string-array>
 </resources>

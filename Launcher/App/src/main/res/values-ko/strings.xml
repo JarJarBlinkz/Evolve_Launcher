@@ -24,4 +24,11 @@
     <string name="autorun">헤드셋과 함께 爪 런처 시작(자동 실행)</string>
     <string name="failed_to_launch">시작 실패</string>
     <string name="default_tools_group">도구</string>
+
+    <string-array name="sort_options">
+        <item>↓ 이름</item>
+        <item>↑ 이름</item>
+        <item>↓ 설치 날짜</item>
+        <item>↑ 설치 날짜</item>
+    </string-array>
 </resources>

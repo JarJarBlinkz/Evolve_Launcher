@@ -24,4 +24,11 @@
     <string name="autorun">ヘッドセットで爪ランチャーを発射（自動実行）</string>
     <string name="failed_to_launch">起動に失敗しました</string>
     <string name="default_tools_group">ツール</string>
+
+    <string-array name="sort_options">
+        <item>↓ 名前</item>
+        <item>↑ 名前</item>
+        <item>↓ インストール日</item>
+        <item>↑ インストール日</item>
+    </string-array>
 </resources>

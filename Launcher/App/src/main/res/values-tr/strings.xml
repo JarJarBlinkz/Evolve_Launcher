@@ -24,4 +24,11 @@
     <string name="autorun">VR kulaklığı ile 爪 Launcher’ı başlatın (otomatik başlatma)</string>
     <string name="failed_to_launch">Başlatma başarısız oldu</string>
     <string name="default_tools_group">Araçlar</string>
+
+    <string-array name="sort_options">
+        <item>↓ İsim</item>
+        <item>↑ İsim</item>
+        <item>↓ Kurulum tarihi</item>
+        <item>↑ Kurulum tarihi</item>
+    </string-array>
 </resources>

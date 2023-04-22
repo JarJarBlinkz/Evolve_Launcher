@@ -25,4 +25,11 @@
     <string name="autorun">Démarrer 爪 Launcher avec casque (autorun)</string>
     <string name="failed_to_launch">Échec du lancement</string>
     <string name="default_tools_group">Outils</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nom</item>
+        <item>↑ Nom</item>
+        <item>↓ Date d\'installation</item>
+        <item>↑ Date d\'installation</item>
+    </string-array>
 </resources>

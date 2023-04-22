@@ -24,4 +24,11 @@
     <string name="autorun">Porniți 爪 Lansatorul cu setul cu cască (pornire automată)</string>
     <string name="failed_to_launch">Lansarea a eșuat</string>
     <string name="default_tools_group">Instrumente</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nume</item>
+        <item>↑ Nume</item>
+        <item>↓ Data instalării</item>
+        <item>↑ Data instalării</item>
+    </string-array>
 </resources>

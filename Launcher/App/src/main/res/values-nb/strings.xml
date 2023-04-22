@@ -24,4 +24,11 @@
     <string name="autorun">Start 爪 Launcher med hodesett (autokjør)</string>
     <string name="failed_to_launch">Kunne ikke starte</string>
     <string name="default_tools_group">Verktøy</string>
+
+    <string-array name="sort_options">
+        <item>↓ Navn</item>
+        <item>↑ Navn</item>
+        <item>↓ Installasjonsdato</item>
+        <item>↑ Installasjonsdato</item>
+    </string-array>
 </resources>

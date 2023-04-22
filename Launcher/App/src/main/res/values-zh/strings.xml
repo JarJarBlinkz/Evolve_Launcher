@@ -26,4 +26,11 @@
     <string name="autorun">启动爪发射器与VR头盔（自动运行）</string>
     <string name="failed_to_launch">启动失败</string>
     <string name="default_tools_group">工具</string>
+
+    <string-array name="sort_options">
+        <item>↓ 名称</item>
+        <item>↑ 名称</item>
+        <item>↓ 安装日期</item>
+        <item>↑ 安装日期</item>
+    </string-array>
 </resources>

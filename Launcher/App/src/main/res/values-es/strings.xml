@@ -23,4 +23,11 @@
     <string name="autorun">Iniciar 爪 Launcher con casco de realidad virtual (autoarranque)</string>
     <string name="failed_to_launch">Fallo al iniciar</string>
     <string name="default_tools_group">Herramientas</string>
+
+    <string-array name="sort_options">
+        <item>↓ Nombre</item>
+        <item>↑ Nombre</item>
+        <item>↓ Fecha de instalación</item>
+        <item>↑ Fecha de instalación</item>
+    </string-array>
 </resources>
