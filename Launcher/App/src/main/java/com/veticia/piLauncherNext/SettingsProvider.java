@@ -10,10 +10,14 @@ import com.veticia.piLauncherNext.platforms.AndroidPlatform;
 import com.veticia.piLauncherNext.platforms.PSPPlatform;
 import com.veticia.piLauncherNext.platforms.VRPlatform;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +38,7 @@ public class SettingsProvider
     public static final String KEY_SORT_SPINNER = "KEY_SORT_SPINNER";
     public static final String KEY_SORT_FIELD = "KEY_SORT_FIELD";
     public static final String KEY_SORT_ORDER = "KEY_SORT_ORDER";
+    public static final String KEY_RECENTS = "KEY_RECENTS";
 
     private final String KEY_APP_GROUPS = "prefAppGroups";
     private final String KEY_APP_LIST = "prefAppList";
@@ -57,6 +62,7 @@ public class SettingsProvider
     private Map<String, String> mAppList = new HashMap<>();
     private Set<String> mAppGroups = new HashSet<>();
     private Set<String> mSelectedGroups = new HashSet<>();
+    private Map<String, Long> mRecents = new HashMap<>();
 
     private SettingsProvider(Context context) {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -73,6 +79,19 @@ public class SettingsProvider
     {
         readValues();
         return mAppList;
+    }
+
+    public Map<String, Long> getRecents()
+    {
+        if (mRecents.isEmpty()) {
+            loadRecents();
+        }
+        return mRecents;
+    }
+
+    public void updateRecent(String packageName, Long timestamp) {
+        mRecents.put(packageName, timestamp);
+        saveRecents();
     }
 
     public ArrayList<ApplicationInfo> getInstalledApps(Context context, List<String> selected, boolean first) {
@@ -342,5 +361,39 @@ public class SettingsProvider
 
     public boolean isPlatformEnabled(String key) {
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, true);
+    }
+
+    private void saveRecents() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (preferences != null) {
+            JSONObject jsonObject = new JSONObject(mRecents);
+            String jsonString = jsonObject.toString();
+            preferences.edit()
+                .remove(KEY_RECENTS)
+                .putString(KEY_RECENTS, jsonString)
+                .apply();
+        }
+    }
+
+    private void loadRecents() {
+        Map<String, Long> outputMap = new HashMap<>();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try {
+            if (preferences != null) {
+                String jsonString = preferences.getString(KEY_RECENTS, (new JSONObject()).toString());
+                if (jsonString != null) {
+                    JSONObject jsonObject = new JSONObject(jsonString);
+                    Iterator<String> keysItr = jsonObject.keys();
+                    while (keysItr.hasNext()) {
+                        String key = keysItr.next();
+                        Long value = jsonObject.getLong(key);
+                        outputMap.put(key, value);
+                    }
+                }
+            }
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        mRecents = outputMap;
     }
 }

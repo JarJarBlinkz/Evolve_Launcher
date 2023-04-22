@@ -30,6 +30,8 @@
     <string-array name="sort_options">
         <item>↓ ชื่อ</item>
         <item>↑ ชื่อ</item>
+        <item>↓ ล่าสุด</item>
+        <item>↑ ล่าสุด</item>
         <item>↓ วันที่ติดตั้ง</item>
         <item>↑ วันที่ติดตั้ง</item>
     </string-array>

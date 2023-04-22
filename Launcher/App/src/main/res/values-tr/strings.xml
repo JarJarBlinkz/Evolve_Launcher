@@ -28,6 +28,8 @@
     <string-array name="sort_options">
         <item>↓ İsim</item>
         <item>↑ İsim</item>
+        <item>↓ Son</item>
+        <item>↑ Son</item>
         <item>↓ Kurulum tarihi</item>
         <item>↑ Kurulum tarihi</item>
     </string-array>

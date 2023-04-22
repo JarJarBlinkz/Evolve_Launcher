@@ -27,6 +27,8 @@
     <string-array name="sort_options">
         <item>↓ Имя</item>
         <item>↑ Имя</item>
+        <item>↓ Недавние</item>
+        <item>↑ Недавние</item>
         <item>↓ Дата установки</item>
         <item>↑ Дата установки</item>
     </string-array>

@@ -184,21 +184,35 @@ public class MainActivity extends Activity
         sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                if (pos == 0) {
-                    mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
-                    mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
-                } else if (pos == 1) {
-                    mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
-                    mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
-                } else if (pos == 2) {
-                    mSortField = AppsAdapter.SORT_FIELD.INSTALL_DATE;
-                    mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
-                } else if (pos == 3) {
-                    mSortField = AppsAdapter.SORT_FIELD.INSTALL_DATE;
-                    mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
-                } else { //default values so we don't crash if it's not selected
-                    mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
-                    mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                switch (pos) {
+                    case 0:
+                        mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
+                        mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                        break;
+                    case 1:
+                        mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
+                        mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
+                        break;
+                    case 2:
+                        mSortField = AppsAdapter.SORT_FIELD.RECENT_DATE;
+                        mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                        break;
+                    case 3:
+                        mSortField = AppsAdapter.SORT_FIELD.RECENT_DATE;
+                        mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
+                        break;
+                    case 4:
+                        mSortField = AppsAdapter.SORT_FIELD.INSTALL_DATE;
+                        mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                        break;
+                    case 5:
+                        mSortField = AppsAdapter.SORT_FIELD.INSTALL_DATE;
+                        mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
+                        break;
+                    default:
+                        mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
+                        mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+                        break;
                 }
 
                 //update UI
@@ -599,6 +613,7 @@ public class MainActivity extends Activity
     private final Handler handler = new Handler();
 
     public boolean openApp(ApplicationInfo app) {
+        settingsProvider.updateRecent(app.packageName, System.currentTimeMillis());
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
         if(!platform.runApp(this, app, false)){
             TextView toastText = findViewById(R.id.toast_text);

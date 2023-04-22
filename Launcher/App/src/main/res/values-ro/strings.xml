@@ -28,6 +28,8 @@
     <string-array name="sort_options">
         <item>↓ Nume</item>
         <item>↑ Nume</item>
+        <item>↓ Recent</item>
+        <item>↑ Recent</item>
         <item>↓ Data instalării</item>
         <item>↑ Data instalării</item>
     </string-array>

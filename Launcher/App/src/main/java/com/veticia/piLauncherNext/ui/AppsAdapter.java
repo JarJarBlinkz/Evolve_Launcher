@@ -43,7 +43,9 @@ import com.veticia.piLauncherNext.platforms.AbstractPlatform;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AppsAdapter extends BaseAdapter
 {
@@ -59,7 +61,7 @@ public class AppsAdapter extends BaseAdapter
     private final int itemScale;
     private final SettingsProvider settingsProvider;
 
-    public static enum SORT_FIELD { APP_NAME, INSTALL_DATE, RECENT_DATE }
+    public static enum SORT_FIELD { APP_NAME, RECENT_DATE, INSTALL_DATE }
     public static enum SORT_ORDER { ASCENDING, DESCENDING }
 
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
@@ -248,8 +250,26 @@ public class AppsAdapter extends BaseAdapter
         this.notifyDataSetChanged(); // for real time updates
     }
 
+    private Long getInstallDate(ApplicationInfo applicationInfo) {
+        String installDateString = "";
+        long installDateLong = 0L;
+        if (applicationInfo.taskAffinity != null) {
+            installDateString = applicationInfo.taskAffinity;
+        } else {
+            installDateString = "0";
+        }
+        try {
+            installDateLong = Long.parseLong(installDateString);
+        } catch (NumberFormatException e) {
+            // result 0 is already defined by default
+        }
+        return installDateLong;
+    }
+
     public void sort(SORT_FIELD field, SORT_ORDER order) {
-        PackageManager pm = mainActivityContext.getPackageManager();
+        final PackageManager pm = mainActivityContext.getPackageManager();
+        final Map<String, Long> recents = settingsProvider.getRecents();
+
         Collections.sort(appList, (a, b) -> {
             String na = "";
             String nb = "";
@@ -263,30 +283,24 @@ public class AppsAdapter extends BaseAdapter
                     result = na.compareTo(nb);
                     break;
 
+                case RECENT_DATE:
+                    if (recents.containsKey(a.packageName)) {
+                        naL = recents.get(a.packageName).longValue();
+                    } else {
+                        naL = getInstallDate(a);
+                    }
+                    if (recents.containsKey(b.packageName)) {
+                        nbL = recents.get(b.packageName).longValue();
+                    } else {
+                        nbL = getInstallDate(b);
+                    }
+                    result = Long.compare(naL, nbL);
+                    break;
+
                 case INSTALL_DATE:
-                    if (a.taskAffinity != null) {
-                        na = a.taskAffinity;
-                    } else {
-                        na = "0";
-                    }
-                    if (b.taskAffinity != null) {
-                        nb = b.taskAffinity;
-                    } else {
-                        nb = "0";
-                    }
-                    try{
-                        naL = Long.parseLong(na);
-                        nbL = Long.parseLong(nb);
-                    }catch (NumberFormatException e){
-                        // result 0 is already defined by default
-                        break;
-                    }
-                    if (naL < nbL) {
-                        result = -1;
-                    } else if (naL > nbL) {
-                        result = 1;
-                    }
-                    // result 0 is already defined by default
+                    naL = getInstallDate(a);
+                    nbL = getInstallDate(b);
+                    result = Long.compare(naL, nbL);
                     break;
             }
 
