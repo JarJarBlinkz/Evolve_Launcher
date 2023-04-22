@@ -1,6 +1,9 @@
-# Latest version: [piLauncherNext_100.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_100.apk)
+# Latest version: [piLauncherNext_101.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_101.apk)
 
 ## Changelog
+### 1.0.1
+- hotfix: nullPointerException crash on first run
+
 ### 1.0.0
 - Sorting options (by name, recently launched, install date) [@Maarten van Dillen](https://github.com/maartenvandillen/)
 - Greatly improved UI performance

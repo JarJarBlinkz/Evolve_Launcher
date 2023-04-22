@@ -213,7 +213,9 @@ public class MainActivity extends Activity
                 }
 
                 //update UI
-                ((AppsAdapter)appGridView.getAdapter()).sort(mSortField, mSortOrder);
+                if (appGridView.getAdapter() != null) {
+                    ((AppsAdapter) appGridView.getAdapter()).sort(mSortField, mSortOrder);
+                }
 
                 //persist sort settings
                 SharedPreferences.Editor editor = sharedPreferences.edit();
