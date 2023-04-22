@@ -20,7 +20,7 @@
     <string name="accesibility_tooltip">Включите 爪 Launcher из меню специальных возможностей</string>
     <string name="icons_style">Стиль иконок</string>
     <string name="update_header">Доступна новая версия</string>
-    <string name="autorun">Запускать 爪 Launcher вместе со шлемом (автозапуск)</string>
+    <string name="autorun">Запустите 爪 Launcher при запуске системы</string>
     <string name="failed_to_launch">Не удалось запустить</string>
     <string name="default_tools_group">Инструменты</string>
 

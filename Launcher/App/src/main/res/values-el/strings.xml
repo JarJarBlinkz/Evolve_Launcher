@@ -21,7 +21,7 @@
     <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>
     <string name="icons_style">Στυλ εικονίδιο</string>
     <string name="update_header">Διαθέσιμη νέα έκδοση</string>
-    <string name="autorun">Ξεκινήστε τον εκτοξευτή 爪 με headset (αυτόματη εκκίνηση)</string>
+    <string name="autorun">Εκκινήστε τον 爪 Launcher κατά την εκκίνηση του συστήματος</string>
     <string name="failed_to_launch">Αποτυχία εκκίνησης</string>
     <string name="default_tools_group">Εργαλεία</string>
 

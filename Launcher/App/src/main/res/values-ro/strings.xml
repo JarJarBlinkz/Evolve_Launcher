@@ -21,7 +21,7 @@
     <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
     <string name="icons_style">Stilul icoanei</string>
     <string name="update_header">Noua versiune disponibilă</string>
-    <string name="autorun">Porniți 爪 Lansatorul cu setul cu cască (pornire automată)</string>
+    <string name="autorun">Lansați 爪 Launcher la pornirea sistemului</string>
     <string name="failed_to_launch">Lansarea a eșuat</string>
     <string name="default_tools_group">Instrumente</string>
 

@@ -21,7 +21,7 @@
     <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">K dispozici je nová verze</string>
-    <string name="autorun">Start 爪 Launcher med headset (autokør)</string>
+    <string name="autorun">Spusťte 爪 Launcher při spuštění systému</string>
     <string name="failed_to_launch">Spuštění se nezdařilo</string>
     <string name="default_tools_group">Nástroje</string>
 

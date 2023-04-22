@@ -22,7 +22,7 @@
     <string name="accesibility_tooltip" >Enable 爪 Launcher in accesibility menu</string>
     <string name="icons_style">Icons style</string>
     <string name="update_header">New version available</string>
-    <string name="autorun">Start 爪 Launcher with headset (autorun)</string>
+    <string name="autorun">Launch 爪 Launcher with system startup</string>
     <string name="failed_to_launch">Failed to launch</string>
     <string name="default_tools_group">Tools</string>
 

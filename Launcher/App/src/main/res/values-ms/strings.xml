@@ -21,7 +21,7 @@
     <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>
     <string name="icons_style">Gaya ikon</string>
     <string name="update_header">Versi baharu tersedia</string>
-    <string name="autorun">Mulakan 爪 Pelancar dengan set kepala (autolari)</string>
+    <string name="autorun">Lancarkan 爪 Pelancar dengan permulaan sistem</string>
     <string name="failed_to_launch">Gagal melancarkan</string>
     <string name="default_tools_group">Alat-alat</string>
 

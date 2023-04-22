@@ -22,7 +22,7 @@
     <string name="accesibility_tooltip">Włącz program uruchamiający 爪 z menu ułatwień dostępu</string>
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">Dostępna nowa wersja</string>
-    <string name="autorun">Uruchom 爪 Launcher przy starcie headsetu (autostart)</string>
+    <string name="autorun">Uruchom 爪 Launcher wraz ze startem systemu</string>
     <string name="failed_to_launch">Nie udało się uruchomić</string>
     <string name="default_tools_group">Narzędzia</string>
 

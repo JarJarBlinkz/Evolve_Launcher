@@ -22,7 +22,7 @@
     <string name="accesibility_tooltip">Ative o iniciador 爪 no menu de acessibilidade</string>
     <string name="icons_style">Estilo ícone</string>
     <string name="update_header">Nova versão disponível</string>
-    <string name="autorun">Iniciar 爪 Launcher com capacete de realidade virtual (autorun)</string>
+    <string name="autorun">Inicie o 爪 Launcher com a inicialização do sistema</string>
     <string name="failed_to_launch">Falha ao iniciar</string>
     <string name="default_tools_group">Ferramentas</string>
 
