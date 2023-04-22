@@ -30,6 +30,9 @@ public class SettingsProvider
     public static final String KEY_PLATFORM_ANDROID = "KEY_PLATFORM_ANDROID";
     public static final String KEY_PLATFORM_PSP = "KEY_PLATFORM_PSP";
     public static final String KEY_PLATFORM_VR = "KEY_PLATFORM_VR";
+    public static final String KEY_SORT_SPINNER = "KEY_SORT_SPINNER";
+    public static final String KEY_SORT_FIELD = "KEY_SORT_FIELD";
+    public static final String KEY_SORT_ORDER = "KEY_SORT_ORDER";
 
     private final String KEY_APP_GROUPS = "prefAppGroups";
     private final String KEY_APP_LIST = "prefAppList";
@@ -137,11 +140,6 @@ public class SettingsProvider
         // Create new list of apps
         PackageManager pm = context.getPackageManager();
         ArrayList<ApplicationInfo> output = new ArrayList<>(appMap.values());
-        output.sort((a, b) -> {
-            String na = getAppDisplayName(context, a.packageName, a.loadLabel(pm)).toUpperCase();
-            String nb = getAppDisplayName(context, b.packageName, b.loadLabel(pm)).toUpperCase();
-            return na.compareTo(nb);
-        });
         return output;
     }
 

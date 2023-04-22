@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -55,7 +56,7 @@ public class AppsAdapter extends BaseAdapter
     private static String mTempPackage;
     private static long mTempTimestamp;
 
-    public static enum SORT_MODE { APP_NAME, INSTALL_DATE, RECENT_DATE }
+    public static enum SORT_FIELD { APP_NAME, INSTALL_DATE, RECENT_DATE }
     public static enum SORT_ORDER { ASCENDING, DESCENDING }
 
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
@@ -70,6 +71,10 @@ public class AppsAdapter extends BaseAdapter
         ArrayList<String> selected = mSettings.getAppGroupsSorted(true);
         boolean first = !selected.isEmpty() && selected.get(0).compareTo(groups.get(0)) == 0;
         mInstalledApps = mSettings.getInstalledApps(context, selected, first);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        SORT_FIELD sortField = SORT_FIELD.values()[mPreferences.getInt(SettingsProvider.KEY_SORT_FIELD, 0)];
+        SORT_ORDER sortOrder = SORT_ORDER.values()[mPreferences.getInt(SettingsProvider.KEY_SORT_ORDER, 0)];
+        this.sort(sortField, sortOrder);
     }
 
     public int getCount()
@@ -202,12 +207,12 @@ public class AppsAdapter extends BaseAdapter
         mContext.reloadUI();
     }
 
-    public void sort(SORT_MODE mode, SORT_ORDER order) {
+    public void sort(SORT_FIELD field, SORT_ORDER order) {
         PackageManager pm = mContext.getPackageManager();
         Collections.sort(mInstalledApps, (a, b) -> {
             String na = "";
             String nb = "";
-            switch (mode) {
+            switch (field) {
                 case APP_NAME:
                     na = SettingsProvider.getAppDisplayName(mContext, a.packageName, a.loadLabel(pm)).toUpperCase();
                     nb = SettingsProvider.getAppDisplayName(mContext, b.packageName, b.loadLabel(pm)).toUpperCase();
