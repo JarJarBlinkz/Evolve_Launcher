@@ -465,6 +465,11 @@ public class MainActivity extends Activity
         });
 
         SeekBar opacity = d.findViewById(R.id.bar_opacity);
+        opacity.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
+        opacity.setMax(10);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            opacity.setMin(0);
+        }
         opacity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
@@ -480,13 +485,13 @@ public class MainActivity extends Activity
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
-        opacity.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_OPACITY, DEFAULT_OPACITY));
-        opacity.setMax(10);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            opacity.setMin(0);
-        }
 
         SeekBar scale = d.findViewById(R.id.bar_scale);
+        scale.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
+        scale.setMax(SCALES.length - 1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            scale.setMin(0);
+        }
         scale.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int value, boolean b) {
@@ -502,11 +507,6 @@ public class MainActivity extends Activity
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
-        scale.setProgress(sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE));
-        scale.setMax(SCALES.length - 1);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            scale.setMin(0);
-        }
 
         int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
         ImageView[] views = {
