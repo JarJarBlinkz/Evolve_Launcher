@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Appar</string>
@@ -6,6 +7,7 @@
     <string name="edit_group">Redigera grupp</string>
     <string name="app_details">Appdetaljer</string>
     <string name="apps_hidden">Dold</string>
+
     <string name="settings_apps_enable">Tillåt redigering</string>
     <string name="settings_apps_disable">Stäng av redigering</string>
     <string name="settings_device">Enhetsinställningar</string>
@@ -15,6 +17,7 @@
     <string name="icons_size">Ikoner storlek</string>
     <string name="show_app_names">Visa appnamn</string>
     <string name="start_shortcut">Öppna startprogrammet med ikonen Utforska från systemets instrumentpanel.</string>
+
     <string name="accesibility_label">Byt ut appen Utforska</string>
     <string name="accesibility_button">Öppna Inställningar</string>
     <string name="accesibility_tooltip">Aktivera startprogrammet 爪 från tillgänglighetsmenyn</string>

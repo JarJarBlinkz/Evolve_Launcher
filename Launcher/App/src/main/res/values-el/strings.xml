@@ -7,6 +7,7 @@
     <string name="edit_group">Επεξεργασία ομάδας</string>
     <string name="app_details">Λεπτομέρειες εφαρμογής</string>
     <string name="apps_hidden">Κρυμμένος</string>
+
     <string name="settings_apps_enable">Ενεργοποιήστε την επεξεργασία</string>
     <string name="settings_apps_disable">Απενεργοποιήστε την επεξεργασία</string>
     <string name="settings_device">Ρυθμίσεις συσκευής</string>
@@ -16,6 +17,7 @@
     <string name="icons_size">Μέγεθος εικονιδίων</string>
     <string name="show_app_names">Εμφάνιση ονομάτων εφαρμογών</string>
     <string name="start_shortcut">Ανοίξτε τον εκτοξευτή με το εικονίδιο Εξερευνήστε από το ταμπλό.</string>
+
     <string name="accesibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
     <string name="accesibility_button">Ανοίξτε τις ρυθμίσεις</string>
     <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>

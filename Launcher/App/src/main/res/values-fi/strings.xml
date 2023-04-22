@@ -7,6 +7,7 @@
     <string name="edit_group">Muokkaa ryhmää</string>
     <string name="app_details">Sovelluksen tiedot</string>
     <string name="apps_hidden">Piilotettu</string>
+
     <string name="settings_apps_enable">Salli muokkaus</string>
     <string name="settings_apps_disable">Estä muokkaus</string>
     <string name="settings_device">Laite asetukset</string>
@@ -16,6 +17,7 @@
     <string name="icons_size">Ikonien koko</string>
     <string name="show_app_names">Näytä sovellusten nimet</string>
     <string name="start_shortcut">Avaa käynnistysohjelma käyttämällä Järjestelmätarjottimen Tutustu-kuvaketta.</string>
+
     <string name="accesibility_label">Vaihda Tutustu-sovellus</string>
     <string name="accesibility_button">Avaa asetukset</string>
     <string name="accesibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>

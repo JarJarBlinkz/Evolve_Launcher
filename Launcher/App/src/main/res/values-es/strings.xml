@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplicaciones</string>
@@ -6,6 +7,7 @@
     <string name="edit_group">Editar grupo</string>
     <string name="app_details">Detalles de la aplicación</string>
     <string name="apps_hidden">Oculto</string>
+
     <string name="settings_apps_enable">Permitir la edición</string>
     <string name="settings_apps_disable">Deshabilitar edición</string>
     <string name="settings_device">Configuración de dispositivo</string>
@@ -15,6 +17,7 @@
     <string name="icons_size">Tamaño de los iconos</string>
     <string name="show_app_names">Mostrar nombres de aplicaciones</string>
     <string name="start_shortcut">Abra el iniciador con el icono Explorar desde el panel del sistema.</string>
+
     <string name="accesibility_label">Reemplace la aplicación Explorar</string>
     <string name="accesibility_button">Abrir la configuración</string>
     <string name="accesibility_tooltip">Habilitar el lanzador 爪 del menú de accesibilidad</string>

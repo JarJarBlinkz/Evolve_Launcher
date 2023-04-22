@@ -7,6 +7,7 @@
     <string name="edit_group">Grubu düzenle</string>
     <string name="app_details">Uygulama ayrıntıları</string>
     <string name="apps_hidden">Gizlenmiş</string>
+
     <string name="settings_apps_enable">Düzenlemeyi etkinleştir</string>
     <string name="settings_apps_disable">Düzenlemeyi devre dışı bırak</string>
     <string name="settings_device">Cihaz ayarları</string>
@@ -16,6 +17,7 @@
     <string name="icons_size">Simge boyutu</string>
     <string name="show_app_names">Uygulama adlarını göster</string>
     <string name="start_shortcut">Sistem panosundan Keşfet simgesiyle başlatıcıyı açın.</string>
+
     <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
     <string name="accesibility_button">Ayarları aç</string>
     <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>

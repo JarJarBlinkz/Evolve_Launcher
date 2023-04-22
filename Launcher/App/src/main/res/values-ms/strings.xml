@@ -7,6 +7,7 @@
     <string name="edit_group">Edit kumpulan</string>
     <string name="app_details">App details</string>
     <string name="apps_hidden">Tersembunyi</string>
+
     <string name="settings_apps_enable">Dayakan pengeditan</string>
     <string name="settings_apps_disable">Lumpuhkan pengeditan</string>
     <string name="settings_device">Tetapan peranti</string>
@@ -16,6 +17,7 @@
     <string name="icons_size">Saiz ikon</string>
     <string name="show_app_names">Tunjukkan nama apl</string>
     <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.</string>
+
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>
     <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>

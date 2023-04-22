@@ -1,30 +1,29 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
-    <string name="add_group">Gruppe hinzufügen</string>
+    <string name="add_group">Neue Gruppe</string>
     <string name="delete_group">Gruppe löschen</string>
     <string name="edit_group">Gruppe bearbeiten</string>
     <string name="app_details">App-Details</string>
     <string name="apps_hidden">Versteckt</string>
 
-    <string name="settings_apps_enable">Editieren aktivieren</string>
-    <string name="settings_apps_disable">Editieren deaktivieren</string>
-    <string name="settings_device">Geräteeinstellungen</string>
-    <string name="settings_look">Launcher-Einstellungen</string>
+    <string name="settings_apps_enable">Bearbeitung aktivieren</string>
+    <string name="settings_apps_disable">Bearbeitung deaktivieren</string>
+    <string name="settings_device">Geräte\neinstellungen</string>
+    <string name="settings_look">Launcher\nEinstellungen</string>
     <string name="settings_platforms">Plattformen</string>
-    <string name="background_opacity">Hintergrundtransparenz</string>
-    <string name="icons_size">Symbolgröße</string>
-    <string name="show_app_names">App-Namen anzeigen</string>
-
-    <string name="start_shortcut">Öffnen Sie den Launcher mit dem Explorer-Symbol in der Systemsteuerung.</string>
+    <string name="background_opacity">Transparenz des Hintergrundes</string>
+    <string name="icons_size">Icons Größe</string>
+    <string name="show_app_names">Zeige App Namen</string>
+    <string name="start_shortcut">爪 Launcher über Explorer Icon öffnen.</string>
 
     <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
     <string name="accesibility_button">Einstellungen öffnen</string>
-    <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Eingabehilfemenü</string>
+    <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Bedienungshilfemenü</string>
     <string name="icons_style">Icons-Stil</string>
     <string name="update_header">Neue Version verfügbar</string>
-    <string name="autorun">Starten Sie 爪 Launcher beim Systemstart</string>
+    <string name="autorun">爪 Launcher beim Systemstart ausführen</string>
     <string name="failed_to_launch">Start fehlgeschlagen</string>
     <string name="default_tools_group">Werkzeuge</string>
 

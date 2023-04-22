@@ -7,6 +7,7 @@
     <string name="edit_group">Upravit skupinu</string>
     <string name="app_details">Podrobnosti aplikace</string>
     <string name="apps_hidden">Skryté</string>
+
     <string name="settings_apps_enable">Povolit úpravy</string>
     <string name="settings_apps_disable">Zakázat úpravy</string>
     <string name="settings_device">Nastavení zařízení</string>
@@ -16,6 +17,7 @@
     <string name="icons_size">Velikost ikon</string>
     <string name="show_app_names">Zobrazit názvy aplikací</string>
     <string name="start_shortcut">Spouštěč otevřete pomocí ikony Prozkoumat v systémové liště.</string>
+
     <string name="accesibility_label">Nahraďte aplikaci Prozkoumat</string>
     <string name="accesibility_button">Otevřete nastavení</string>
     <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>

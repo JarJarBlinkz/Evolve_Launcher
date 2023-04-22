@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 啟動器-</string>
+    <string name="default_apps_group">應用程序</string>
     <string name="add_group">添加分組</string>
     <string name="delete_group">刪除分組</string>
     <string name="edit_group">編輯分區</string>
@@ -11,13 +12,12 @@
     <string name="settings_apps_disable">禁用編輯</string>
     <string name="settings_device">設備設置</string>
     <string name="settings_look">启动器设置</string>
+    <string name="settings_platforms">平台</string>
     <string name="background_opacity">背景透明度</string>
     <string name="icons_size">圖標大小</string>
     <string name="show_app_names">顯示應用名稱</string>
     <string name="start_shortcut">使用系統欄中的【瀏覽器】圖標來啟動。</string>
 
-    <string name="default_apps_group">應用程序</string>
-    <string name="settings_platforms">平台</string>
     <string name="accesibility_label">替換瀏覽應用</string>
     <string name="accesibility_button">打開設置</string>
     <string name="accesibility_tooltip">在輔助功能菜單中啟用爪啟動器</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
+    <string name="default_apps_group">ปพลิเคชัน</string>
     <string name="add_group">เพิ่มกลุ่ม</string>
     <string name="delete_group">ลบกลุ่ม</string>
     <string name="edit_group">แก้ไขกลุ่ม</string>
@@ -11,13 +12,12 @@
     <string name="settings_apps_disable">ปิดใช้งานการแก้ไข</string>
     <string name="settings_device">การตั้งค่าระบบ</string>
     <string name="settings_look">การตั้งค่าตัวเรียกใช้งาน</string>
+    <string name="settings_platforms">แพลตฟอร์ม</string>
     <string name="background_opacity">ความทึบของพื้นหลัง</string>
     <string name="icons_size">ขนาดไอคอน</string>
     <string name="show_app_names">แสดงชื่อแอป</string>
     <string name="start_shortcut">เปิดตัวเรียกใช้งานด้วยไอคอนสำรวจจากแผงควบคุมระบบ</string>
 
-    <string name="default_apps_group">ปพลิเคชัน</string>
-    <string name="settings_platforms">แพลตฟอร์ม</string>
     <string name="accesibility_label">แทนที่แอปสำรวจ</string>
     <string name="accesibility_button">เปิดการตั้งค่า</string>
     <string name="accesibility_tooltip">เปิดใช้งาน 爪 Launcher ในเมนูการเข้าถึง</string>
