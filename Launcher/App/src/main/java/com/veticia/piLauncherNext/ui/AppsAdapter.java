@@ -61,8 +61,8 @@ public class AppsAdapter extends BaseAdapter
     private final int itemScale;
     private final SettingsProvider settingsProvider;
 
-    public static enum SORT_FIELD { APP_NAME, RECENT_DATE, INSTALL_DATE }
-    public static enum SORT_ORDER { ASCENDING, DESCENDING }
+    public enum SORT_FIELD { APP_NAME, RECENT_DATE, INSTALL_DATE }
+    public enum SORT_ORDER { ASCENDING, DESCENDING }
 
     public AppsAdapter(MainActivity context, boolean editMode, int scale, boolean names)
     {
@@ -250,8 +250,9 @@ public class AppsAdapter extends BaseAdapter
         this.notifyDataSetChanged(); // for real time updates
     }
 
+    @SuppressWarnings("RedundantVariableInitializer")
     private Long getInstallDate(ApplicationInfo applicationInfo) {
-        String installDateString = "";
+        String installDateString;
         long installDateLong = 0L;
         if (applicationInfo.taskAffinity != null) {
             installDateString = applicationInfo.taskAffinity;
@@ -271,26 +272,20 @@ public class AppsAdapter extends BaseAdapter
         final Map<String, Long> recents = settingsProvider.getRecents();
 
         Collections.sort(appList, (a, b) -> {
-            String na = "";
-            String nb = "";
-            long naL = 0L;
-            long nbL = 0L;
-            int result = 0;
+            String na;
+            String nb;
+            long naL;
+            long nbL;
+            int result;
             switch (field) {
-                case APP_NAME:
-                    na = SettingsProvider.getAppDisplayName(mainActivityContext, a.packageName, a.loadLabel(pm)).toUpperCase();
-                    nb = SettingsProvider.getAppDisplayName(mainActivityContext, b.packageName, b.loadLabel(pm)).toUpperCase();
-                    result = na.compareTo(nb);
-                    break;
-
                 case RECENT_DATE:
                     if (recents.containsKey(a.packageName)) {
-                        naL = recents.get(a.packageName).longValue();
+                        naL = recents.get(a.packageName);
                     } else {
                         naL = getInstallDate(a);
                     }
                     if (recents.containsKey(b.packageName)) {
-                        nbL = recents.get(b.packageName).longValue();
+                        nbL = recents.get(b.packageName);
                     } else {
                         nbL = getInstallDate(b);
                     }
@@ -302,6 +297,12 @@ public class AppsAdapter extends BaseAdapter
                     nbL = getInstallDate(b);
                     result = Long.compare(naL, nbL);
                     break;
+
+                default: //by APP_NAME
+                    na = SettingsProvider.getAppDisplayName(mainActivityContext, a.packageName, a.loadLabel(pm)).toUpperCase();
+                    nb = SettingsProvider.getAppDisplayName(mainActivityContext, b.packageName, b.loadLabel(pm)).toUpperCase();
+                    result = na.compareTo(nb);
+                    break;
             }
 
             return order == SORT_ORDER.ASCENDING ? result : -result;
@@ -309,6 +310,7 @@ public class AppsAdapter extends BaseAdapter
         this.notifyDataSetChanged();
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private void showAppDetails(ApplicationInfo actApp) {
 
         //set layout

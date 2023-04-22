@@ -184,10 +184,7 @@ public class MainActivity extends Activity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 switch (pos) {
-                    case 0:
-                        mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
-                        mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
-                        break;
+                    //case 0 = default
                     case 1:
                         mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
                         mSortOrder = AppsAdapter.SORT_ORDER.DESCENDING;
