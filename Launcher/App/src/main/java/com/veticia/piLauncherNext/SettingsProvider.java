@@ -55,7 +55,6 @@ public class SettingsProvider
         }
         return SettingsProvider.instance;
     }
-    private boolean isPSPSupported = false;
 
     //storage
     private final SharedPreferences mPreferences;
@@ -63,6 +62,7 @@ public class SettingsProvider
     private Set<String> mAppGroups = new HashSet<>();
     private Set<String> mSelectedGroups = new HashSet<>();
     private Map<String, Long> mRecents = new HashMap<>();
+    Set<String> def = new HashSet<>();
 
     private SettingsProvider(Context context) {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -102,9 +102,6 @@ public class SettingsProvider
         if (isPlatformEnabled(KEY_PLATFORM_VR)) {
             List<ApplicationInfo> vrApps = new VRPlatform().getInstalledApps(context);
             for (ApplicationInfo app : vrApps) {
-                if (app.packageName.startsWith(MainActivity.EMULATOR_PACKAGE)) {
-                    isPSPSupported = true;
-                }
                 if (!mAppList.containsKey(app.packageName) && mAppGroups.contains(context.getString(R.string.default_apps_group))) {
                     mAppList.put(app.packageName, context.getString(R.string.default_apps_group));
                 }
@@ -123,18 +120,14 @@ public class SettingsProvider
         }
 
         if (isPlatformEnabled(KEY_PLATFORM_PSP)) {
-            if(isPSPSupported) {
-                // only add PSP apps if the platform is supported
-                List<ApplicationInfo> pspApps = new PSPPlatform().getInstalledApps(context);
-                for (ApplicationInfo app : pspApps) {
-                    if (!mAppList.containsKey(app.packageName) && mAppGroups.contains("PSP")) {
-                        mAppList.put(app.packageName, "PSP");
-                    }
+            // only add PSP apps if the platform is supported
+            List<ApplicationInfo> pspApps = new PSPPlatform().getInstalledApps(context);
+            for (ApplicationInfo app : pspApps) {
+                if (!mAppList.containsKey(app.packageName) && mAppGroups.contains("PSP")) {
+                    mAppList.put(app.packageName, "PSP");
                 }
-                installedApplications.addAll(pspApps);
             }
-        }else{
-            isPSPSupported = false;
+            installedApplications.addAll(pspApps);
         }
 
         // Save changes to app list
@@ -259,14 +252,22 @@ public class SettingsProvider
     {
         try
         {
-            Set<String> def = new HashSet<>();
-            def.add(context.getString(R.string.default_apps_group));
+            String defAppsGroup = context.getString(R.string.default_apps_group);
+            if (!def.contains(defAppsGroup)) {
+                def.add(defAppsGroup);
+            }
             Set<String> defClone = new HashSet<>();
-            defClone.add(context.getString(R.string.default_apps_group));
+            defClone.add(defAppsGroup);
             mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
-            def.add(context.getString(R.string.default_tools_group));
-            if (isPSPSupported) {
-                def.add("PSP");
+            String defToolsGroup = context.getString(R.string.default_tools_group);
+            if (!def.contains(defToolsGroup)) {
+                def.add(defToolsGroup);
+            }
+            String defPSPgroup = "PSP";
+            if (!def.contains(defPSPgroup)) {
+                if (new PSPPlatform().isSupported(context)) {
+                    def.add(defPSPgroup);
+                }
             }
             mAppGroups = mPreferences.getStringSet(KEY_APP_GROUPS, def);
 

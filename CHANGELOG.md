@@ -1,6 +1,9 @@
-# Latest version: [piLauncherNext_101.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_101.apk)
+# Latest version: [piLauncherNext_102.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_102.apk)
 
 ## Changelog
+### 1.0.2
+- hotfix: default group PSP not created on first launch
+
 ### 1.0.1
 - hotfix: nullPointerException crash on first run
 
