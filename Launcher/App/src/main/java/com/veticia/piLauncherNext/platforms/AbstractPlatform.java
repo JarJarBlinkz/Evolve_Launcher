@@ -208,7 +208,8 @@ public abstract class AbstractPlatform {
         String[] nonVrApps = {
                 "com.pico4.settings",
                 "com.pico.browser",
-                "com.ss.android.ttvr"
+                "com.ss.android.ttvr",
+                "com.pvr.mrc"
         };
         for (String nonVrApp : nonVrApps) {
             if (app.packageName.startsWith(nonVrApp)) {

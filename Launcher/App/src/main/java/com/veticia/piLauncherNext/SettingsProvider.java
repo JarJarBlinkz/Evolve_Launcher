@@ -169,6 +169,7 @@ public class SettingsProvider
                 if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;       //X
                 if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;  //X
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
+                if (pkg.startsWith("com.pvr.mrc")) isSystemApp = false;                     //X
                 if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;             //X
                 if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;
                 if (pkg.startsWith("com.samsung.android.filter")) isSystemApp = true;
