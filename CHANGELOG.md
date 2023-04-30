@@ -1,6 +1,11 @@
-# Latest version: [piLauncherNext_102.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_102.apk)
+# Latest version: [piLauncherNext_103.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_103.apk)
 
 ## Changelog
+### 1.0.3
+- Fixed crash when removing last group (removing last group will restore default groups).
+- Added icon for Mixed Reality Capture (Pico only).
+- Restored System Tweaks menu (Oculus only).
+
 ### 1.0.2
 - hotfix: default group PSP not created on first launch
 
