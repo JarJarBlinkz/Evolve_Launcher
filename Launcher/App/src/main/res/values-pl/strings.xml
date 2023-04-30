@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplikacje</string>
@@ -12,10 +13,15 @@
     <string name="settings_device">Ustawienia urządzenia</string>
     <string name="settings_look">Ustawienia launchera</string>
     <string name="settings_platforms">Platformy</string>
+    <string name="settings_tweaks">Usprawnienia systemowe</string>
     <string name="background_opacity">Przezroczystość tła</string>
     <string name="icons_size">Rozmiar ikon</string>
     <string name="show_app_names">Pokaż nazwy aplikacji</string>
     <string name="start_shortcut">Otwórz 爪 Launcher za pomocą ikony Odkrywaj.</string>
+
+    <string name="service_app_shortcut">Skrót aplikacji</string>
+    <string name="service_explore_app">Aplikacja Odkrywaj</string>
+    <string name="service_os_updater">Aktualizator systemu</string>
 
     <string name="accesibility_label">Zastąp aplikację Odkrywaj</string>
     <string name="accesibility_button">Otwórz ustawienia</string>

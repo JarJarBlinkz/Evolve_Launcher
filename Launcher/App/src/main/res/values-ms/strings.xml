@@ -13,10 +13,15 @@
     <string name="settings_device">Tetapan peranti</string>
     <string name="settings_look">Tetapan pelancar</string>
     <string name="settings_platforms">Platform</string>
+    <string name="settings_tweaks">Tweak sistem</string>
     <string name="background_opacity">Kelegapan latar</string>
     <string name="icons_size">Saiz ikon</string>
     <string name="show_app_names">Tunjukkan nama apl</string>
     <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.</string>
+
+    <string name="service_app_shortcut">App shortcut</string>
+    <string name="service_explore_app">Apl Teroka</string>
+    <string name="service_os_updater">Pengemas kini OS</string>
 
     <string name="accesibility_label">Gantikan apl Teroka</string>
     <string name="accesibility_button">Buka tetapan</string>

@@ -13,10 +13,15 @@
     <string name="settings_device">設備設置</string>
     <string name="settings_look">启动器设置</string>
     <string name="settings_platforms">平台</string>
+    <string name="settings_tweaks">系統調節</string>
     <string name="background_opacity">背景透明度</string>
     <string name="icons_size">圖標大小</string>
     <string name="show_app_names">顯示應用名稱</string>
     <string name="start_shortcut">使用系統欄中的【瀏覽器】圖標來啟動。</string>
+
+    <string name="service_app_shortcut">應用捷徑</string>
+    <string name="service_explore_app">瀏覽器應用</string>
+    <string name="service_os_updater">系統升級</string>
 
     <string name="accesibility_label">替換瀏覽應用</string>
     <string name="accesibility_button">打開設置</string>

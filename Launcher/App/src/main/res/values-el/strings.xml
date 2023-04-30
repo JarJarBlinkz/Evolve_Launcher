@@ -13,10 +13,15 @@
     <string name="settings_device">Ρυθμίσεις συσκευής</string>
     <string name="settings_look">Ρυθμίσεις εκκινητή</string>
     <string name="settings_platforms">Πλατφόρμες</string>
+    <string name="settings_tweaks">Τροποποιήσεις συστήματος</string>
     <string name="background_opacity">Διαφάνεια φόντου</string>
     <string name="icons_size">Μέγεθος εικονιδίων</string>
     <string name="show_app_names">Εμφάνιση ονομάτων εφαρμογών</string>
     <string name="start_shortcut">Ανοίξτε τον εκτοξευτή με το εικονίδιο Εξερευνήστε από το ταμπλό.</string>
+
+    <string name="service_app_shortcut">Συντόμευση εφαρμογής</string>
+    <string name="service_explore_app">Εφαρμογή Εξερευνήστε</string>
+    <string name="service_os_updater">Ενημερωτής OS</string>
 
     <string name="accesibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
     <string name="accesibility_button">Ανοίξτε τις ρυθμίσεις</string>

@@ -13,10 +13,15 @@
     <string name="settings_device">Device settings</string>
     <string name="settings_look">Launcher settings</string>
     <string name="settings_platforms">Platforms</string>
+    <string name="settings_tweaks">System tweaks</string>
     <string name="background_opacity">Background opacity</string>
     <string name="icons_size">Icons size</string>
     <string name="show_app_names">Show app names</string>
     <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.</string>
+
+    <string name="service_app_shortcut">App shortcut</string>
+    <string name="service_explore_app">Explore app</string>
+    <string name="service_os_updater">OS updater</string>
 
     <string name="accesibility_label">Replace Explore app</string>
     <string name="accesibility_button">Open settings</string>

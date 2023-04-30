@@ -13,11 +13,15 @@
     <string name="settings_device">Cihaz ayarları</string>
     <string name="settings_look">Başlatıcı ayarları</string>
     <string name="settings_platforms">Platformlar</string>
+    <string name="settings_tweaks">Sistem tweaks</string>
     <string name="background_opacity">Arka plan opaklığı</string>
     <string name="icons_size">Simge boyutu</string>
     <string name="show_app_names">Uygulama adlarını göster</string>
     <string name="start_shortcut">Sistem panosundan Keşfet simgesiyle başlatıcıyı açın.</string>
 
+    <string name="service_app_shortcut">Uygulama kısayolu</string>
+    <string name="service_explore_app">Uygulamayı keşfedin</string>
+    <string name="service_os_updater">OS güncelleyici</string>
     <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
     <string name="accesibility_button">Ayarları aç</string>
     <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>

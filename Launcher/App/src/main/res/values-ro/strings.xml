@@ -13,10 +13,15 @@
     <string name="settings_device">Setările dispozitivului</string>
     <string name="settings_look">Setări pentru lansator</string>
     <string name="settings_platforms">Platforme</string>
+    <string name="settings_tweaks">Modificări ale sistemului</string>
     <string name="background_opacity">Opacitatea fundalului</string>
     <string name="icons_size">Dimensiunea pictogramelor</string>
     <string name="show_app_names">Afișați numele aplicațiilor</string>
     <string name="start_shortcut">Deschideți lansatorul cu pictograma Explorare din tabloul de bord al sistemului.</string>
+
+    <string name="service_app_shortcut">Comandă rapidă pentru aplicație</string>
+    <string name="service_explore_app">Aplicația Explorează</string>
+    <string name="service_os_updater">Actualizator de sistem</string>
 
     <string name="accesibility_label">Înlocuiți aplicația Explorează</string>
     <string name="accesibility_button">Deschide setările</string>

@@ -439,6 +439,7 @@ public class MainActivity extends Activity
             }
         });
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
+        dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -447,6 +448,9 @@ public class MainActivity extends Activity
         });
         if (AbstractPlatform.isMagicLeapHeadset()) {
             dialog.findViewById(R.id.settings_device).setVisibility(View.GONE);
+        }
+        if (!AbstractPlatform.isOculusHeadset()) {
+            dialog.findViewById(R.id.settings_tweaks).setVisibility(View.GONE);
         }
     }
 
@@ -603,6 +607,17 @@ public class MainActivity extends Activity
             reloadUI();
         });
         d.findViewById(R.id.layout_vr).setVisibility(new VRPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
+    }
+
+    private void showSettingsTweaks() {
+        Dialog d = showPopup(R.layout.dialog_tweaks);
+
+        d.findViewById(R.id.service_app_shortcut).setOnClickListener(view -> {
+            ButtonManager.isAccessibilityInitialized(this);
+            ButtonManager.requestAccessibility(this);
+        });
+        d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
+        d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
     }
 
     private int getPixelFromDip(int dip) {

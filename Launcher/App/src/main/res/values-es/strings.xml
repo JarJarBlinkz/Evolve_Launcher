@@ -13,10 +13,15 @@
     <string name="settings_device">Configuración de dispositivo</string>
     <string name="settings_look">Configuración del lanzador</string>
     <string name="settings_platforms">Plataformas</string>
+    <string name="settings_tweaks">Ajustes del sistema</string>
     <string name="background_opacity">Opacidad del fondo</string>
     <string name="icons_size">Tamaño de los iconos</string>
     <string name="show_app_names">Mostrar nombres de aplicaciones</string>
     <string name="start_shortcut">Abra el iniciador con el icono Explorar desde el panel del sistema.</string>
+
+    <string name="service_app_shortcut">Atajo de aplicación</string>
+    <string name="service_explore_app">Explorar aplicación</string>
+    <string name="service_os_updater">Actualizador de SO</string>
 
     <string name="accesibility_label">Reemplace la aplicación Explorar</string>
     <string name="accesibility_button">Abrir la configuración</string>

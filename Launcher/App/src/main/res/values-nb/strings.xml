@@ -13,10 +13,15 @@
     <string name="settings_device">Enhetsinnstillinger</string>
     <string name="settings_look">Oppstartinnstillinger</string>
     <string name="settings_platforms">Plattformer</string>
+    <string name="settings_tweaks">Systemtweaks</string>
     <string name="background_opacity">Bakgrunnsopasitet</string>
     <string name="icons_size">Ikoner størrelse</string>
     <string name="show_app_names">Vis navn på apper</string>
     <string name="start_shortcut">Åpne startprogrammet med Utforsk-ikonet fra systemdashbordet.</string>
+
+    <string name="service_app_shortcut">App-snarvei</string>
+    <string name="service_explore_app">Utforsk appen</string>
+    <string name="service_os_updater">Systemoppdaterer</string>
 
     <string name="accesibility_label">Bytt ut Utforsk-applikasjonen</string>
     <string name="accesibility_button">Åpne innstillinger</string>

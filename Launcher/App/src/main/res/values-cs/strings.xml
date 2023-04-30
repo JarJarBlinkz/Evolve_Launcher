@@ -13,10 +13,15 @@
     <string name="settings_device">Nastavení zařízení</string>
     <string name="settings_look">Nastavení spouštěče</string>
     <string name="settings_platforms">Platformy</string>
+    <string name="settings_tweaks">Systémové úpravy</string>
     <string name="background_opacity">"Průhlednost pozadí "</string>
     <string name="icons_size">Velikost ikon</string>
     <string name="show_app_names">Zobrazit názvy aplikací</string>
     <string name="start_shortcut">Spouštěč otevřete pomocí ikony Prozkoumat v systémové liště.</string>
+
+    <string name="service_app_shortcut">Zkratka aplikace</string>
+    <string name="service_explore_app">Aplikace Prozkoumat</string>
+    <string name="service_os_updater">Aktualizátor OS</string>
 
     <string name="accesibility_label">Nahraďte aplikaci Prozkoumat</string>
     <string name="accesibility_button">Otevřete nastavení</string>

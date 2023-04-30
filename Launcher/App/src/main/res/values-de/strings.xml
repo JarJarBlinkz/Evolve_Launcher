@@ -13,10 +13,15 @@
     <string name="settings_device">Geräte\neinstellungen</string>
     <string name="settings_look">Launcher\nEinstellungen</string>
     <string name="settings_platforms">Plattformen</string>
+    <string name="settings_tweaks">System Tweaks</string>
     <string name="background_opacity">Transparenz des Hintergrundes</string>
     <string name="icons_size">Icons Größe</string>
     <string name="show_app_names">Zeige App Namen</string>
     <string name="start_shortcut">爪 Launcher über Explorer Icon öffnen.</string>
+
+    <string name="service_app_shortcut">App Verknüpfung</string>
+    <string name="service_explore_app">Erkunden App</string>
+    <string name="service_os_updater">OS Updater</string>
 
     <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
     <string name="accesibility_button">Einstellungen öffnen</string>
