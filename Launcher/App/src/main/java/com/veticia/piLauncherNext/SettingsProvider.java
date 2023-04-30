@@ -249,6 +249,16 @@ public class SettingsProvider
         return output;
     }
 
+    public void resetGroups(){
+        def = new HashSet<>();
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.remove(KEY_APP_GROUPS);
+        editor.remove(KEY_SELECTED_GROUPS);
+        editor.remove(KEY_APP_LIST);
+        editor.apply();
+        readValues();
+    }
+
     private synchronized void readValues()
     {
         try
