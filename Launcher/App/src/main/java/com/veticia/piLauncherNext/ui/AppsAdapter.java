@@ -17,7 +17,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -75,7 +74,7 @@ public class AppsAdapter extends BaseAdapter
         ArrayList<String> sortedSelectedGroups = settingsProvider.getAppGroupsSorted(true);
         boolean isFirstGroupSelected = !sortedSelectedGroups.isEmpty() && !sortedGroups.isEmpty() && sortedSelectedGroups.get(0).compareTo(sortedGroups.get(0)) == 0;
         appList = settingsProvider.getInstalledApps(context, sortedSelectedGroups, isFirstGroupSelected);
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mainActivityContext);
+        sharedPreferences = mainActivityContext.getSharedPreferences(mainActivityContext.getPackageName() + "_preferences", Context.MODE_PRIVATE);
         SORT_FIELD sortField = SORT_FIELD.values()[sharedPreferences.getInt(SettingsProvider.KEY_SORT_FIELD, 0)];
         SORT_ORDER sortOrder = SORT_ORDER.values()[sharedPreferences.getInt(SettingsProvider.KEY_SORT_ORDER, 0)];
         this.sort(sortField, sortOrder);
