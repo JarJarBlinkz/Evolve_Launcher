@@ -20,7 +20,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.TypedValue;
 import android.view.View;
@@ -119,7 +118,7 @@ public class MainActivity extends Activity
         if (AbstractPlatform.isMagicLeapHeadset()) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        sharedPreferences = getSharedPreferences(getPackageName() + "_preferences", Context.MODE_PRIVATE);
         settingsProvider = SettingsProvider.getInstance(this);
 
         // Get UI instances
@@ -319,7 +318,6 @@ public class MainActivity extends Activity
             }
         } else if (requestCode == PICK_THEME_CODE) {
             if (resultCode == RESULT_OK) {
-
                 for (Image image : ImagePicker.getImages(data)) {
                     Bitmap bitmap = ImageUtils.getResizedBitmap(BitmapFactory.decodeFile(image.getPath()), 1280);
                     ImageUtils.saveBitmap(bitmap, new File(getApplicationInfo().dataDir, CUSTOM_THEME));
