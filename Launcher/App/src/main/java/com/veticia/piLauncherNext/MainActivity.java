@@ -468,8 +468,8 @@ public class MainActivity extends Activity
         Dialog d = showPopup(R.layout.dialog_look);
         d.setOnDismissListener(dialogInterface -> isSettingsLookOpen = false);
         d.findViewById(R.id.open_accesibility).setOnClickListener(view -> {
-            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivity(intent);
+            ButtonManager.isAccessibilityInitialized(this);
+            ButtonManager.requestAccessibility(this);
         });
         CheckBox names = d.findViewById(R.id.checkbox_names);
         names.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
