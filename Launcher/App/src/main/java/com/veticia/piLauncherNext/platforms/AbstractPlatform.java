@@ -205,11 +205,11 @@ public abstract class AbstractPlatform {
     }
 
     protected static boolean isVirtualRealityApp(ApplicationInfo app) {
-        String[] nonVrApps = {
-                "com.pico4.settings",
-                "com.pico.browser",
-                "com.ss.android.ttvr",
-                "com.pvr.mrc"
+        String[] nonVrApps = {      //move to tools category
+                "com.pico4.settings",   //app that shows android settings
+                "com.pico.browser",     //in-build pico web browser
+                "com.ss.android.ttvr",  //pico video
+                "com.pvr.mrc"           //pico's mixed reality capture
         };
         for (String nonVrApp : nonVrApps) {
             if (app.packageName.startsWith(nonVrApp)) {
