@@ -540,6 +540,7 @@ public class MainActivity extends Activity
         for (int i = 0; i < views.length; i++) {
             int index = i;
             views[i].setOnClickListener(view12 -> {
+                //noinspection NonStrictComparisonCanBeEquality
                 if (index >= THEMES.length) {
                     selectedThemeImageViews = views;
                     ImageUtils.showImagePicker(this, PICK_THEME_CODE);
