@@ -41,9 +41,10 @@ public abstract class AbstractPlatform {
         new Thread(() -> {
             try {
                 synchronized (pkg) {
-                    if (ignoredIcons.contains(STYLES[style] + "." + file.getName())) {
+                    //if (ignoredIcons.contains(STYLES[style] + "." + file.getName())) {
                         //ignored icon
-                    } else if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
+                    //} else
+                    if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
                         activity.runOnUiThread(callback);
                     } else if (downloadIconFromUrl(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
                         activity.runOnUiThread(callback);
