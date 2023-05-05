@@ -328,7 +328,7 @@ public class AppsAdapter extends BaseAdapter
         final EditText input = dialog.findViewById(R.id.app_name);
         input.setText(name);
         dialog.findViewById(R.id.ok).setOnClickListener(view12 -> {
-            settingsProvider.setAppDisplayName(context, actApp, input.getText().toString());
+            settingsProvider.setAppDisplayName(actApp, input.getText().toString());
             mainActivityContext.reloadUI();
             dialog.dismiss();
         });

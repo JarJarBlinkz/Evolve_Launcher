@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.preference.PreferenceManager;
 
 import com.veticia.piLauncherNext.platforms.AndroidPlatform;
 import com.veticia.piLauncherNext.platforms.PSPPlatform;
@@ -65,7 +64,7 @@ public class SettingsProvider
     Set<String> def = new HashSet<>();
 
     private SettingsProvider(Context context) {
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        mPreferences = context.getSharedPreferences(context.getPackageName() + "_preferences", Context.MODE_PRIVATE);
         SettingsProvider.context = context;
     }
 
@@ -264,16 +263,12 @@ public class SettingsProvider
         try
         {
             String defAppsGroup = context.getString(R.string.default_apps_group);
-            if (!def.contains(defAppsGroup)) {
-                def.add(defAppsGroup);
-            }
+            def.add(defAppsGroup);
             Set<String> defClone = new HashSet<>();
             defClone.add(defAppsGroup);
             mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
             String defToolsGroup = context.getString(R.string.default_tools_group);
-            if (!def.contains(defToolsGroup)) {
-                def.add(defToolsGroup);
-            }
+            def.add(defToolsGroup);
             String defPSPgroup = "PSP";
             if (!def.contains(defPSPgroup)) {
                 if (new PSPPlatform().isSupported(context)) {
@@ -341,7 +336,7 @@ public class SettingsProvider
 
     public static String getAppDisplayName(Context context, String pkg, CharSequence label)
     {
-        String name = PreferenceManager.getDefaultSharedPreferences(context).getString(pkg, "");
+        String name = context.getSharedPreferences(context.getPackageName() + "_preferences", Context.MODE_PRIVATE).getString(pkg, "");
         if (!name.isEmpty()) {
             return name;
         }
@@ -353,10 +348,9 @@ public class SettingsProvider
         return retVal;
     }
 
-    public void setAppDisplayName(Context context, ApplicationInfo appInfo, String newName)
+    public void setAppDisplayName(ApplicationInfo appInfo, String newName)
     {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = preferences.edit();
+        SharedPreferences.Editor editor = mPreferences.edit();
         editor.putString(appInfo.packageName, newName);
         editor.apply();
     }
@@ -372,15 +366,14 @@ public class SettingsProvider
     }
 
     public boolean isPlatformEnabled(String key) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, true);
+        return mPreferences.getBoolean(key, true);
     }
 
     private void saveRecents() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (preferences != null) {
+        if (mPreferences != null) {
             JSONObject jsonObject = new JSONObject(mRecents);
             String jsonString = jsonObject.toString();
-            preferences.edit()
+            mPreferences.edit()
                 .remove(KEY_RECENTS)
                 .putString(KEY_RECENTS, jsonString)
                 .apply();
@@ -389,10 +382,9 @@ public class SettingsProvider
 
     private void loadRecents() {
         Map<String, Long> outputMap = new HashMap<>();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         try {
-            if (preferences != null) {
-                String jsonString = preferences.getString(KEY_RECENTS, (new JSONObject()).toString());
+            if (mPreferences != null) {
+                String jsonString = mPreferences.getString(KEY_RECENTS, (new JSONObject()).toString());
                 if (jsonString != null) {
                     JSONObject jsonObject = new JSONObject(jsonString);
                     Iterator<String> keysItr = jsonObject.keys();
