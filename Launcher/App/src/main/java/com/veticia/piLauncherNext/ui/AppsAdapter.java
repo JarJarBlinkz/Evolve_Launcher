@@ -312,8 +312,7 @@ public class AppsAdapter extends BaseAdapter
     private void showAppDetails(ApplicationInfo actApp) {
 
         //set layout
-        Context context = mainActivityContext;
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivityContext);
         builder.setView(R.layout.dialog_app_details);
         AlertDialog dialog = builder.create();
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.bkg_dialog);
