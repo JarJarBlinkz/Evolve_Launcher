@@ -32,10 +32,6 @@ public class AndroidPlatform extends AbstractPlatform {
     }
 
     @Override
-    public boolean isSupported(Context context) {
-        return true;
-    }
-    @Override
     public boolean runApp(Context context, ApplicationInfo app, boolean multiwindow) {
         Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
         if (launchIntent != null) {

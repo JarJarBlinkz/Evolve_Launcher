@@ -585,7 +585,7 @@ public class MainActivity extends Activity
             editor.apply();
             reloadUI();
         });
-        d.findViewById(R.id.layout_android).setVisibility(new AndroidPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
+        d.findViewById(R.id.layout_android).setVisibility(View.VISIBLE); //android platform is always supported
 
         CheckBox psp = d.findViewById(R.id.checkbox_psp);
         psp.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_PSP, true));
