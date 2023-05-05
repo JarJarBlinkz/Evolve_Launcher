@@ -33,7 +33,7 @@
                 android:dividerHeight="0dp"
                 android:divider="#00000000" />
 
-            <TextView
+            <android.widget.TextView
                 android:id="@+id/filler"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
@@ -105,7 +105,7 @@
             android:scrollbars="none"/>
     </LinearLayout>
 
-    <TextView
+    <android.widget.TextView
         android:id="@+id/toast_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

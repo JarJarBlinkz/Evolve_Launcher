@@ -6,7 +6,7 @@
     android:padding="20dp"
     android:orientation="vertical">
 
-    <TextView
+    <android.widget.TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_platform_android"/>
 
-        <TextView
+        <android.widget.TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,7 +58,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_platform_psp"/>
 
-        <TextView
+        <android.widget.TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,7 +88,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_platform_vr"/>
 
-        <TextView
+        <android.widget.TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

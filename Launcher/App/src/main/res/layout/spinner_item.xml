@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@android:id/text1"
     style="?android:attr/spinnerItemStyle"
@@ -12,4 +12,4 @@
     android:shadowRadius="5"
     app:strokeColor="#80000000"
     app:strokeWidth="1.5dp">
-</TextView>
+</android.widget.TextView>
