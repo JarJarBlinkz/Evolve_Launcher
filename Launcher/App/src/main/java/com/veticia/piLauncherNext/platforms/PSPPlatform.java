@@ -68,6 +68,7 @@ public class PSPPlatform  extends AbstractPlatform {
 
         new Thread(() -> {
             try {
+                //noinspection ResultOfMethodCallIgnored
                 Objects.requireNonNull(file.getParentFile()).mkdirs();
                 String isoToRead = app.packageName.substring(PACKAGE_PREFIX.length());
                 ISO9660FileSystem discFs = new ISO9660FileSystem(new File(isoToRead), true);

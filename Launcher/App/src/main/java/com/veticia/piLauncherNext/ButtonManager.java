@@ -24,11 +24,14 @@ public class ButtonManager extends AccessibilityService
 
     public void onInterrupt() {}
 
+    /*
     protected void onServiceConnected()
     {
         super.onServiceConnected();
     }
+    */
 
+    @SuppressWarnings("UnusedReturnValue")
     public static boolean isAccessibilityInitialized(Context context)
     {
         try {

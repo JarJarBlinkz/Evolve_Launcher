@@ -36,7 +36,6 @@ import android.widget.Spinner;
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
 import com.veticia.piLauncherNext.platforms.AbstractPlatform;
-import com.veticia.piLauncherNext.platforms.AndroidPlatform;
 import com.veticia.piLauncherNext.platforms.PSPPlatform;
 import com.veticia.piLauncherNext.platforms.VRPlatform;
 import com.veticia.piLauncherNext.ui.AppsAdapter;
