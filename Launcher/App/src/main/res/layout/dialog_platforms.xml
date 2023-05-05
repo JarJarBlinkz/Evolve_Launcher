@@ -19,29 +19,26 @@
         android:id="@+id/layout_android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:dividerPadding="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <View
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_android"/>
+            android:background="@drawable/ic_platform_android" />
 
-        <android.widget.TextView
+        <Switch
+            android:id="@+id/checkbox_android"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Android apps"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
-
-        <CheckBox
-            android:id="@+id/checkbox_android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/checkbox_off_background" />
+            android:textSize="16sp"
+            android:trackTint="@color/switch_track_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,24 +50,20 @@
         android:orientation="horizontal">
 
         <View
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_platform_psp"/>
 
-        <android.widget.TextView
+        <Switch
+            android:id="@+id/checkbox_psp"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sony Playstation Portable (PPSSPP)"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
-
-        <CheckBox
-            android:id="@+id/checkbox_psp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/checkbox_off_background" />
+            android:textSize="16sp"
+            android:trackTint="@color/switch_track_color" />
     </LinearLayout>
 
 
@@ -83,23 +76,19 @@
         android:orientation="horizontal">
 
         <View
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_platform_vr"/>
 
-        <android.widget.TextView
+        <Switch
+            android:id="@+id/checkbox_vr"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Virtual Reality"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
-
-        <CheckBox
-            android:id="@+id/checkbox_vr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/checkbox_off_background" />
+            android:textSize="16sp"
+            android:trackTint="@color/switch_track_color" />
     </LinearLayout>
 </LinearLayout>

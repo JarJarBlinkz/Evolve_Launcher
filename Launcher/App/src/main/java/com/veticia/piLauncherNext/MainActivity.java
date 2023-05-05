@@ -30,8 +30,9 @@ import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
@@ -470,7 +471,7 @@ public class MainActivity extends Activity
             ButtonManager.isAccessibilityInitialized(this);
             ButtonManager.requestAccessibility(this);
         });
-        CheckBox names = d.findViewById(R.id.checkbox_names);
+        Switch names = d.findViewById(R.id.checkbox_names);
         names.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
         names.setOnCheckedChangeListener((compoundButton, value) -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -563,7 +564,7 @@ public class MainActivity extends Activity
             int index = i;
             styles[i].setOnClickListener(view13 -> setStyle(styles, index));
         }
-        CheckBox autorun = d.findViewById(R.id.checkbox_autorun);
+        Switch autorun = d.findViewById(R.id.checkbox_autorun);
         autorun.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_AUTORUN, DEFAULT_AUTORUN));
         autorun.setOnCheckedChangeListener((compoundButton, value) -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -576,7 +577,7 @@ public class MainActivity extends Activity
     private void showSettingsPlatforms() {
         Dialog d = showPopup(R.layout.dialog_platforms);
 
-        CheckBox android = d.findViewById(R.id.checkbox_android);
+        Switch android = d.findViewById(R.id.checkbox_android);
         android.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_ANDROID, true));
         android.setOnCheckedChangeListener((compoundButton, value) -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -586,7 +587,7 @@ public class MainActivity extends Activity
         });
         d.findViewById(R.id.layout_android).setVisibility(View.VISIBLE); //android platform is always supported
 
-        CheckBox psp = d.findViewById(R.id.checkbox_psp);
+        Switch psp = d.findViewById(R.id.checkbox_psp);
         psp.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_PSP, true));
         psp.setOnCheckedChangeListener((compoundButton, value) -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -596,7 +597,7 @@ public class MainActivity extends Activity
         });
         d.findViewById(R.id.layout_psp).setVisibility(new PSPPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
 
-        CheckBox vr = d.findViewById(R.id.checkbox_vr);
+        Switch vr = d.findViewById(R.id.checkbox_vr);
         vr.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_PLATFORM_VR, true));
         vr.setOnCheckedChangeListener((compoundButton, value) -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();

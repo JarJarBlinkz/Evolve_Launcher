@@ -163,19 +163,15 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <android.widget.TextView
+        <Switch
+            android:id="@+id/checkbox_names"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/show_app_names"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/checkbox_names"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/checkbox_off_background" />
+            android:textSize="16sp"
+            android:trackTint="@color/switch_track_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -224,20 +220,16 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <android.widget.TextView
+        <Switch
+            android:id="@+id/checkbox_autorun"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="true"
             android:text="@string/autorun"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/checkbox_autorun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/checkbox_off_background"
-            android:enabled="true" />
+            android:textSize="16sp"
+            android:trackTint="@color/switch_track_color" />
     </LinearLayout>
 
 </LinearLayout>
