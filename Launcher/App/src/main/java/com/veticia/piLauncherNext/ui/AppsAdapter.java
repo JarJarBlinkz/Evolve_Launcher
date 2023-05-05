@@ -30,7 +30,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.veticia.piLauncherNext.ImageUtils;
@@ -47,7 +47,7 @@ import java.util.Map;
 
 public class AppsAdapter extends BaseAdapter
 {
-    int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
+    final int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
     private static Drawable iconDrawable;
     private static File iconFile;
     private static String packageName;
@@ -81,7 +81,7 @@ public class AppsAdapter extends BaseAdapter
     }
 
     private static class ViewHolder {
-        RelativeLayout layout;
+        LinearLayout layout;
         ImageView imageView;
         TextView textView;
         ImageView progressBar;

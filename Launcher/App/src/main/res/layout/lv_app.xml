@@ -1,51 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="5dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/imageLabel"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_gallery" />
 
-            <ImageView
-                android:id="@+id/imageLabel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:scaleType="fitCenter"
-                android:src="@android:drawable/ic_menu_gallery" />
-
-            <ImageView
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/loading_indicator"
-                android:visibility="gone" />
-        </RelativeLayout>
-
-        <com.veticia.piLauncherNext.ui.TextView
-            android:id="@+id/textLabel"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:shadowColor="#80000000"
-            android:shadowRadius="5"
-            android:singleLine="true"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            app:strokeColor="#80000000"
-            app:strokeWidth="1.5dp" />
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_centerInParent="true"
+            android:src="@drawable/loading_indicator"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <com.veticia.piLauncherNext.ui.TextView
+        android:id="@+id/textLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#80000000"
+        android:shadowRadius="5"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:strokeColor="#80000000"
+        app:strokeWidth="1.5dp" />
+</LinearLayout>

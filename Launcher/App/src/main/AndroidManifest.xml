@@ -13,7 +13,8 @@
         android:theme="@style/ThemeOverlay.Material"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:allowBackup="true">
+        android:allowBackup="true"
+        android:supportsRtl="false">
 
         <receiver android:enabled="true" android:exported="false" android:name=".BootBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>

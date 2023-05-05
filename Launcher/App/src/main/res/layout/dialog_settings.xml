@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +28,8 @@
             android:layout_height="120dp"
             android:tooltipText="@string/settings_look"
             app:icon="@drawable/ic_look"
-            app:text="@string/settings_look"/>
+            app:text="@string/settings_look"
+            tools:ignore="UnusedAttribute" />
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_device"
@@ -35,7 +37,8 @@
             android:layout_height="120dp"
             android:tooltipText="@string/settings_device"
             app:icon="@drawable/ic_device"
-            app:text="@string/settings_device"/>
+            app:text="@string/settings_device"
+            tools:ignore="UnusedAttribute" />
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_apps"
@@ -43,7 +46,8 @@
             android:layout_height="120dp"
             android:tooltipText="@string/settings_apps_enable"
             app:icon="@drawable/ic_editing_on"
-            app:text="@string/settings_apps_enable"/>
+            app:text="@string/settings_apps_enable"
+            tools:ignore="UnusedAttribute" />
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_platforms"
@@ -51,7 +55,8 @@
             android:layout_height="120dp"
             android:tooltipText="@string/settings_platforms"
             app:icon="@drawable/ic_platforms"
-            app:text="@string/settings_platforms"/>
+            app:text="@string/settings_platforms"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
     <LinearLayout
@@ -65,6 +70,7 @@
             android:layout_height="120dp"
             android:tooltipText="@string/settings_tweaks"
             app:icon="@drawable/ic_tweaks"
-            app:text="@string/settings_tweaks"/>
+            app:text="@string/settings_tweaks"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 </LinearLayout>

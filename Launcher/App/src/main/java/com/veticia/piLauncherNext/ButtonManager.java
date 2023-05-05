@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.accessibility.AccessibilityEvent;
 
+@SuppressWarnings("CommentedOutCode")
 public class ButtonManager extends AccessibilityService
 {
     public void onAccessibilityEvent(AccessibilityEvent event)
@@ -24,12 +25,9 @@ public class ButtonManager extends AccessibilityService
 
     public void onInterrupt() {}
 
-    /*
-    protected void onServiceConnected()
-    {
-        super.onServiceConnected();
-    }
-    */
+    //protected void onServiceConnected() {
+    //    super.onServiceConnected();
+    //}
 
     @SuppressWarnings("UnusedReturnValue")
     public static boolean isAccessibilityInitialized(Context context)

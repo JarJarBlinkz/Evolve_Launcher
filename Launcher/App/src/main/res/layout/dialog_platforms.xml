@@ -19,16 +19,15 @@
         android:id="@+id/layout_android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:dividerPadding="10dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:orientation="horizontal">
 
         <View
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_android" />
+            android:background="@drawable/ic_platform_android"/>
 
         <Switch
             android:id="@+id/checkbox_android"
