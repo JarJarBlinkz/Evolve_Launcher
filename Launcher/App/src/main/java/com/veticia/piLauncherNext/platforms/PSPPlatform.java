@@ -27,7 +27,6 @@ public class PSPPlatform  extends AbstractPlatform {
     private static final String RECENT_TAG = "[Recent]";
     public static final String PACKAGE_PREFIX = "psp/";
 
-    @Override
     public ArrayList<ApplicationInfo> getInstalledApps(Context context) {
         ArrayList<ApplicationInfo> output = new ArrayList<>();
         if (!isSupported(context)) {
@@ -48,7 +47,6 @@ public class PSPPlatform  extends AbstractPlatform {
         return output;
     }
 
-    @Override
     public boolean isSupported(Context context) {
         for (ApplicationInfo app : new VRPlatform().getInstalledApps(context)) {
             if (app.packageName.startsWith(MainActivity.EMULATOR_PACKAGE)) {

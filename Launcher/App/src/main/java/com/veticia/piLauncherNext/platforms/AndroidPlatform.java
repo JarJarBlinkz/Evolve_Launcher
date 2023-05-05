@@ -10,7 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class AndroidPlatform extends AbstractPlatform {
-    @Override
     public ArrayList<ApplicationInfo> getInstalledApps(Context context) {
         PackageManager pm = context.getPackageManager();
         ArrayList<ApplicationInfo> output = new ArrayList<>();

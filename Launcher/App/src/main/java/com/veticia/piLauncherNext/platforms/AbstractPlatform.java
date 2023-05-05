@@ -37,9 +37,7 @@ public abstract class AbstractPlatform {
     protected static final HashMap<String, Drawable> iconCache = new HashMap<>();
     protected static final HashSet<String> ignoredIcons = new HashSet<>();
 
-    public abstract ArrayList<ApplicationInfo> getInstalledApps(Context context);
-    public abstract boolean isSupported(Context context);
-    private void downloadIcon(final Activity activity, String pkg, String name, final Runnable callback) {
+    private void downloadIcon(final Activity activity, String pkg, @SuppressWarnings("unused") String name, final Runnable callback) {
         final File file = pkg2path(activity, STYLES[style] + "." + pkg);
         new Thread(() -> {
             try {

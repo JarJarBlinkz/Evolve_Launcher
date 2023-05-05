@@ -10,10 +10,9 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class VRPlatform extends AbstractPlatform {
-    @Override
     public ArrayList<ApplicationInfo> getInstalledApps(Context context) {
         ArrayList<ApplicationInfo> installedApps = new ArrayList<>();
-        if (!isSupported(context)) {
+        if (!isSupported()) {
             return installedApps;
         }
 
@@ -35,8 +34,7 @@ public class VRPlatform extends AbstractPlatform {
         return installedApps;
     }
 
-    @Override
-    public boolean isSupported(Context context) {
+    public boolean isSupported() {
         return isMagicLeapHeadset() || isOculusHeadset() || isPicoHeadset();
     }
 
