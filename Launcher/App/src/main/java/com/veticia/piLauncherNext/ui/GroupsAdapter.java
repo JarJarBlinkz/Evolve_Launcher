@@ -59,6 +59,7 @@ public class GroupsAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
+        @SuppressWarnings("unused")
         TextView textView;
         View menu;
 

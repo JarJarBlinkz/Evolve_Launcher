@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class PSPPlatform  extends AbstractPlatform {
@@ -67,10 +68,11 @@ public class PSPPlatform  extends AbstractPlatform {
 
         new Thread(() -> {
             try {
-                file.getParentFile().mkdirs();
+                Objects.requireNonNull(file.getParentFile()).mkdirs();
                 String isoToRead = app.packageName.substring(PACKAGE_PREFIX.length());
                 ISO9660FileSystem discFs = new ISO9660FileSystem(new File(isoToRead), true);
 
+                //noinspection rawtypes
                 Enumeration es = discFs.getEntries();
                 while (es.hasMoreElements()) {
                     ISO9660FileEntry fileEntry = (ISO9660FileEntry) es.nextElement();

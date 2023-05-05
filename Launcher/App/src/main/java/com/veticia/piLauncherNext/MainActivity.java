@@ -20,7 +20,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
@@ -92,6 +91,7 @@ public class MainActivity extends Activity
     private ImageView backgroundImageView;
     private GridView groupPanelGridView;
 
+    @SuppressWarnings("unused")
     private boolean activityHasFocus;
     public static SharedPreferences sharedPreferences;
     private SettingsProvider settingsProvider;
@@ -605,7 +605,7 @@ public class MainActivity extends Activity
             editor.apply();
             reloadUI();
         });
-        d.findViewById(R.id.layout_vr).setVisibility(new VRPlatform().isSupported(this) ? View.VISIBLE : View.GONE);
+        d.findViewById(R.id.layout_vr).setVisibility(new VRPlatform().isSupported() ? View.VISIBLE : View.GONE);
     }
 
     private void showSettingsTweaks() {
