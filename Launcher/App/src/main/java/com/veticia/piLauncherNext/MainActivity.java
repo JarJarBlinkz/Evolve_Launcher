@@ -233,7 +233,16 @@ public class MainActivity extends Activity
         View update = findViewById(R.id.update);
         update.setVisibility(View.GONE);
         update.setOnClickListener(view -> showUpdateMain());
+        checkForUpdates(update);
+    }
+    private long lastUpdateCheck = 0L;
+    private long updateInterval = 1000 * 60 * 60 * 4; //once every 4 hours
+    private void checkForUpdates(View update) {
+        if(lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
+            return;
+        }
         new Thread(() -> {
+            lastUpdateCheck = System.currentTimeMillis();
             String string = "";
             try {
                 URL url = new URL("https://raw.githubusercontent.com/Veticia/binaries/main/latestPiLauncher");
@@ -291,6 +300,8 @@ public class MainActivity extends Activity
         boolean read = checkSelfPermission(permissions[0]) == PackageManager.PERMISSION_GRANTED;
         boolean write = checkSelfPermission(permissions[1]) == PackageManager.PERMISSION_GRANTED;
         if (read && write) {
+            View update = findViewById(R.id.update);
+            checkForUpdates(update);
             reloadUI();
         } else {
             requestPermissions(permissions, 0);
