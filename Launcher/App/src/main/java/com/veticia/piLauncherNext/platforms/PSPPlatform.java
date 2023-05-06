@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.veticia.piLauncherNext.MainActivity;
+import com.veticia.piLauncherNext.SettingsProvider;
 
 import net.didion.loopy.iso9660.ISO9660FileEntry;
 import net.didion.loopy.iso9660.ISO9660FileSystem;
@@ -38,12 +39,11 @@ public class PSPPlatform  extends AbstractPlatform {
             ApplicationInfo app = new ApplicationInfo();
             app.name = path.substring(path.lastIndexOf('/') + 1);
             app.packageName = PACKAGE_PREFIX + path;
-            File file = new File(path);
-            long lastModDate = file.lastModified();
-            app.taskAffinity = Long.toString(lastModDate);
+            if(!SettingsProvider.installDates.containsKey(app.packageName)) {
+                File file = new File(path);
+                SettingsProvider.installDates.put(app.packageName, file.lastModified());
+            }
             output.add(app);
-            //debug
-            //Log.e("PSPmDate", app.name + " @ " + app.taskAffinity);
         }
         return output;
     }

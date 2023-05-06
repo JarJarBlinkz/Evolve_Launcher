@@ -1,6 +1,7 @@
 package com.veticia.piLauncherNext;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -62,6 +63,8 @@ public class SettingsProvider
     private Set<String> mSelectedGroups = new HashSet<>();
     private Map<String, Long> mRecents = new HashMap<>();
     Set<String> def = new HashSet<>();
+    public static final Map<String, Intent> launchIntents = new HashMap<>();
+    public static final Map<String, Long> installDates = new HashMap<>();
 
     private SettingsProvider(Context context) {
         mPreferences = context.getSharedPreferences(context.getPackageName() + "_preferences", Context.MODE_PRIVATE);
@@ -94,7 +97,6 @@ public class SettingsProvider
     }
 
     public ArrayList<ApplicationInfo> getInstalledApps(Context context, List<String> selected, boolean first) {
-
         // Get list of installed apps
         Map<String, String> apps = getAppList();
         ArrayList<ApplicationInfo> installedApplications = new ArrayList<>();
@@ -107,7 +109,6 @@ public class SettingsProvider
             }
             installedApplications.addAll(vrApps);
         }
-
         if (isPlatformEnabled(KEY_PLATFORM_ANDROID)) {
             List<ApplicationInfo> androidApps = new AndroidPlatform().getInstalledApps(context);
             for (ApplicationInfo app : androidApps) {
@@ -117,7 +118,6 @@ public class SettingsProvider
             }
             installedApplications.addAll(androidApps);
         }
-
         if (isPlatformEnabled(KEY_PLATFORM_PSP)) {
             // only add PSP apps if the platform is supported
             List<ApplicationInfo> pspApps = new PSPPlatform().getInstalledApps(context);
@@ -128,7 +128,6 @@ public class SettingsProvider
             }
             installedApplications.addAll(pspApps);
         }
-
         // Save changes to app list
         setAppList(mAppList);
 

@@ -248,21 +248,12 @@ public class AppsAdapter extends BaseAdapter
         this.notifyDataSetChanged(); // for real time updates
     }
 
-    @SuppressWarnings("RedundantVariableInitializer")
     private Long getInstallDate(ApplicationInfo applicationInfo) {
-        String installDateString;
-        long installDateLong = 0L;
-        if (applicationInfo.taskAffinity != null) {
-            installDateString = applicationInfo.taskAffinity;
-        } else {
-            installDateString = "0";
+        if(SettingsProvider.installDates.containsKey(applicationInfo.packageName)) {
+            return SettingsProvider.installDates.get(applicationInfo.packageName);
+        }else{
+            return 0L;
         }
-        try {
-            installDateLong = Long.parseLong(installDateString);
-        } catch (NumberFormatException e) {
-            // result 0 is already defined by default
-        }
-        return installDateLong;
     }
 
     public void sort(SORT_FIELD field, SORT_ORDER order) {

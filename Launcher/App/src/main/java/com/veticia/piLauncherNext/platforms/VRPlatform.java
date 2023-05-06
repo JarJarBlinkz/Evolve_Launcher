@@ -7,6 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import com.veticia.piLauncherNext.SettingsProvider;
+
 import java.util.ArrayList;
 
 public class VRPlatform extends AbstractPlatform {
@@ -15,20 +17,25 @@ public class VRPlatform extends AbstractPlatform {
         if (!isSupported()) {
             return installedApps;
         }
-
         PackageManager pm = context.getPackageManager();
         for (ApplicationInfo app : pm.getInstalledApplications(PackageManager.GET_META_DATA)) {
-            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
-            if (isVirtualRealityApp(app) && launchIntent != null) {
-                try {
-                    PackageInfo packageInfo = pm.getPackageInfo(app.packageName, 0);
-                    long installDate = packageInfo.firstInstallTime;
-                    app.taskAffinity = Long.toString(installDate);
+            if (isVirtualRealityApp(app)) {
+                if (!SettingsProvider.launchIntents.containsKey(app.packageName)) {
+                    SettingsProvider.launchIntents.put(app.packageName, pm.getLaunchIntentForPackage(app.packageName));
                 }
-                catch (PackageManager.NameNotFoundException e) {
-                    app.taskAffinity = "0";
+                if(SettingsProvider.launchIntents.get(app.packageName) != null) {
+                    if(!SettingsProvider.installDates.containsKey(app.packageName)) {
+                        long installDate;
+                        try {
+                            PackageInfo packageInfo = pm.getPackageInfo(app.packageName, 0);
+                            installDate = packageInfo.firstInstallTime;
+                        } catch (PackageManager.NameNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                        SettingsProvider.installDates.put(app.packageName, installDate);
+                    }
+                    installedApps.add(app);
                 }
-                installedApps.add(app);
             }
         }
         return installedApps;
