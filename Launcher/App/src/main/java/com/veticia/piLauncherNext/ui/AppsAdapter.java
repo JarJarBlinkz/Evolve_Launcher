@@ -122,26 +122,32 @@ public class AppsAdapter extends BaseAdapter
             convertView.setTag(holder);
 
             // Set size of items
+            int kScale = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
+            float textSize = holder.textView.getTextSize();
+            float textSizeScaled = Math.max(10, textSize / 5 * kScale);
+            holder.textView.setTextSize(textSizeScaled);
+
+            //Calculate text height
+            holder.textView.measure(0, 0);
+            int textHeight = (int) holder.textView.getMeasuredHeight();
+
             ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
 
             params.width = itemScale;
             if (style == 0) {
                 if(showTextLabels) {
-                    params.height = (int) (itemScale * 0.8);
+                    params.height = (int) ((itemScale) * 0.5625) + textHeight;
                 }else{
-                    params.height = (int) (itemScale * 0.6525);
+                    params.height = (int) ((itemScale) * 0.5625);
                 }
             } else {
                 if(showTextLabels) {
-                    params.height = (int) (itemScale * 1.18);
+                    params.height = (int) (itemScale + textHeight);
                 }else{
-                    params.height = itemScale;
+                    params.height = (int) itemScale;
                 }
             }
             holder.layout.setLayoutParams(params);
-            int kScale = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_SCALE, DEFAULT_SCALE) + 1;
-            float textSize = holder.textView.getTextSize();
-            holder.textView.setTextSize(Math.max(10, textSize / 5 * kScale));
         } else {
             // ViewHolder already exists, reuse it
             holder = (ViewHolder) convertView.getTag();
