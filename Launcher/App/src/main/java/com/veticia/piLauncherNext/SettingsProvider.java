@@ -1,5 +1,7 @@
 package com.veticia.piLauncherNext;
 
+import static com.veticia.piLauncherNext.platforms.AbstractPlatform.isPico3Pro;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -167,6 +169,9 @@ public class SettingsProvider
                 if (pkg.startsWith("com.picovr.assistantphone")) isSystemApp = false;       //X
                 if (pkg.startsWith("com.picovr.picostreamassistant")) isSystemApp = false;  //X
                 if (pkg.startsWith("com.pvr")) isSystemApp = true;
+                if (pkg.startsWith("com.pvr.filemanager") && isPico3Pro()) isSystemApp = false; //show file manager on picoOS 4.x
+                                                                                                //because we don't have a dashboard
+                                                                                                //there while launcher is open
                 if (pkg.startsWith("com.pvr.mrc")) isSystemApp = false;                     //X
                 if (pkg.startsWith("com.ss.android.ttvr")) isSystemApp = false;             //X
                 if (pkg.startsWith("com.monotype.android.font")) isSystemApp = true;

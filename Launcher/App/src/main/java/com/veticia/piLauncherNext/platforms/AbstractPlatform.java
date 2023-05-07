@@ -202,6 +202,14 @@ public abstract class AbstractPlatform {
         return vendor.startsWith("PICO") || vendor.startsWith("PİCO");
     }
 
+    public static boolean isPico3Pro() {
+        if(isPicoHeadset()) {
+            String osVersion = Build.DISPLAY;
+            return osVersion.startsWith("4.");
+        }
+        return false;
+    }
+
     protected static boolean isVirtualRealityApp(ApplicationInfo app) {
         String[] nonVrApps = {      //move to tools category
                 "com.pico4.settings",   //app that shows android settings
