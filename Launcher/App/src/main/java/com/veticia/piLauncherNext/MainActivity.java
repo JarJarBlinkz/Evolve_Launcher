@@ -238,8 +238,10 @@ public class MainActivity extends Activity
         checkForUpdates(update);
     }
     private long lastUpdateCheck = 0L;
-    private long updateInterval = 1000 * 60 * 60 * 4; //once every 4 hours
+
     private void checkForUpdates(View update) {
+        //once every 4 hours
+        long updateInterval = 1000 * 60 * 60 * 4;
         if(lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
             return;
         }
