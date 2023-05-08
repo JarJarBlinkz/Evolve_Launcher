@@ -13,4 +13,4 @@ This is a fork, and spiritual succesor of [lvonasek's piLauncher](https://github
 
 ## Similar Projects
 * [DreamGrid](https://github.com/basti564/DreamGrid), a more Oculus-centric fork of piLauncher
-* [PicoZen](https://github.com/barnabwhy/PicoZen), piLauncherNext fork (doesn't have much to do with piLauncherNext now) that is made to look more like a native Pico app
+* [PicoZen](https://github.com/barnabwhy/PicoZen), launcher made to look more like a native Pico app
