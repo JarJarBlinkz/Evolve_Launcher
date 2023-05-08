@@ -1,14 +1,21 @@
-# Latest version: [piLauncherNext_104.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_104.apk)
+# Latest version: [piLauncherNext_110.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_110.apk)
 
 ## Changelog
+### 1.1.0
+- More reliable updates checker
+- Icons spacing with names turned on now pixel perfect
+- Added File Manager icon to PicoOS 4
+- More accesible settings on smaller window sizes / dpi (Pico 3, Oculus)
+- Option to download icons directly from Pico store (Pico only; based on logic from [PicoZen](https://github.com/barnabwhy/PicoZen))
+
 ### 1.0.4
 - Reduced stutter when switching categories
 - Modernized UI by replacing checkboxes with switches
 
 ### 1.0.3
-- Fixed crash when removing last group (removing last group will restore default groups).
-- Added icon for Mixed Reality Capture (Pico only).
-- Restored System Tweaks menu (Oculus only).
+- Fixed crash when removing last group (removing last group will restore default groups)
+- Added icon for Mixed Reality Capture (Pico only)
+- Restored System Tweaks menu (Oculus only)
 
 ### 1.0.2
 - hotfix: default group PSP not created on first launch
