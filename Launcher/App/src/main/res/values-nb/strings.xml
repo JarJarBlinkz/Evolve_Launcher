@@ -16,6 +16,13 @@
     <string name="settings_tweaks">Systemtweaks</string>
     <string name="background_opacity">Bakgrunnsopasitet</string>
     <string name="icons_size">Ikoner størrelse</string>
+
+    <string name="store_icon_priority">Last ned ikoner fra Pico-butikk</string>
+    <string name="store_icon_warning">• Å aktivere dette vil lekke informasjon om installerte applikasjoner til Pico.\n• Å endre denne innstillingen vil fjerne alle manuelt angitte ikoner.</string>
+    <string name="picoStoreIcons0">Deaktivert</string>
+    <string name="picoStoreIcons1">Som en siste utvei</string>
+    <string name="picoStoreIcons2">Med prioritet</string>
+
     <string name="show_app_names">Vis navn på apper</string>
     <string name="start_shortcut">Åpne startprogrammet med Utforsk-ikonet fra systemdashbordet.</string>
 

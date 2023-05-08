@@ -16,6 +16,13 @@
     <string name="settings_tweaks">Järjestelmän säätöjä</string>
     <string name="background_opacity">Taustan läpinäkyvyys</string>
     <string name="icons_size">Ikonien koko</string>
+
+    <string name="store_icon_priority">Lataa kuvakkeet Pico-kaupasta</string>
+    <string name="store_icon_warning">• Tämän käyttöönotto vuotaa tietoja asennetuista sovelluksista Picoon.\n• Tämän asetuksen muuttaminen poistaa kaikki manuaalisesti asetetut kuvakkeet.</string>
+    <string name="picoStoreIcons0">Poistettu käytöstä</string>
+    <string name="picoStoreIcons1">Viimeisenä keinona</string>
+    <string name="picoStoreIcons2">Etusijalla</string>
+
     <string name="show_app_names">Näytä sovellusten nimet</string>
     <string name="start_shortcut">Avaa käynnistysohjelma käyttämällä Järjestelmätarjottimen Tutustu-kuvaketta.</string>
 

@@ -16,6 +16,13 @@
     <string name="settings_tweaks">시스템 조정</string>
     <string name="background_opacity">배경 불투명도</string>
     <string name="icons_size">아이콘 크기</string>
+
+    <string name="store_icon_priority">Pico 스토어에서 아이콘 다운로드</string>
+    <string name="store_icon_warning">• 이 기능을 활성화하면 설치된 애플리케이션에 대한 정보가 Pico로 유출됩니다.\n• 이 설정을 변경하면 모든 수동으로 설정된 아이콘이 제거됩니다.</string>
+    <string name="picoStoreIcons0">비활성화됨</string>
+    <string name="picoStoreIcons1">마지막 수단으로</string>
+    <string name="picoStoreIcons2">우선 순위가있는</string>
+
     <string name="show_app_names">앱 이름 표시</string>
     <string name="start_shortcut">시스템 대시보드에서 살펴보기 아이콘이 있는 런처를 엽니다.</string>
 

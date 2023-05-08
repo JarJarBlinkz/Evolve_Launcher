@@ -16,6 +16,13 @@
     <string name="settings_tweaks">Системные настройки</string>
     <string name="background_opacity">Непрозрачность фона</string>
     <string name="icons_size">Размер иконок</string>
+
+    <string name="store_icon_priority">Скачать иконки из магазина Пико</string>
+    <string name="store_icon_warning">• Включение этого приведет к утечке информации об установленных приложениях в Pico.\n• Изменение этой настройки удалит все вручную установленные иконки.</string>
+    <string name="picoStoreIcons0">Отключено</string>
+    <string name="picoStoreIcons1">Как последний шанс</string>
+    <string name="picoStoreIcons2">С приоритетом</string>
+
     <string name="show_app_names">Показать названия приложений</string>
     <string name="start_shortcut">Открывать лаунчер с помощью значка «Обзор» на системной панели.</string>
 

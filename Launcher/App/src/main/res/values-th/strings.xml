@@ -16,6 +16,13 @@
     <string name="settings_tweaks">การปรับแต่งระบบ</string>
     <string name="background_opacity">ความทึบของพื้นหลัง</string>
     <string name="icons_size">ขนาดไอคอน</string>
+
+    <string name="store_icon_priority">ดาวน์โหลดไอคอนจากร้านค้า Pico</string>
+    <string name="store_icon_warning">• เปิดใช้งานสิ่งนี้จะรั่วข้อมูลเกี่ยวกับแอปพลิเคชันที่ติดตั้งไปยัง Pico\n• การเปลี่ยนการตั้งค่านี้จะลบไอคอนที่ตั้งค่าด้วยตนเองทั้งหมด</string>
+    <string name="picoStoreIcons0">ปิดใช้งาน</string>
+    <string name="picoStoreIcons1">เป็นทางเลือกสุดท้าย</string>
+    <string name="picoStoreIcons2">มีลำดับความสำคัญ</string>
+
     <string name="show_app_names">แสดงชื่อแอป</string>
     <string name="start_shortcut">เปิดตัวเรียกใช้งานด้วยไอคอนสำรวจจากแผงควบคุมระบบ</string>
 

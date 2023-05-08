@@ -1,5 +1,6 @@
 package com.veticia.piLauncherNext.platforms;
 
+import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STORE_ICON_PRIORITY;
 import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
 import static com.veticia.piLauncherNext.MainActivity.STYLES;
 import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
@@ -19,12 +20,18 @@ import android.widget.ImageView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.veticia.piLauncherNext.MainActivity;
 import com.veticia.piLauncherNext.SettingsProvider;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,15 +45,23 @@ public abstract class AbstractPlatform {
 
     private void downloadIcon(final Activity activity, String pkg, @SuppressWarnings("unused") String name, final Runnable callback) {
         final File file = pkg2path(activity, STYLES[style] + "." + pkg);
+        int storeIconsState = isPicoHeadset() ? sharedPreferences.getInt(SettingsProvider.KEY_STORE_ICON_PRIORITY, DEFAULT_STORE_ICON_PRIORITY) : 0;
+            // 0 - don't download
+            // 1 - download as a fallback
+            // 2 - download with priority
         new Thread(() -> {
             try {
                 synchronized (pkg) {
                     //if (ignoredIcons.contains(STYLES[style] + "." + file.getName())) {
                         //ignored icon
                     //} else
-                    if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
+                    if(storeIconsState >= 2 && downloadIconFromStore(pkg, file, style)) {
+                        activity.runOnUiThread(callback);
+                    } else if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
                         activity.runOnUiThread(callback);
                     } else if (downloadIconFromUrl(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
+                        activity.runOnUiThread(callback);
+                    } else if(storeIconsState == 1 && downloadIconFromStore(pkg, file, style)) {
                         activity.runOnUiThread(callback);
                     } else {
                         Log.d("Missing icon", file.getName());
@@ -83,6 +98,7 @@ public abstract class AbstractPlatform {
 
         final File file = pkg2path(activity, STYLES[style]+"."+pkg);
         if (file.exists()) {
+            Log.i("Exists", file.getAbsolutePath());
             if (updateIcon(icon, file, STYLES[style]+"."+pkg)) {
                 return;
             }
@@ -107,6 +123,18 @@ public abstract class AbstractPlatform {
     public static void clearIconCache() {
         ignoredIcons.clear();
         iconCache.clear();
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public static void clearAllIcons(MainActivity activity) {
+        for (String pkg : iconCache.keySet()) {
+            final File file = pkg2path(activity, pkg);
+            Log.i("Cache file", file.getAbsolutePath() + " | Exists: " + file.exists());
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+        clearIconCache();
     }
 
     public static AbstractPlatform getPlatform(ApplicationInfo app) {
@@ -183,6 +211,43 @@ public abstract class AbstractPlatform {
 
             return true;
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected static boolean downloadIconFromStore(String pkg, File outputFile, int style) {
+        if(isPicoHeadset()) {
+            try {
+                URL url = new URL("https://appstore-us.picovr.com/api/app/v1/item/info?app_language=en&device_name=A8110&manifest_version_code=300800000&package_name=" + pkg);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.connect();
+
+                InputStream stream = connection.getInputStream();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+                StringBuilder str = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    str.append(line).append("\n");
+                }
+
+                JSONObject result = new JSONObject(str.toString());
+
+                if(result.isNull("data") || result.getJSONObject("data").isNull("cover")) {
+                    return false;
+                }
+
+                String imageKey = style == 0 ? "landscape" : "square";
+                return downloadIconFromUrl(result.getJSONObject("data").getJSONObject("cover").getString(imageKey), outputFile);
+            } catch (Exception e) {
+                return false;
+            }
+        } else if(isOculusHeadset()) {
+            return false;
+        } else {
             return false;
         }
     }
