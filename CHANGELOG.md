@@ -1,6 +1,9 @@
-# Latest version: [piLauncherNext_110.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_110.apk)
+# Latest version: [piLauncherNext_111.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_111.apk)
 
 ## Changelog
+### 1.1.1
+- (After consulting my lawyers) Reverted "download icons directly from Pico store" to not make Pico angry at me
+
 ### 1.1.0
 - More reliable updates checker
 - Icons spacing with names turned on now pixel perfect
