@@ -27,13 +27,6 @@
     <string name="accesibility_button">Deschide setările</string>
     <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
     <string name="icons_style">Stilul icoanei</string>
-
-    <string name="store_icon_priority">Descărca pictograme din magazinul Pico</string>
-    <string name="store_icon_warning">• Activarea acestei opțiuni va scurge informații despre aplicațiile instalate către Pico.\n• Schimbarea acestei setări va elimina toate pictogramele setate manual.</string>
-    <string name="picoStoreIcons0">Dezactivat</string>
-    <string name="picoStoreIcons1">Ca ultimă soluție</string>
-    <string name="picoStoreIcons2">Cu prioritate</string>
-
     <string name="update_header">Noua versiune disponibilă</string>
     <string name="autorun">Lansați 爪 Launcher la pornirea sistemului</string>
     <string name="failed_to_launch">Lansarea a eșuat</string>

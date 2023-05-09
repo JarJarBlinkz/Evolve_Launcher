@@ -16,13 +16,6 @@
     <string name="settings_tweaks">Ajustes do sistema</string>
     <string name="background_opacity">Opacidade do plano de fundo</string>
     <string name="icons_size">Tamanho das miniaturas</string>
-
-    <string name="store_icon_priority">Baixar ícones da loja Pico</string>
-    <string name="store_icon_warning">• Ativar isso vazará informações sobre aplicativos instalados para o Pico.\n• Alterar esta configuração removerá todos os ícones definidos manualmente.</string>
-    <string name="picoStoreIcons0">Desativado</string>
-    <string name="picoStoreIcons1">Como último recurso</string>
-    <string name="picoStoreIcons2">Com prioridade</string>
-
     <string name="show_app_names">Mostrar nome dos aplicativos</string>
     <string name="start_shortcut">Abra o launcher com o ícone Explorar no painel do sistema.</string>
 

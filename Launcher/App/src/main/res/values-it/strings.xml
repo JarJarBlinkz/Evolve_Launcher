@@ -16,13 +16,6 @@
     <string name="settings_tweaks">Ritocchi di sistema</string>
     <string name="background_opacity">Transparenza sfondo</string>
     <string name="icons_size">Dimensioni icone</string>
-
-    <string name="store_icon_priority">Scaricare le icone dal negozio Pico</string>
-    <string name="store_icon_warning">• L\'attivazione di questo causerà la perdita di informazioni sulle applicazioni installate a Pico.\n• La modifica di questa impostazione rimuoverà tutte le icone impostate manualmente.</string>
-    <string name="picoStoreIcons0">Disabilitato</string>
-    <string name="picoStoreIcons1">Come ultima risorsa</string>
-    <string name="picoStoreIcons2">Con priorità</string>
-
     <string name="show_app_names">Mostra nomi app</string>
     <string name="start_shortcut">Apri 爪 Launcher con l’icona del Explorer</string>
 

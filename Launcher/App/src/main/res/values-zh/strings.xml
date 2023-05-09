@@ -16,13 +16,6 @@
     <string name="settings_tweaks">系统调节</string>
     <string name="background_opacity">背景透明度</string>
     <string name="icons_size">图标大小</string>
-
-    <string name="store_icon_priority">从Pico商店下载图标</string>
-    <string name="store_icon_warning">• 启用此功能将泄露有关已安装应用程序的信息到Pico。\n• 更改此设置将删除所有手动设置的图标。</string>
-    <string name="picoStoreIcons0">禁用</string>
-    <string name="picoStoreIcons1">作为最后的手段</string>
-    <string name="picoStoreIcons2">优先</string>
-
     <string name="show_app_names">显示应用名称</string>
     <string name="start_shortcut">使用系统栏中的【浏览器】图标来启动。</string>
 

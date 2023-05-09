@@ -16,13 +16,6 @@
     <string name="settings_tweaks">Tweak sistem</string>
     <string name="background_opacity">Kelegapan latar</string>
     <string name="icons_size">Saiz ikon</string>
-
-    <string name="store_icon_priority">Muat turun ikon dari kedai Pico</string>
-    <string name="store_icon_warning">• Mengaktifkan ini akan mengekspos maklumat tentang aplikasi yang dipasang kepada Pico.\n• Mengubah tetapan ini akan menghapuskan semua ikon yang ditetapkan secara manual.</string>
-    <string name="picoStoreIcons0">Dimatikan</string>
-    <string name="picoStoreIcons1">Sebagai jalan keluar terakhir</string>
-    <string name="picoStoreIcons2">Dengan keutamaan</string>
-
     <string name="show_app_names">Tunjukkan nama apl</string>
     <string name="start_shortcut">Open the launcher with Explore icon from the system dashboard.</string>
 

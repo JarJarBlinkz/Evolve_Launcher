@@ -22,13 +22,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -65,7 +64,6 @@ public class MainActivity extends Activity
     public static final int DEFAULT_SCALE = 2;
     private static final int DEFAULT_THEME = 0;
     public static final int DEFAULT_STYLE = 0;
-    public static final int DEFAULT_STORE_ICON_PRIORITY = 0;
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
 
@@ -477,26 +475,6 @@ public class MainActivity extends Activity
             ButtonManager.isAccessibilityInitialized(this);
             ButtonManager.requestAccessibility(this);
         });
-
-        RadioGroup storeIcons = d.findViewById(R.id.pico_store_icons);
-        if (!AbstractPlatform.isPicoHeadset()) {
-            View picoStoreSettings = d.findViewById(R.id.pico_store_settings);
-            picoStoreSettings.setVisibility(View.GONE);
-        }
-        int radioCheckedIndex = sharedPreferences.getInt(SettingsProvider.KEY_STORE_ICON_PRIORITY, DEFAULT_STORE_ICON_PRIORITY);
-        if (radioCheckedIndex > 2) radioCheckedIndex = 0;
-        RadioButton radioButton = (RadioButton) storeIcons.getChildAt(radioCheckedIndex);
-        storeIcons.check(radioButton.getId());
-        storeIcons.setOnCheckedChangeListener((buttonView, id) -> {
-            View child = storeIcons.findViewById(id);
-            int index = storeIcons.indexOfChild(child);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(SettingsProvider.KEY_STORE_ICON_PRIORITY, index);
-                editor.apply();
-                AbstractPlatform.clearAllIcons(this);
-                reloadUI();
-        });
-
         Switch names = d.findViewById(R.id.checkbox_names);
         names.setChecked(sharedPreferences.getBoolean(SettingsProvider.KEY_CUSTOM_NAMES, DEFAULT_NAMES));
         names.setOnCheckedChangeListener((compoundButton, value) -> {

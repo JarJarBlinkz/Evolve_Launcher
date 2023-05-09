@@ -16,13 +16,6 @@
     <string name="settings_tweaks">Sistem tweaks</string>
     <string name="background_opacity">Arka plan opaklığı</string>
     <string name="icons_size">Simge boyutu</string>
-
-    <string name="store_icon_priority">Pico mağazasından simgeleri indirin</string>
-    <string name="store_icon_warning">• Bunu etkinleştirmek, yüklü uygulamalar hakkında bilgi sızdıracaktır Pico\'ya.\n• Bu ayarı değiştirmek, tüm elle ayarlanmış simgeleri kaldıracaktır.</string>
-    <string name="picoStoreIcons0">Devre dışı</string>
-    <string name="picoStoreIcons1">Son çare olarak</string>
-    <string name="picoStoreIcons2">Öncelikli olarak</string>
-
     <string name="show_app_names">Uygulama adlarını göster</string>
     <string name="start_shortcut">Sistem panosundan Keşfet simgesiyle başlatıcıyı açın.</string>
 

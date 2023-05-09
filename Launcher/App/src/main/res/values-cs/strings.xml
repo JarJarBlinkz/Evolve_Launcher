@@ -16,13 +16,6 @@
     <string name="settings_tweaks">Systémové úpravy</string>
     <string name="background_opacity">"Průhlednost pozadí "</string>
     <string name="icons_size">Velikost ikon</string>
-
-    <string name="store_icon_priority">Stáhnout ikony z obchodu Pico</string>
-    <string name="store_icon_warning">• Povolením tohoto dojde k úniku informací o nainstalovaných aplikacích do Pico.\n• Změna tohoto nastavení odstraní všechny ručně nastavené ikony.</string>
-    <string name="picoStoreIcons0">Vypnuto</string>
-    <string name="picoStoreIcons1">Jako poslední možnost</string>
-    <string name="picoStoreIcons2">S prioritou</string>
-
     <string name="show_app_names">Zobrazit názvy aplikací</string>
     <string name="start_shortcut">Spouštěč otevřete pomocí ikony Prozkoumat v systémové liště.</string>
 

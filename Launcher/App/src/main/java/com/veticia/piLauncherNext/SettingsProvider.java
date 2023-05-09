@@ -32,7 +32,6 @@ public class SettingsProvider
     public static final String KEY_CUSTOM_SCALE = "KEY_CUSTOM_SCALE";
     public static final String KEY_CUSTOM_THEME = "KEY_CUSTOM_THEME";
     public static final String KEY_CUSTOM_STYLE = "KEY_CUSTOM_STYLE";
-    public static final String KEY_STORE_ICON_PRIORITY = "KEY_STORE_ICON_PRIORITY";
     public static final String KEY_EDITMODE = "KEY_EDITMODE";
     public static final String KEY_AUTORUN = "KEY_AUTORUN";
     public static final String KEY_PLATFORM_ANDROID = "KEY_PLATFORM_ANDROID";
