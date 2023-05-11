@@ -1,5 +1,5 @@
 # piLauncherNext
-This is a fork, and spiritual succesor of [lvonasek's piLauncher](https://github.com/lvonasek/QuestPiLauncher). A simple launcher for Pico VR headsets (might also work in Oculus) supporting official/sideloaded apps and games.
+This is a fork, and spiritual succesor of [lvonasek's piLauncher](https://github.com/lvonasek/QuestPiLauncher). An alternative launcher for Pico VR headsets (might also work in Oculus) supporting official/sideloaded apps and games.
 
 [Builds](https://github.com/Veticia/binaries/tree/main/releases)
 
