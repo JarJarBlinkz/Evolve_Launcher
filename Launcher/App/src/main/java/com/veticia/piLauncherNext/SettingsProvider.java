@@ -271,6 +271,13 @@ public class SettingsProvider
             Set<String> defClone = new HashSet<>();
             defClone.add(defAppsGroup);
             mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
+
+            String defmediaGroup = context.getString(R.string.default_media_group);
+            def.add(defmediaGroup);
+
+            String defgamesGroup = context.getString(R.string.default_games_group);
+            def.add(defgamesGroup);
+
             String defToolsGroup = context.getString(R.string.default_tools_group);
             def.add(defToolsGroup);
             String defPSPgroup = "PSP";

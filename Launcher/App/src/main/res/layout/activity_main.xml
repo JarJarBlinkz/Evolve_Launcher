@@ -83,7 +83,8 @@
                 android:scaleType="fitCenter"
                 android:shadowColor="#80000000"
                 android:shadowRadius="5"
-                android:src="@drawable/ic_mainmenu" />
+                android:src="@drawable/ic_mainmenu"
+                android:visibility="gone" />
         </LinearLayout>
 
         <GridView

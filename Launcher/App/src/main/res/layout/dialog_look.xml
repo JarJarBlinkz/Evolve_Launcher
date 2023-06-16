@@ -223,7 +223,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:visibility="gone">
 
             <Switch
                 android:id="@+id/checkbox_autorun"
