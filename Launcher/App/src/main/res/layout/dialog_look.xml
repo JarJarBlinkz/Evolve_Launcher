@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,42 +27,42 @@
 
             <ImageView
                 android:id="@+id/theme0"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_default" />
 
             <ImageView
                 android:id="@+id/theme1"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_glass" />
 
             <ImageView
                 android:id="@+id/theme2"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_rgb" />
 
             <ImageView
                 android:id="@+id/theme3"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_skin" />
 
             <ImageView
                 android:id="@+id/theme4"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_underwater" />
 
             <ImageView
                 android:id="@+id/theme_custom"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_custom" />
@@ -114,21 +115,21 @@
 
             <ImageView
                 android:id="@+id/style0"
-                android:layout_width="138dp"
+                android:layout_width="93dp"
                 android:layout_height="138dp"
                 android:padding="5dp"
                 android:src="@drawable/com_valvesoftware_alyx_banners" />
 
             <ImageView
                 android:id="@+id/style1"
-                android:layout_width="138dp"
+                android:layout_width="93dp"
                 android:layout_height="138dp"
                 android:padding="5dp"
                 android:src="@drawable/com_valvesoftware_alyx_icons" />
 
             <ImageView
                 android:id="@+id/style2"
-                android:layout_width="138dp"
+                android:layout_width="93dp"
                 android:layout_height="138dp"
                 android:padding="5dp"
                 android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
@@ -233,7 +234,8 @@
                 android:text="@string/autorun"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color" />
+                android:trackTint="@color/switch_track_color"
+                tools:visibility="invisible" />
         </LinearLayout>
 
     </LinearLayout>
