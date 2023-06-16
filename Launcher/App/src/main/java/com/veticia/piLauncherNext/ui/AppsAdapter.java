@@ -162,16 +162,21 @@ public class AppsAdapter extends BaseAdapter
         if (isEditMode) {
             // short click for app details, long click to activate drag and drop
             holder.layout.setOnTouchListener((view, motionEvent) -> {
-                if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
-                        (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
-                    packageName = currentApp.packageName;
-                    lastClickTime = System.currentTimeMillis();
-                    ClipData dragData = ClipData.newPlainText(name, name);
-                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        view.startDragAndDrop(dragData, shadowBuilder, view, 0);
-                    } else {
-                        view.startDrag(dragData, shadowBuilder, view, 0);
+                if (AbstractPlatform.isOculusHeadset()) {
+                    boolean selected = mainActivityContext.selectApp(currentApp.packageName);
+                    view.setAlpha(selected? 0.5F : 1.0F);
+                } else {
+                    if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
+                            (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
+                        packageName = currentApp.packageName;
+                        lastClickTime = System.currentTimeMillis();
+                        ClipData dragData = ClipData.newPlainText(name, name);
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            view.startDragAndDrop(dragData, shadowBuilder, view, 0);
+                        } else {
+                            view.startDrag(dragData, shadowBuilder, view, 0);
+                        }
                     }
                 }
                 return false;

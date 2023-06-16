@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
@@ -31,6 +30,9 @@
     <string name="autorun">爪 Launcher beim Systemstart ausführen</string>
     <string name="failed_to_launch">Start fehlgeschlagen</string>
     <string name="default_tools_group">Werkzeuge</string>
+
+    <string name="selection_hint_single">Klicken Sie auf eine Gruppe, um die ausgewählte App zu verschieben.</string>
+    <string name="selection_hint_multiple">%d Apps ausgewählt. Klicken Sie auf eine Gruppe, um die ausgewählte App zu verschieben.</string>
 
     <string-array name="sort_options">
         <item>↓ Name</item>

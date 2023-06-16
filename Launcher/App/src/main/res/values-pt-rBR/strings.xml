@@ -31,6 +31,9 @@
     <string name="failed_to_launch">Falha ao iniciar</string>
     <string name="default_tools_group">Ferramentas</string>
 
+    <string name="selection_hint_single">Clique em um grupo para mover o aplicativo selecionado.</string>
+    <string name="selection_hint_multiple">%d aplicativos selecionados. Clique em um grupo para mover o aplicativo selecionado.</string>
+
     <string-array name="sort_options">
         <item>↓ Nome</item>
         <item>↑ Nome</item>

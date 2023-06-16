@@ -32,6 +32,9 @@
     <string name="failed_to_launch">启动失败</string>
     <string name="default_tools_group">工具</string>
 
+    <string name="selection_hint_single">单击一个组以移动选定的应用程序。</string>
+    <string name="selection_hint_multiple">选择了 %d 个应用程序。单击一个组以移动选定的应用程序。</string>
+
     <string-array name="sort_options">
         <item>↓ 名称</item>
         <item>↑ 名称</item>

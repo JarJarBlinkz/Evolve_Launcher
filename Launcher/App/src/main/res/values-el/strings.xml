@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Εφαρμογές</string>
@@ -31,6 +30,9 @@
     <string name="autorun">Εκκινήστε τον 爪 Launcher κατά την εκκίνηση του συστήματος</string>
     <string name="failed_to_launch">Αποτυχία εκκίνησης</string>
     <string name="default_tools_group">Εργαλεία</string>
+
+    <string name="selection_hint_single">Κάντε κλικ σε μια ομάδα για να μετακινήσετε την επιλεγμένη εφαρμογή.</string>
+    <string name="selection_hint_multiple">Επιλέχθηκαν %d εφαρμογές. Κάντε κλικ σε μια ομάδα για να μετακινήσετε την επιλεγμένη εφαρμογή.</string>
 
     <string-array name="sort_options">
         <item>↓ Όνομα</item>

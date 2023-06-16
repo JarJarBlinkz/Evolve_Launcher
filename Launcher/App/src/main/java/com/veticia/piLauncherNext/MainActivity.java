@@ -127,12 +127,26 @@ public class MainActivity extends Activity
         // Handle group click listener
         groupPanelGridView.setOnItemClickListener((parent, view, position, id) -> {
             List<String> groups = settingsProvider.getAppGroupsSorted(false);
-            if (position == groups.size()) {
-                settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
-            } else if (position == groups.size() + 1) {
-                settingsProvider.selectGroup(settingsProvider.addGroup());
+            if (!currentSelectedApps.isEmpty()) {
+                HashSet<String> moved = new HashSet<>();
+                // this is a little jank but it works
+                GroupsAdapter adapter = (GroupsAdapter) groupPanelGridView.getAdapter();
+                for (String app : currentSelectedApps) {
+                    // move the specified app to the group
+                    adapter.setGroup(app, position);
+                    moved.add(app);
+                }
+                // deselect all apps that were moved
+                currentSelectedApps.removeAll(moved);
+                updateSelectionHint();
             } else {
-                settingsProvider.selectGroup(groups.get(position));
+                if (position == groups.size()) {
+                    settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
+                } else if (position == groups.size() + 1) {
+                    settingsProvider.selectGroup(settingsProvider.addGroup());
+                } else {
+                    settingsProvider.selectGroup(groups.get(position));
+                }
             }
             reloadUI();
         });
@@ -237,6 +251,10 @@ public class MainActivity extends Activity
     private long lastUpdateCheck = 0L;
 
     private void checkForUpdates(View update) {
+        // disable all update checks
+        if (true) {
+            return;
+        }
         //once every 4 hours
         long updateInterval = 1000 * 60 * 60 * 4;
         if(lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
@@ -658,5 +676,33 @@ public class MainActivity extends Activity
         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + pkg));
         startActivity(intent);
+    }
+
+    // Edit Mode
+    Set<String> currentSelectedApps = new HashSet<>();
+    public boolean selectApp(String app) {
+
+        if (currentSelectedApps.contains(app)) {
+            currentSelectedApps.remove(app);
+            updateSelectionHint();
+            return false;
+        } else {
+            currentSelectedApps.add(app);
+            updateSelectionHint();
+
+            return true;
+        }
+    }
+
+    void updateSelectionHint() {
+        TextView selectionHint = findViewById(R.id.SelectionHint);
+
+        final int size = currentSelectedApps.size();
+        if (size == 1) {
+            selectionHint.setText(R.string.selection_hint_single);
+        } else {
+            selectionHint.setText(getResources().getString(R.string.selection_hint_multiple, size));
+        }
+        selectionHint.setVisibility(currentSelectedApps.isEmpty() ? View.INVISIBLE : View.VISIBLE);
     }
 }

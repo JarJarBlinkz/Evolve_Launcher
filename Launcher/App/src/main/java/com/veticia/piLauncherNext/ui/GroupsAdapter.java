@@ -69,6 +69,23 @@ public class GroupsAdapter extends BaseAdapter {
         }
     }
 
+    public void setGroup(String packageName, int position) {
+        // add group or hidden group selection
+        String name = appGroups.get(position);
+        List<String> appGroupsList = settingsProvider.getAppGroupsSorted(false);
+        if (appGroupsList.size() + 1 == position) {
+            name = settingsProvider.addGroup();
+        } else if (appGroupsList.size() == position) {
+            name = HIDDEN_GROUP;
+        }
+
+        // move app into group
+        Map<String, String> apps = settingsProvider.getAppList();
+        apps.remove(packageName);
+        apps.put(packageName, name);
+        settingsProvider.setAppList(apps);
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -167,24 +184,12 @@ public class GroupsAdapter extends BaseAdapter {
                 setLook(position, finalConvertView, holder.menu);
             } else if (event.getAction() == DragEvent.ACTION_DROP) {
                 // add group or hidden group selection
-                String name = appGroups.get(position);
-                List<String> appGroupsList = settingsProvider.getAppGroupsSorted(false);
-                if (appGroupsList.size() + 1 == position) {
-                    name = settingsProvider.addGroup();
-                } else if (appGroupsList.size() == position) {
-                    name = HIDDEN_GROUP;
-                }
-
-                // move app into group
                 String packageName = mainActivity.getSelectedPackage();
-                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
-                Map<String, String> apps = settingsProvider.getAppList();
-                apps.remove(packageName);
-                apps.put(packageName, name);
-                settingsProvider.setAppList(apps);
+                setGroup(mainActivity.getSelectedPackage(), position);
 
                 // false to dragged icon fly back
-                return !selectedGroup.contains(name);
+                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
+                return !selectedGroup.contains(packageName);
             }
             return true;
         });

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplikace</string>
@@ -31,6 +30,9 @@
     <string name="autorun">Spusťte 爪 Launcher při spuštění systému</string>
     <string name="failed_to_launch">Spuštění se nezdařilo</string>
     <string name="default_tools_group">Nástroje</string>
+
+    <string name="selection_hint_single">Kliknutím na skupinu přesunete vybranou aplikaci.</string>
+    <string name="selection_hint_multiple">Vybráno %d aplikací. Kliknutím na skupinu přesunete vybranou aplikaci.</string>
 
     <string-array name="sort_options">
         <item>↓ Název</item>
