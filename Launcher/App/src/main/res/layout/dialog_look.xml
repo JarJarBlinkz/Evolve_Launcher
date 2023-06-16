@@ -95,9 +95,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:visibility="gone">
 
             <android.widget.TextView
                 android:layout_width="wrap_content"
@@ -106,36 +107,36 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/style0"
-                android:layout_width="93dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_banners" />
+                <ImageView
+                    android:id="@+id/style0"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_banners" />
 
-            <ImageView
-                android:id="@+id/style1"
-                android:layout_width="93dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_icons" />
+                <ImageView
+                    android:id="@+id/style1"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_icons" />
 
-            <ImageView
-                android:id="@+id/style2"
-                android:layout_width="93dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
+                <ImageView
+                    android:id="@+id/style2"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
+            </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

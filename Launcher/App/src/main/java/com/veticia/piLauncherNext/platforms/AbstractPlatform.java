@@ -32,7 +32,8 @@ import java.util.HashSet;
 
 public abstract class AbstractPlatform {
     final int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-    private final String ICONS1_URL = "https://raw.githubusercontent.com/Veticia/binaries/main/"+STYLES[style]+"/";
+    private final String ICONS1_URL = "https://raw.githubusercontent.com/basti564/LauncherIcons/main/oculus_landscape/"+STYLES[style]+"/";
+    //private final String ICONS1_URL = "https://raw.githubusercontent.com/Veticia/binaries/main/"+STYLES[style]+"/";
     private static final String ICONS_FALLBACK_URL = "https://pilauncher.lwiczka.pl/get_icon.php?id=";
     protected static final HashMap<String, Drawable> iconCache = new HashMap<>();
     protected static final HashSet<String> ignoredIcons = new HashSet<>();
