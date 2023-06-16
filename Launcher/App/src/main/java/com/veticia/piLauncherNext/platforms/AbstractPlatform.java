@@ -19,6 +19,7 @@ import android.widget.ImageView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.veticia.piLauncherNext.MainActivity;
 import com.veticia.piLauncherNext.SettingsProvider;
 
 import java.io.DataInputStream;
@@ -110,6 +111,18 @@ public abstract class AbstractPlatform {
     public static void clearIconCache() {
         ignoredIcons.clear();
         iconCache.clear();
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public static void clearAllIcons(MainActivity activity) {
+        for (String pkg : iconCache.keySet()) {
+            final File file = pkg2path(activity, pkg);
+            Log.i("Cache file", file.getAbsolutePath() + " | Exists: " + file.exists());
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+        clearIconCache();
     }
 
     public static AbstractPlatform getPlatform(ApplicationInfo app) {
