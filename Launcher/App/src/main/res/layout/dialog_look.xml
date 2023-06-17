@@ -27,42 +27,42 @@
 
             <ImageView
                 android:id="@+id/theme0"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_default" />
 
             <ImageView
                 android:id="@+id/theme1"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_glass" />
 
             <ImageView
                 android:id="@+id/theme2"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_rgb" />
 
             <ImageView
                 android:id="@+id/theme3"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_skin" />
 
             <ImageView
                 android:id="@+id/theme4"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_underwater" />
 
             <ImageView
                 android:id="@+id/theme_custom"
-                android:layout_width="60dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_custom" />

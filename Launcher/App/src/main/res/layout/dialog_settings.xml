@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="20dp"
+        android:text="@string/app_name"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="@string/app_name"/>
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_look"
-            android:layout_width="120dp"
+            android:layout_width="126dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_look"
             app:icon="@drawable/ic_look"
@@ -33,7 +33,7 @@
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_device"
-            android:layout_width="120dp"
+            android:layout_width="126dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_device"
             app:icon="@drawable/ic_device"
@@ -42,12 +42,19 @@
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_apps"
-            android:layout_width="120dp"
+            android:layout_width="126dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_apps_enable"
             app:icon="@drawable/ic_editing_on"
             app:text="@string/settings_apps_enable"
             tools:ignore="UnusedAttribute" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_platforms"
@@ -57,12 +64,6 @@
             app:icon="@drawable/ic_platforms"
             app:text="@string/settings_platforms"
             tools:ignore="UnusedAttribute" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_tweaks"
@@ -73,4 +74,5 @@
             app:text="@string/settings_tweaks"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
+
 </LinearLayout>
