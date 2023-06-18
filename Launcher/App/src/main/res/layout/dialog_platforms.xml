@@ -28,7 +28,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_android" />
+            android:background="@drawable/ic_platform_android"/>
 
         <Switch
             android:id="@+id/checkbox_android"
@@ -46,16 +46,15 @@
         android:id="@+id/layout_psp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:padding="10dp"
-        android:visibility="visible">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <View
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_psp" />
+            android:background="@drawable/ic_platform_psp"/>
 
         <Switch
             android:id="@+id/checkbox_psp"
