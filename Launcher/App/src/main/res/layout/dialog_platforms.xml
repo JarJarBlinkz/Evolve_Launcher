@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +28,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_android"/>
+            android:background="@drawable/ic_platform_android" />
 
         <Switch
             android:id="@+id/checkbox_android"
@@ -37,22 +38,24 @@
             android:text="Android apps"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_psp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:visibility="visible">
 
         <View
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_platform_psp"/>
+            android:background="@drawable/ic_platform_psp" />
 
         <Switch
             android:id="@+id/checkbox_psp"
@@ -62,7 +65,8 @@
             android:text="Sony Playstation Portable (PPSSPP)"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 
 
@@ -88,6 +92,7 @@
             android:text="Virtual Reality"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 </LinearLayout>

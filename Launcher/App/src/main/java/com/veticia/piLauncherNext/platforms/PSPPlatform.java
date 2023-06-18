@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 public class PSPPlatform  extends AbstractPlatform {
 
-    private static final String CONFIG_FILE = Environment.getExternalStorageDirectory().getPath() + "/PSP/SYSTEM/ppssppvr.ini";
+    private static final String CONFIG_FILE = Environment.getExternalStorageDirectory().getPath() + "/PSP/SYSTEM/ppsspp.ini";
     private static final String FILENAME_PREFIX = "FileName";
     private static final String RECENT_TAG = "[Recent]";
     public static final String PACKAGE_PREFIX = "psp/";
