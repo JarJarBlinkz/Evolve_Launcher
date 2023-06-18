@@ -30,7 +30,8 @@
                 android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/bkg_default" />
+                android:src="@drawable/bkg_default"
+                tools:ignore="ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/theme1"
@@ -51,7 +52,8 @@
                 android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/bkg_skin" />
+                android:src="@drawable/bkg_skin"
+                tools:ignore="ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/theme4"
@@ -178,7 +180,8 @@
                 android:text="@string/show_app_names"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color" />
+                android:trackTint="@color/switch_track_color"
+                tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
         </LinearLayout>
 
         <LinearLayout
