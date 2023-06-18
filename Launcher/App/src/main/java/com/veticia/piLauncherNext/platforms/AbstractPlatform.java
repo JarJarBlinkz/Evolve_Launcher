@@ -19,7 +19,6 @@ import android.widget.ImageView;
 
 import androidx.core.content.res.ResourcesCompat;
 
-import com.veticia.piLauncherNext.MainActivity;
 import com.veticia.piLauncherNext.SettingsProvider;
 
 import java.io.DataInputStream;
@@ -32,7 +31,6 @@ import java.util.HashSet;
 
 public abstract class AbstractPlatform {
     final int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-
     private final String ICONS1_URL = "https://raw.githubusercontent.com/basti564/LauncherIcons/main/oculus_landscape/";
     //original url
     //private final String ICONS1_URL = "https://raw.githubusercontent.com/Veticia/binaries/main/"+STYLES[style]+"/";
@@ -111,18 +109,6 @@ public abstract class AbstractPlatform {
     public static void clearIconCache() {
         ignoredIcons.clear();
         iconCache.clear();
-    }
-
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static void clearAllIcons(MainActivity activity) {
-        for (String pkg : iconCache.keySet()) {
-            final File file = pkg2path(activity, pkg);
-            Log.i("Cache file", file.getAbsolutePath() + " | Exists: " + file.exists());
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-        clearIconCache();
     }
 
     public static AbstractPlatform getPlatform(ApplicationInfo app) {
