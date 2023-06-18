@@ -197,15 +197,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/accesibility_label"
+                    android:text="@string/accessibility_label"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/open_accesibility"
+                    android:id="@+id/open_accessibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/accesibility_button" />
+                    android:text="@string/accessibility_button" />
 
             </LinearLayout>
 
@@ -213,7 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/accesibility_tooltip"
+                android:text="@string/accessibility_tooltip"
                 android:textAlignment="center"
                 android:textColor="@android:color/tertiary_text_light"
                 android:textSize="16sp" />

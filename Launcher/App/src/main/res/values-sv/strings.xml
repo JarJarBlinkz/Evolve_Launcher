@@ -22,9 +22,9 @@
     <string name="service_explore_app">Utforska appen</string>
     <string name="service_os_updater">OS-uppdatering</string>
 
-    <string name="accesibility_label">Byt ut appen Utforska</string>
-    <string name="accesibility_button">Öppna Inställningar</string>
-    <string name="accesibility_tooltip">Aktivera startprogrammet 爪 från tillgänglighetsmenyn</string>
+    <string name="accessibility_label">Byt ut appen Utforska</string>
+    <string name="accessibility_button">Öppna Inställningar</string>
+    <string name="accessibility_tooltip">Aktivera startprogrammet 爪 från tillgänglighetsmenyn</string>
     <string name="icons_style">Ikon stil</string>
     <string name="update_header">Ny version finns tillgänglig</string>
     <string name="autorun">Starta 爪 Launcher vid systemstart</string>

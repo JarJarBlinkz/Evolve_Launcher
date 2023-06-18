@@ -22,9 +22,9 @@
     <string name="service_explore_app">Uygulamayı keşfedin</string>
     <string name="service_os_updater">OS güncelleyici</string>
 
-    <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
-    <string name="accesibility_button">Ayarları aç</string>
-    <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
+    <string name="accessibility_label">Keşfet uygulamasını değiştirin</string>
+    <string name="accessibility_button">Ayarları aç</string>
+    <string name="accessibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
     <string name="icons_style">Simge stili</string>
     <string name="update_header">Yeni sürüm mevcut</string>
     <string name="autorun">Sistem başlangıcında 爪 Launcher\'ı başlatın</string>

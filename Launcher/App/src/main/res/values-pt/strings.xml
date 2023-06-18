@@ -22,9 +22,9 @@
     <string name="service_explore_app">Aplicativo Explorar</string>
     <string name="service_os_updater">Atualizador do sistema</string>
 
-    <string name="accesibility_label">Substitua o aplicativo Explorar</string>
-    <string name="accesibility_button">Abrir configurações</string>
-    <string name="accesibility_tooltip">Ative o iniciador 爪 no menu de acessibilidade</string>
+    <string name="accessibility_label">Substitua o aplicativo Explorar</string>
+    <string name="accessibility_button">Abrir configurações</string>
+    <string name="accessibility_tooltip">Ative o iniciador 爪 no menu de acessibilidade</string>
     <string name="icons_style">Estilo ícone</string>
     <string name="update_header">Nova versão disponível</string>
     <string name="autorun">Inicie o 爪 Launcher com a inicialização do sistema</string>

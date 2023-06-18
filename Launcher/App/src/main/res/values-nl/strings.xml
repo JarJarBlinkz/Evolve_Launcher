@@ -22,9 +22,9 @@
     <string name="service_explore_app">Verkennen-app</string>
     <string name="service_os_updater">OS-updater</string>
 
-    <string name="accesibility_label">Vervang de Verkennen-app</string>
-    <string name="accesibility_button">Open instellingen</string>
-    <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
+    <string name="accessibility_label">Vervang de Verkennen-app</string>
+    <string name="accessibility_button">Open instellingen</string>
+    <string name="accessibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
     <string name="icons_style">Iconen stijl</string>
     <string name="update_header">Nieuwe versie beschikbaar</string>
     <string name="autorun">Start 爪 Launcher bij het opstarten van het systeem</string>

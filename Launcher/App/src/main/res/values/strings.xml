@@ -25,9 +25,9 @@
     <string name="service_explore_app">Explore app</string>
     <string name="service_os_updater">OS updater</string>
 
-    <string name="accesibility_label">Replace Explore app</string>
-    <string name="accesibility_button">Open settings</string>
-    <string name="accesibility_tooltip" >Enable 爪 Launcher in accesibility menu</string>
+    <string name="accessibility_label">Replace Explore app</string>
+    <string name="accessibility_button">Open settings</string>
+    <string name="accessibility_tooltip" >Enable 爪 Launcher in accessibility menu</string>
     <string name="icons_style">Icons style</string>
     <string name="update_header">New version available</string>
     <string name="autorun">Launch 爪 Launcher with system startup</string>

@@ -22,9 +22,9 @@
     <string name="service_explore_app">Aplicația Explorează</string>
     <string name="service_os_updater">Actualizator de sistem</string>
 
-    <string name="accesibility_label">Înlocuiți aplicația Explorează</string>
-    <string name="accesibility_button">Deschide setările</string>
-    <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
+    <string name="accessibility_label">Înlocuiți aplicația Explorează</string>
+    <string name="accessibility_button">Deschide setările</string>
+    <string name="accessibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
     <string name="icons_style">Stilul icoanei</string>
     <string name="update_header">Noua versiune disponibilă</string>
     <string name="autorun">Lansați 爪 Launcher la pornirea sistemului</string>

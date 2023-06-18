@@ -22,9 +22,9 @@
     <string name="service_explore_app">приложение «Обзор»</string>
     <string name="service_os_updater">Обновление ОС</string>
 
-    <string name="accesibility_label">Заменить приложение «Обзор»</string>
-    <string name="accesibility_button">Открыть настройки</string>
-    <string name="accesibility_tooltip">Включите 爪 Launcher из меню специальных возможностей</string>
+    <string name="accessibility_label">Заменить приложение «Обзор»</string>
+    <string name="accessibility_button">Открыть настройки</string>
+    <string name="accessibility_tooltip">Включите 爪 Launcher из меню специальных возможностей</string>
     <string name="icons_style">Стиль иконок</string>
     <string name="update_header">Доступна новая версия</string>
     <string name="autorun">Запустите 爪 Launcher при запуске системы</string>

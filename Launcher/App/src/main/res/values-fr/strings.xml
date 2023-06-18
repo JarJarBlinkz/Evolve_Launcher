@@ -22,9 +22,9 @@
     <string name="service_explore_app">À découvrir app</string>
     <string name="service_os_updater">Mise a jour de l\'OS</string>
 
-    <string name="accesibility_label">Remplacer l\'application À découvrir</string>
-    <string name="accesibility_button">Ouvrir les paramètres</string>
-    <string name="accesibility_tooltip">Activer 爪 Launcher dans le menu d\'accessibilité</string>
+    <string name="accessibility_label">Remplacer l\'application À découvrir</string>
+    <string name="accessibility_button">Ouvrir les paramètres</string>
+    <string name="accessibility_tooltip">Activer 爪 Launcher dans le menu d\'accessibilité</string>
     <string name="icons_style">Style d\'icônes</string>
     <string name="update_header">Nouvelle version disponible</string>
     <string name="autorun">Lancez 爪 Launcher au démarrage du système</string>

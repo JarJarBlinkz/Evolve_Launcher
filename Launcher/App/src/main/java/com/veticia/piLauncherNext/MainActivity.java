@@ -488,7 +488,7 @@ public class MainActivity extends Activity
     private void showSettingsLook() {
         Dialog d = showPopup(R.layout.dialog_look);
         d.setOnDismissListener(dialogInterface -> isSettingsLookOpen = false);
-        d.findViewById(R.id.open_accesibility).setOnClickListener(view -> {
+        d.findViewById(R.id.open_accessibility).setOnClickListener(view -> {
             ButtonManager.isAccessibilityInitialized(this);
             ButtonManager.requestAccessibility(this);
         });

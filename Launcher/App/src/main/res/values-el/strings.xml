@@ -22,9 +22,9 @@
     <string name="service_explore_app">Εφαρμογή Εξερευνήστε</string>
     <string name="service_os_updater">Ενημερωτής OS</string>
 
-    <string name="accesibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
-    <string name="accesibility_button">Ανοίξτε τις ρυθμίσεις</string>
-    <string name="accesibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>
+    <string name="accessibility_label">Αντικαταστήστε την εφαρμογή Εξερευνήστε</string>
+    <string name="accessibility_button">Ανοίξτε τις ρυθμίσεις</string>
+    <string name="accessibility_tooltip">Ενεργοποιήστε το 爪 Launcher στο μενού προσβασιμότητας</string>
     <string name="icons_style">Στυλ εικονίδιο</string>
     <string name="update_header">Διαθέσιμη νέα έκδοση</string>
     <string name="autorun">Εκκινήστε τον 爪 Launcher κατά την εκκίνηση του συστήματος</string>

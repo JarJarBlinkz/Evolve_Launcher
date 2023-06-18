@@ -22,9 +22,9 @@
     <string name="service_explore_app">Erkunden App</string>
     <string name="service_os_updater">OS Updater</string>
 
-    <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
-    <string name="accesibility_button">Einstellungen öffnen</string>
-    <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Bedienungshilfemenü</string>
+    <string name="accessibility_label">Ersetzen Sie die Erkunden-App</string>
+    <string name="accessibility_button">Einstellungen öffnen</string>
+    <string name="accessibility_tooltip">Aktivieren Sie 爪 Launcher im Bedienungshilfemenü</string>
     <string name="icons_style">Icons-Stil</string>
     <string name="update_header">Neue Version verfügbar</string>
     <string name="autorun">爪 Launcher beim Systemstart ausführen</string>

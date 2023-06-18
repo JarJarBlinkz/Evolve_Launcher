@@ -22,9 +22,9 @@
     <string name="service_explore_app">App Udforsk</string>
     <string name="service_os_updater">OS opdatering</string>
 
-    <string name="accesibility_label">Udskift appen Udforsk</string>
-    <string name="accesibility_button">Åbn indstillinger</string>
-    <string name="accesibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
+    <string name="accessibility_label">Udskift appen Udforsk</string>
+    <string name="accessibility_button">Åbn indstillinger</string>
+    <string name="accessibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
     <string name="icons_style">Ikoner stil</string>
     <string name="update_header">Ny version tilgængelig</string>
     <string name="autorun">Start 爪 Launcher ved systemstart</string>

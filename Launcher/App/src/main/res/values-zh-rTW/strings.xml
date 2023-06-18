@@ -22,9 +22,9 @@
     <string name="service_explore_app">瀏覽器應用</string>
     <string name="service_os_updater">系統升級</string>
 
-    <string name="accesibility_label">替換瀏覽應用</string>
-    <string name="accesibility_button">打開設置</string>
-    <string name="accesibility_tooltip">在輔助功能菜單中啟用爪啟動器</string>
+    <string name="accessibility_label">替換瀏覽應用</string>
+    <string name="accessibility_button">打開設置</string>
+    <string name="accessibility_tooltip">在輔助功能菜單中啟用爪啟動器</string>
     <string name="icons_style">圖標樣式</string>
     <string name="update_header">有新版本可用</string>
     <string name="autorun">啟動爪啟動器與系統啟動</string>
