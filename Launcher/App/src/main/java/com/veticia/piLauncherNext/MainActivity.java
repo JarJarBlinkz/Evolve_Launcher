@@ -72,7 +72,8 @@ public class MainActivity extends Activity
             R.drawable.bkg_glass,
             R.drawable.bkg_rgb,
             R.drawable.bkg_skin,
-            R.drawable.bkg_underwater
+            R.drawable.bkg_underwater,
+            R.drawable.bkg_fantasy,
     };
 
     public static final String[] STYLES = {
