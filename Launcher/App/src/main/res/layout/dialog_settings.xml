@@ -57,15 +57,6 @@
         android:layout_gravity="center_horizontal">
 
         <com.veticia.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_platforms"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:tooltipText="@string/settings_platforms"
-            app:icon="@drawable/ic_platforms"
-            app:text="@string/settings_platforms"
-            tools:ignore="UnusedAttribute" />
-
-        <com.veticia.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_tweaks"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -73,6 +64,25 @@
             app:icon="@drawable/ic_tweaks"
             app:text="@string/settings_tweaks"
             tools:ignore="UnusedAttribute" />
+
+        <com.veticia.piLauncherNext.ui.SettingsGroup
+            android:id="@+id/settings_platforms"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:tooltipText="@string/settings_platforms"
+            app:icon="@drawable/ic_platforms"
+            app:text="@string/settings_platforms"
+            tools:ignore="UnusedAttribute" >
+
+        </com.veticia.piLauncherNext.ui.SettingsGroup>
+
+        <com.veticia.piLauncherNext.ui.SettingsGroup
+            android:id="@+id/settings_webview"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:icon="@drawable/bkg_custom"
+            app:text="@string/settings_webview" />
+
     </LinearLayout>
 
 </LinearLayout>

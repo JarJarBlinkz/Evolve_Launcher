@@ -12,6 +12,7 @@
     <string name="settings_device">Geräte\neinstellungen</string>
     <string name="settings_look">Launcher\nEinstellungen</string>
     <string name="settings_platforms">Plattformen</string>
+    <string name="settings_webview">Neue Herausgaben</string>
     <string name="settings_tweaks">System Tweaks</string>
     <string name="background_opacity">Transparenz des Hintergrundes</string>
     <string name="icons_size">Icons Größe</string>
