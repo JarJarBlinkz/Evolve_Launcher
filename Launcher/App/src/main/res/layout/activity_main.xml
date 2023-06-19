@@ -39,21 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
 
-            <ImageView
-                android:id="@+id/update"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bkg_update"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:scaleType="fitCenter"
-                android:shadowColor="#80000000"
-                android:shadowRadius="5"
-                android:src="@android:drawable/stat_notify_sync"
-                android:visibility="gone" />
-
             <Spinner
                 android:id="@+id/sort"
                 android:theme="@style/spinnerItemStyle"
@@ -85,13 +70,30 @@
                 android:shadowRadius="5"
                 android:src="@drawable/ic_mainmenu"
                 android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/update"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bkg_update"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:scaleType="fitCenter"
+                android:shadowColor="#80000000"
+                android:shadowRadius="5"
+                android:src="@android:drawable/stat_notify_sync"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <GridView
             android:id="@+id/appsView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="663dp"
             android:layout_weight="1"
+            android:baselineAligned="false"
             android:columnWidth="101dp"
             android:gravity="center"
             android:horizontalSpacing="15dp"
@@ -101,25 +103,23 @@
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
             android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="15dp"
-            android:baselineAligned="false"
-            android:scrollbars="none"/>
-    </LinearLayout>
+            android:verticalSpacing="15dp" />
 
-    <android.widget.TextView
-        android:id="@+id/SelectionHint"
-        style="@style/SettingSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/bkg_dialog"
-        android:visibility="invisible" />
+        <android.widget.TextView
+            android:id="@+id/SelectionHint"
+            style="@style/SettingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bkg_dialog"
+            android:visibility="invisible" />
+
+    </LinearLayout>
 
     <android.widget.TextView
         android:id="@+id/toast_text"

@@ -31,7 +31,9 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+//add webkit for new releases
 import android.webkit.WebView;
+//
 
 
 import com.esafirm.imagepicker.features.ImagePicker;
@@ -266,7 +268,7 @@ public class MainActivity extends Activity
             lastUpdateCheck = System.currentTimeMillis();
             String string = "";
             try {
-                URL url = new URL("https://raw.githubusercontent.com/Veticia/binaries/main/latestPiLauncher");
+                URL url = new URL("https://www.oculus.com/experiences/quest/section/2735199833461641/");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder stringBuilder = new StringBuilder();
                 String line;
@@ -461,7 +463,9 @@ public class MainActivity extends Activity
         });
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
         dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
+        //add webkit for new releases
         dialog.findViewById(R.id.settings_webview).setOnClickListener((view -> showSettingsNew()));
+        //
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -475,7 +479,6 @@ public class MainActivity extends Activity
             dialog.findViewById(R.id.settings_tweaks).setVisibility(View.GONE);
         }
     }
-
     private void showUpdateMain() {
         Dialog dialog = showPopup(R.layout.dialog_update);
 
@@ -642,7 +645,7 @@ public class MainActivity extends Activity
         d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
     }
-
+    //add webkit for new releases
     private void showSettingsNew() {
         Dialog d = showPopup(R.layout.dialog_new);
         WebView myWebView = (WebView) d.findViewById(R.id.new_releases_webview);
