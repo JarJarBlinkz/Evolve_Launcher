@@ -31,6 +31,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.webkit.WebView;
+
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
@@ -459,6 +461,7 @@ public class MainActivity extends Activity
         });
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
         dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
+        dialog.findViewById(R.id.settings_webview).setOnClickListener((view -> showSettingsNew()));
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -638,6 +641,14 @@ public class MainActivity extends Activity
         });
         d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
+    }
+
+    private void showSettingsNew() {
+        Dialog d = showPopup(R.layout.dialog_new);
+        WebView myWebView = (WebView) d.findViewById(R.id.new_releases_webview);
+        myWebView.getSettings().setDomStorageEnabled(true);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.loadUrl("https://www.oculus.com/experiences/quest/section/2735199833461641/");
     }
 
     private int getPixelFromDip(int dip) {
