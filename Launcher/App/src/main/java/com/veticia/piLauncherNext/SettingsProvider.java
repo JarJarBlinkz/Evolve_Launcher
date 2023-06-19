@@ -148,7 +148,7 @@ public class SettingsProvider
             {
                 // Check for system app
                 boolean isSystemApp = (installedApplication.flags & ApplicationInfo.FLAG_SYSTEM) == 1;
-                if (pkg.startsWith("com.oculus.browser")) isSystemApp = false;              //X
+                if (pkg.startsWith("com.oculus.browser")) isSystemApp = true;              //X
                 if (pkg.startsWith("metapwa")) isSystemApp = true;
                 if (pkg.startsWith("oculuspwa")) isSystemApp = true;
                 if (pkg.startsWith("com.facebook.arvr")) isSystemApp = true;
