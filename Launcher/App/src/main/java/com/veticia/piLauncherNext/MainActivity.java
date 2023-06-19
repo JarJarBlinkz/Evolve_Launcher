@@ -648,10 +648,10 @@ public class MainActivity extends Activity
     //add webkit for new releases
     private void showSettingsNew() {
         Dialog d = showPopup(R.layout.dialog_new);
-        WebView myWebView = (WebView) d.findViewById(R.id.new_releases_webview);
-        myWebView.getSettings().setDomStorageEnabled(true);
-        myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.loadUrl("https://www.oculus.com/experiences/quest/section/2735199833461641/");
+        WebView NewReleases = (WebView) d.findViewById(R.id.new_releases_webview);
+        NewReleases.getSettings().setDomStorageEnabled(true);
+        NewReleases.getSettings().setJavaScriptEnabled(true);
+        NewReleases.loadUrl("https://www.oculus.com/experiences/quest/section/2735199833461641/");
     }
 
     private int getPixelFromDip(int dip) {
