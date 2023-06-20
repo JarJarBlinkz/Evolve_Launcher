@@ -646,12 +646,13 @@ public class MainActivity extends Activity
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
     }
     //add webkit for new releases
+    @SuppressLint("SetJavaScriptEnabled")
     private void showSettingsNew() {
         Dialog d = showPopup(R.layout.dialog_new);
-        WebView NewReleases = (WebView) d.findViewById(R.id.new_releases_webview);
+        WebView NewReleases = d.findViewById(R.id.new_releases_webview);
         NewReleases.getSettings().setDomStorageEnabled(true);
         NewReleases.getSettings().setJavaScriptEnabled(true);
-        NewReleases.loadUrl("https://www.oculus.com/experiences/quest/section/2735199833461641/");
+        NewReleases.loadUrl("https://www.oculus.com/experiences/quest/section/2540605779297669/#/?_k=n7l7da");
     }
 
     private int getPixelFromDip(int dip) {

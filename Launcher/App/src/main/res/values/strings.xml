@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
-    <string name="default_media_group">Media</string>
-    <string name="default_games_group">Games</string>
+    <string name="default_media_group" translatable="false">Media</string>
+    <string name="default_games_group" translatable="false">Games</string>
     <string name="add_group">Add group</string>
     <string name="delete_group">Delete group</string>
     <string name="edit_group">Edit group</string>
@@ -15,7 +15,7 @@
     <string name="settings_device">Device settings</string>
     <string name="settings_look">Launcher settings</string>
     <string name="settings_platforms">Platforms</string>
-    <string name="settings_webview">New Releases</string>
+    <string name="settings_webview" translatable="false">Coming Soon &amp; Pre-Orders</string>
     <string name="settings_tweaks">System tweaks</string>
     <string name="background_opacity">Background opacity</string>
     <string name="icons_size">Icons size</string>
