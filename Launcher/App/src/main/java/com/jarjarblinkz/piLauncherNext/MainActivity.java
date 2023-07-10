@@ -1,4 +1,4 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -31,19 +32,15 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-//add webkit for new releases
-import android.webkit.WebView;
-//
-
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
-import com.veticia.piLauncherNext.platforms.AbstractPlatform;
-import com.veticia.piLauncherNext.platforms.PSPPlatform;
-import com.veticia.piLauncherNext.platforms.VRPlatform;
-import com.veticia.piLauncherNext.ui.AppsAdapter;
-import com.veticia.piLauncherNext.ui.GroupsAdapter;
-import com.veticia.piLauncherNext.ui.SettingsGroup;
+import com.jarjarblinkz.piLauncherNext.platforms.AbstractPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.PSPPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.VRPlatform;
+import com.jarjarblinkz.piLauncherNext.ui.AppsAdapter;
+import com.jarjarblinkz.piLauncherNext.ui.GroupsAdapter;
+import com.jarjarblinkz.piLauncherNext.ui.SettingsGroup;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -59,17 +56,21 @@ import br.tiagohm.markdownview.MarkdownView;
 import br.tiagohm.markdownview.css.InternalStyleSheet;
 import br.tiagohm.markdownview.css.styles.Github;
 
-public class MainActivity extends Activity
-{
-    private static final String CUSTOM_THEME = "theme.png";
-    private static final boolean DEFAULT_NAMES = true;
-    private static final int DEFAULT_OPACITY = 7;
+public class MainActivity extends Activity {
     public static final int DEFAULT_SCALE = 2;
-    private static final int DEFAULT_THEME = 0;
     public static final int DEFAULT_STYLE = 0;
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
-
+    public static final String[] STYLES = {
+            "banners",
+            "icons",
+            "tenaldo_square"
+    };
+    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
+    private static final String CUSTOM_THEME = "theme.png";
+    private static final boolean DEFAULT_NAMES = true;
+    private static final int DEFAULT_OPACITY = 7;
+    private static final int DEFAULT_THEME = 0;
     private static final int[] SCALES = {82, 99, 125, 165, 236};
     private static final int[] THEMES = {
             R.drawable.bkg_default,
@@ -78,34 +79,30 @@ public class MainActivity extends Activity
             R.drawable.bkg_skin,
             R.drawable.bkg_underwater,
     };
-
-    public static final String[] STYLES = {
-            "banners",
-            "icons",
-            "tenaldo_square"
-    };
     private static final boolean DEFAULT_AUTORUN = true;
-    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
-
+    public static SharedPreferences sharedPreferences;
     private static ImageView[] selectedThemeImageViews;
-
+    private final Handler handler = new Handler();
+    // Edit Mode
+    Set<String> currentSelectedApps = new HashSet<>();
     private GridView appGridView;
     private ImageView backgroundImageView;
     private GridView groupPanelGridView;
-
     @SuppressWarnings("unused")
     private boolean activityHasFocus;
-    public static SharedPreferences sharedPreferences;
     private SettingsProvider settingsProvider;
     private AppsAdapter.SORT_FIELD mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
     private AppsAdapter.SORT_ORDER mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+    private long lastUpdateCheck = 0L;
+    private ImageView mSelectedImageView;
+    private boolean isSettingsLookOpen = false;
 
     public static void reset(Context context) {
         try {
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-            ((Activity)context).finish();
+            ((Activity) context).finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -113,8 +110,7 @@ public class MainActivity extends Activity
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (AbstractPlatform.isMagicLeapHeadset()) {
@@ -252,7 +248,6 @@ public class MainActivity extends Activity
         update.setOnClickListener(view -> showUpdateMain());
         checkForUpdates(update);
     }
-    private long lastUpdateCheck = 0L;
 
     private void checkForUpdates(View update) {
         // disable all update checks
@@ -261,7 +256,7 @@ public class MainActivity extends Activity
         }
         //once every 4 hours
         long updateInterval = 1000 * 60 * 60 * 4;
-        if(lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
+        if (lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
             return;
         }
         new Thread(() -> {
@@ -290,11 +285,11 @@ public class MainActivity extends Activity
                 // Handle the exception here
                 newestVersion = 0; // Set a default value
             }
-            if(versionCode < newestVersion){
+            if (versionCode < newestVersion) {
                 runOnUiThread(() -> update.setVisibility(View.VISIBLE));
             }
         }).start();
-   }
+    }
 
     @Override
     public void onBackPressed() {
@@ -330,8 +325,6 @@ public class MainActivity extends Activity
             requestPermissions(permissions, 0);
         }
     }
-
-    private ImageView mSelectedImageView;
 
     public void setSelectedImageView(ImageView imageView) {
         mSelectedImageView = imageView;
@@ -429,8 +422,6 @@ public class MainActivity extends Activity
         return dialog;
     }
 
-    private boolean isSettingsLookOpen = false;
-
     private void showSettingsMain() {
 
         Dialog dialog = showPopup(R.layout.dialog_settings);
@@ -479,6 +470,7 @@ public class MainActivity extends Activity
             dialog.findViewById(R.id.settings_tweaks).setVisibility(View.GONE);
         }
     }
+
     private void showUpdateMain() {
         Dialog dialog = showPopup(R.layout.dialog_update);
 
@@ -487,8 +479,8 @@ public class MainActivity extends Activity
         css.addRule("body", "color: #FFF", "background: rgba(0,0,0,0);");
         mMarkdownView.addStyleSheet(css);
         mMarkdownView.setBackgroundColor(Color.TRANSPARENT);
-        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/Veticia/PiLauncherNext/main/CHANGELOG.md",
-            "**Couldn't load changelog. Check [here](https://github.com/Veticia/binaries/tree/main/releases) for the latest file.**");
+        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/veticia/PiLauncherNext/main/CHANGELOG.md",
+                "**Couldn't load changelog. Check [here](https://github.com/veticia/binaries/tree/main/releases) for the latest file.**");
     }
 
     private void showSettingsLook() {
@@ -523,10 +515,12 @@ public class MainActivity extends Activity
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         SeekBar scale = d.findViewById(R.id.bar_scale);
@@ -545,10 +539,12 @@ public class MainActivity extends Activity
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
@@ -577,7 +573,9 @@ public class MainActivity extends Activity
             });
         }
         int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-        if (style >= STYLES.length) { style = 0; }
+        if (style >= STYLES.length) {
+            style = 0;
+        }
         ImageView[] styles = {
                 d.findViewById(R.id.style0),
                 d.findViewById(R.id.style1),
@@ -599,7 +597,6 @@ public class MainActivity extends Activity
             editor.apply();
         });
     }
-
 
     private void showSettingsPlatforms() {
         Dialog d = showPopup(R.layout.dialog_platforms);
@@ -645,6 +642,7 @@ public class MainActivity extends Activity
         d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
     }
+
     //add webkit for new releases
     @SuppressLint("SetJavaScriptEnabled")
     private void showSettingsNew() {
@@ -659,12 +657,10 @@ public class MainActivity extends Activity
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
-    private final Handler handler = new Handler();
-
     public boolean openApp(ApplicationInfo app) {
         settingsProvider.updateRecent(app.packageName, System.currentTimeMillis());
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
-        if(!platform.runApp(this, app, false)){
+        if (!platform.runApp(this, app, false)) {
             TextView toastText = findViewById(R.id.toast_text);
             toastText.setText(R.string.failed_to_launch);
             toastText.setVisibility(View.VISIBLE);
@@ -693,8 +689,6 @@ public class MainActivity extends Activity
         startActivity(intent);
     }
 
-    // Edit Mode
-    Set<String> currentSelectedApps = new HashSet<>();
     public boolean selectApp(String app) {
 
         if (currentSelectedApps.contains(app)) {

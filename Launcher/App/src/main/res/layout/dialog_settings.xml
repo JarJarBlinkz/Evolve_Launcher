@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_look"
             android:layout_width="124dp"
             android:layout_height="120dp"
@@ -31,7 +31,7 @@
             app:text="@string/settings_look"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_device"
             android:layout_width="124dp"
             android:layout_height="120dp"
@@ -40,7 +40,7 @@
             app:text="@string/settings_device"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_apps"
             android:layout_width="124dp"
             android:layout_height="120dp"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_tweaks"
             android:layout_width="124dp"
             android:layout_height="120dp"
@@ -65,7 +65,7 @@
             app:text="@string/settings_tweaks"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_platforms"
             android:layout_width="124dp"
             android:layout_height="120dp"
@@ -74,9 +74,9 @@
             app:text="@string/settings_platforms"
             tools:ignore="UnusedAttribute">
 
-        </com.veticia.piLauncherNext.ui.SettingsGroup>
+        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_webview"
             android:layout_width="124dp"
             android:layout_height="120dp"

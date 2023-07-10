@@ -1,16 +1,17 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
-import static com.veticia.piLauncherNext.platforms.AbstractPlatform.isPico3Pro;
+import static com.jarjarblinkz.piLauncherNext.platforms.AbstractPlatform.isPico3Pro;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import com.veticia.piLauncherNext.platforms.AndroidPlatform;
-import com.veticia.piLauncherNext.platforms.PSPPlatform;
-import com.veticia.piLauncherNext.platforms.VRPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.AndroidPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.PSPPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.VRPlatform;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +48,9 @@ public class SettingsProvider
     private final String KEY_SELECTED_GROUPS = "prefSelectedGroups";
     private final String SEPARATOR = "#@%";
 
+    @SuppressLint("StaticFieldLeak")
     private static SettingsProvider instance;
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     public static synchronized SettingsProvider getInstance (Context context)
