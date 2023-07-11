@@ -479,8 +479,8 @@ public class MainActivity extends Activity {
         css.addRule("body", "color: #FFF", "background: rgba(0,0,0,0);");
         mMarkdownView.addStyleSheet(css);
         mMarkdownView.setBackgroundColor(Color.TRANSPARENT);
-        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/veticia/PiLauncherNext/main/CHANGELOG.md",
-                "**Couldn't load changelog. Check [here](https://github.com/veticia/binaries/tree/main/releases) for the latest file.**");
+        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/jarjarblinkz/PiLauncherNext/main/CHANGELOG.md",
+                "**Couldn't load changelog. Check [here](https://github.com/JarJarBlinkz/PiLauncherNext/releases) for the latest file.**");
     }
 
     private void showSettingsLook() {
@@ -646,7 +646,7 @@ public class MainActivity extends Activity {
     //add webkit for new releases
     @SuppressLint("SetJavaScriptEnabled")
     private void showSettingsNew() {
-        Dialog d = showPopup(R.layout.dialog_new);
+        Dialog d = showPopup(R.layout.dialog_webview);
         WebView NewReleases = d.findViewById(R.id.new_releases_webview);
         NewReleases.getSettings().setDomStorageEnabled(true);
         NewReleases.getSettings().setJavaScriptEnabled(true);

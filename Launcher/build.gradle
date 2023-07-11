@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 ext {
-    var1 = 'C:\\Users\\Username\\android_signing_key.jks'
+    var1 = 'C:\\Program Files\\Android\\Android Studio\\keys\\freedomdebug.jks'
     var2 = '123456789'
     var4 = 'key0'
     var3 = '123456789'
