@@ -457,6 +457,9 @@ public class MainActivity extends Activity {
         //add webkit for new releases
         dialog.findViewById(R.id.settings_webview).setOnClickListener((view -> showSettingsNew()));
         //
+        //add webkit for new releases
+        dialog.findViewById(R.id.settings_ftp).setOnClickListener((view -> showSettingsftp()));
+        //
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -641,6 +644,10 @@ public class MainActivity extends Activity {
         });
         d.findViewById(R.id.service_explore_app).setOnClickListener(view -> openAppDetails("com.oculus.explore"));
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
+    }
+    //Add Placeholder for ftp
+    private void showSettingsftp() {
+        Dialog d = showPopup(R.layout.dialog_ftp);
     }
 
     //add webkit for new releases

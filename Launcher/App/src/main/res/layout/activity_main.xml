@@ -70,7 +70,7 @@
                 android:shadowColor="#80000000"
                 android:shadowRadius="5"
                 android:src="@drawable/ic_mainmenu"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/update"
@@ -85,7 +85,7 @@
                 android:shadowColor="#80000000"
                 android:shadowRadius="5"
                 android:src="@android:drawable/stat_notify_sync"
-                tools:visibility="visible" />
+                tools:visibility="gone" />
 
         </LinearLayout>
 
