@@ -78,14 +78,14 @@
         </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
 
         <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_webview"
+            android:id="@+id/settings_ftp"
             android:layout_width="123dp"
             android:layout_height="120dp"
-            app:icon="@drawable/meta_logo"
-            app:text="@string/settings_webview"
-            tools:ignore="TextSizeCheck">
+            android:tooltipText="@string/settings_ftp"
+            app:icon="@drawable/ic_ftp"
+            app:text="@string/settings_ftp"
+            tools:ignore="UnusedAttribute,TextSizeCheck" />
 
-        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -94,14 +94,14 @@
         android:layout_gravity="center_horizontal">
 
         <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_ftp"
+            android:id="@+id/settings_webview"
             android:layout_width="123dp"
             android:layout_height="120dp"
-            android:tooltipText="@string/settings_ftp"
-            app:icon="@drawable/image_placeholder"
-            app:text="@string/settings_ftp"
-            tools:ignore="UnusedAttribute,TextSizeCheck" />
+            app:icon="@drawable/meta_logo"
+            app:text="@string/settings_webview"
+            tools:ignore="TextSizeCheck">
 
+        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
     </LinearLayout>
 
 </LinearLayout>
