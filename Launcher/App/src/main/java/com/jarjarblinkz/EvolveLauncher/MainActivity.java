@@ -652,7 +652,6 @@ public class MainActivity extends Activity {
     private void showSettingsftp() {
         Dialog d = showPopup(R.layout.dialog_ftp);
     }
-
     //Add Placeholder for sideload
     private void showSettingssideload() {
         Dialog d = showPopup(R.layout.dialog_sideload);
