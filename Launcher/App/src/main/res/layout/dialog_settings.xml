@@ -9,9 +9,9 @@
     android:padding="20dp">
 
     <android.widget.TextView
-        android:layout_width="124dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center|center_horizontal"
         android:paddingBottom="20dp"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
             android:id="@+id/settings_look"
             android:layout_width="123dp"
             android:layout_height="120dp"
@@ -32,7 +32,7 @@
             app:text="@string/settings_look"
             tools:ignore="UnusedAttribute" />
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
             android:id="@+id/settings_device"
             android:layout_width="123dp"
             android:layout_height="120dp"
@@ -41,7 +41,7 @@
             app:text="@string/settings_device"
             tools:ignore="UnusedAttribute,TextSizeCheck" />
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
             android:id="@+id/settings_apps"
             android:layout_width="123dp"
             android:layout_height="120dp"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
             android:id="@+id/settings_tweaks"
             android:layout_width="123dp"
             android:layout_height="120dp"
@@ -66,7 +66,7 @@
             app:text="@string/settings_tweaks"
             tools:ignore="UnusedAttribute,TextSizeCheck" />
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
             android:id="@+id/settings_platforms"
             android:layout_width="123dp"
             android:layout_height="120dp"
@@ -75,16 +75,17 @@
             app:text="@string/settings_platforms"
             tools:ignore="UnusedAttribute">
 
-        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
+        </com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup>
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_ftp"
+        <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
+            android:id="@+id/settings_webview"
             android:layout_width="123dp"
             android:layout_height="120dp"
-            android:tooltipText="@string/settings_ftp"
-            app:icon="@drawable/ic_ftp"
-            app:text="@string/settings_ftp"
-            tools:ignore="UnusedAttribute,TextSizeCheck" />
+            app:icon="@drawable/meta_logo"
+            app:text="@string/settings_webview"
+            tools:ignore="TextSizeCheck">
+
+        </com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup>
 
     </LinearLayout>
 
@@ -93,15 +94,30 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_webview"
-            android:layout_width="123dp"
-            android:layout_height="120dp"
-            app:icon="@drawable/meta_logo"
-            app:text="@string/settings_webview"
-            tools:ignore="TextSizeCheck">
 
-        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+    <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
+        android:id="@+id/settings_ftp"
+        android:layout_width="123dp"
+        android:layout_height="120dp"
+        android:tooltipText="@string/settings_ftp"
+        app:icon="@drawable/ic_ftp"
+        app:text="@string/settings_ftp"
+        tools:ignore="UnusedAttribute,TextSizeCheck" />
 
+    <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
+        android:id="@+id/settings_sideload"
+        android:layout_width="123dp"
+        android:layout_height="120dp"
+        android:tooltipText="@string/settings_sideload"
+        app:icon="@drawable/ic_sideload"
+        app:text="@string/settings_sideload"
+        tools:ignore="UnusedAttribute">
+
+    </com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup>
+    </LinearLayout>
 </LinearLayout>

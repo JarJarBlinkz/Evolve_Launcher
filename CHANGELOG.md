@@ -1,4 +1,4 @@
-# Latest version: [piLauncherNext_v117+1.1.7.apk](https://github.com/JarJarBlinkz/PiLauncherNext/releases/download/v117/PiLauncherNext.v117+1.1.7.apk))
+# Latest version: [EvolveLauncher_v117+1.1.7.apk](https://github.com/JarJarBlinkz/EvolveLauncher/releases/download/v117/EvolveLauncher.v117+1.1.7.apk))
 
 ## Changelog
 
@@ -97,7 +97,7 @@ Added:
 - Upscaled Android apps icons
 
 ### 0.7.0
-Initial release of piLauncherNext. Compared to original piLauncher:
+Initial release of EvolveLauncher. Compared to original piLauncher:
 - Dropped support for Meta Quest (it may work, I just don't support it)
 - Added support for all languages found in Pico except for Thai and Chinese
 - Added button in settings for easy replacement of Explore app

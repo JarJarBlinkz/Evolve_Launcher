@@ -41,7 +41,7 @@ android {
         disable 'Accessibility'
     }
     buildToolsVersion '33.0.0'
-    namespace 'com.jarjarblinkz.piLauncherNext'
+    namespace 'com.jarjarblinkz.EvolveLauncher'
 }
 
 dependencies {
