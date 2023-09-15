@@ -11,6 +11,8 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+            if(sharedPreferences==null)
+                sharedPreferences = context.getSharedPreferences(context.getPackageName() + "_preferences", Context.MODE_PRIVATE);
             boolean autorunEnabled = sharedPreferences.getBoolean(KEY_AUTORUN, true);
             if (autorunEnabled) {
                 Intent i = new Intent(context, MainActivity.class);

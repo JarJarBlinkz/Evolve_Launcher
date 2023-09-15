@@ -129,7 +129,7 @@ public class AppsAdapter extends BaseAdapter
 
             //Calculate text height
             holder.textView.measure(0, 0);
-            int textHeight = holder.textView.getMeasuredHeight();
+            int textHeight = (int) holder.textView.getMeasuredHeight();
 
             ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
 
@@ -142,9 +142,9 @@ public class AppsAdapter extends BaseAdapter
                 }
             } else {
                 if(showTextLabels) {
-                    params.height = itemScale + textHeight;
+                    params.height = (int) (itemScale + textHeight);
                 }else{
-                    params.height = itemScale;
+                    params.height = (int) itemScale;
                 }
             }
             holder.layout.setLayoutParams(params);
@@ -158,40 +158,35 @@ public class AppsAdapter extends BaseAdapter
         String name = SettingsProvider.getAppDisplayName(mainActivityContext, currentApp.packageName, currentApp.loadLabel(pm));
         holder.textView.setText(name);
         holder.textView.setVisibility(showTextLabels ? View.VISIBLE : View.GONE);
-
+        
         if (isEditMode) {
             // short click for app details, long click to activate drag and drop
             holder.layout.setOnTouchListener((view, motionEvent) -> {
-                if (AbstractPlatform.isOculusHeadset()) {
+                {
                     boolean selected = mainActivityContext.selectApp(currentApp.packageName);
                     view.setAlpha(selected? 0.5F : 1.0F);
-                } else {
-                    if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
-                            (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
-                        packageName = currentApp.packageName;
-                        lastClickTime = System.currentTimeMillis();
-                        ClipData dragData = ClipData.newPlainText(name, name);
-                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            view.startDragAndDrop(dragData, shadowBuilder, view, 0);
-                        } else {
-                            view.startDrag(dragData, shadowBuilder, view, 0);
-                        }
-                    }
                 }
                 return false;
             });
 
+
             // drag and drop
-            holder.layout.setOnDragListener((view, event) -> {
+            holder.imageView.setOnDragListener((view, event) -> {
+                Log.i("Edit", "dragged");
+
+
                 if (currentApp.packageName.compareTo(packageName) == 0) {
                     if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                         view.setVisibility(View.INVISIBLE);
                     } else if (event.getAction() == DragEvent.ACTION_DRAG_ENDED) {
                         mainActivityContext.reloadUI();
                     } else if (event.getAction() == DragEvent.ACTION_DROP) {
-                        if (System.currentTimeMillis() - lastClickTime < 250) {
-                            showAppDetails(currentApp);
+                        if (System.currentTimeMillis() - lastClickTime < 300) {
+                            try {
+                                showAppDetails(currentApp);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
                         } else {
                             mainActivityContext.reloadUI();
                         }

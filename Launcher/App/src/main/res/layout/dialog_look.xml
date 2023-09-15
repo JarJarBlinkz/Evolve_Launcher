@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:id="@+id/layout"
@@ -62,7 +63,6 @@
                 android:padding="5dp"
                 android:src="@drawable/bkg_underwater" />
 
-
             <ImageView
                 android:id="@+id/theme_custom"
                 android:layout_width="63dp"
@@ -110,36 +110,36 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/style0"
-                    android:layout_width="93dp"
-                    android:layout_height="138dp"
-                    android:padding="5dp"
-                    android:src="@drawable/com_valvesoftware_alyx_banners" />
+            <ImageView
+                android:id="@+id/style0"
+                android:layout_width="93dp"
+                android:layout_height="138dp"
+                android:padding="5dp"
+                android:src="@drawable/com_valvesoftware_alyx_banners" />
 
-                <ImageView
-                    android:id="@+id/style1"
-                    android:layout_width="93dp"
-                    android:layout_height="138dp"
-                    android:padding="5dp"
-                    android:src="@drawable/com_valvesoftware_alyx_icons" />
+            <ImageView
+                android:id="@+id/style1"
+                android:layout_width="93dp"
+                android:layout_height="138dp"
+                android:padding="5dp"
+                android:src="@drawable/com_valvesoftware_alyx_icons" />
 
-                <ImageView
-                    android:id="@+id/style2"
-                    android:layout_width="93dp"
-                    android:layout_height="138dp"
-                    android:padding="5dp"
-                    android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
-            </LinearLayout>
-
+            <ImageView
+                android:id="@+id/style2"
+                android:layout_width="138dp"
+                android:layout_height="138dp"
+                android:padding="5dp"
+                android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
         </LinearLayout>
+
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -180,8 +180,7 @@
                 android:text="@string/show_app_names"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color"
-                tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+                android:trackTint="@color/switch_track_color" />
         </LinearLayout>
 
         <LinearLayout
@@ -241,10 +240,28 @@
                 android:text="@string/autorun"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color"
-                tools:visibility="invisible" />
+                android:trackTint="@color/switch_track_color" />
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
+                android:id="@+id/service_backup_settings"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:tooltipText="@string/service_backup_settings"
+                app:icon="@drawable/ic_updater"
+                app:text="@string/service_backup_settings"
+                tools:ignore="UnusedAttribute" />
+            <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
+                android:id="@+id/service_restore_settings"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:tooltipText="@string/service_restore_settings"
+                app:icon="@drawable/ic_updater"
+                app:text="@string/service_restore_settings"
+                tools:ignore="UnusedAttribute" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -37,11 +37,13 @@
     <string name="autorun">Launch Evolve Launcher at system startup</string>
     <string name="failed_to_launch">Failed to launch</string>
     <string name="default_tools_group">Tools</string>
-
-    <string name="selection_hint_single">Click a group to move the selected app.</string>
+    <string name="service_backup_settings">Backup settings</string>
+    <string name="service_restore_settings">Restore settings</string>
+	
+	<string name="selection_hint_single">Click a group to move the selected app.</string>
     <string name="selection_hint_multiple">%d apps selected. Click a group to move the selected app.</string>
-
     <string-array name="sort_options">
+    
         <item>↓ Name</item>
         <item>↑ Name</item>
         <item>↓ Recent</item>

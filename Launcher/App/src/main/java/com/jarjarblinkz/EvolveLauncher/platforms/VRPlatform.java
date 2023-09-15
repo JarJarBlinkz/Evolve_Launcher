@@ -1,5 +1,6 @@
 package com.jarjarblinkz.EvolveLauncher.platforms;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -10,6 +11,8 @@ import android.util.Log;
 import com.jarjarblinkz.EvolveLauncher.SettingsProvider;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class VRPlatform extends AbstractPlatform {
     public ArrayList<ApplicationInfo> getInstalledApps(Context context) {
@@ -47,13 +50,35 @@ public class VRPlatform extends AbstractPlatform {
 
     @Override
     public boolean runApp(Context context, ApplicationInfo app, boolean multiwindow) {
-        Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
-        if (launchIntent != null) {
-            context.getApplicationContext().startActivity(launchIntent);
-        } else {
-            Log.e("runApp", "Failed to launch");
+
+        try {
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(app.packageName);
+            if (launchIntent != null) {
+                if (SettingsProvider.getAppLaunchOut(app.packageName)) {
+                    ((Activity) context).finish();
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            try {
+                                context.startActivity(launchIntent);
+                            }catch (Exception e) {
+                                Log.e("runApp", "Failed to launch - exception in startActivity");
+                            }
+                        }
+                    }, 650);
+                } else {
+                    context.startActivity(launchIntent);
+                }
+                return true;
+            } else {
+                Log.e("runApp", "Failed to launch - NULL launchIntent");
+                return false;
+            }
+        }
+        catch (Exception e) {
+            Log.e("runApp", "Failed to launch - exception");
             return false;
         }
-        return true;
+
     }
 }

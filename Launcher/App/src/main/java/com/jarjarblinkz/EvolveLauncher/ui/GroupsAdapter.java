@@ -184,12 +184,24 @@ public class GroupsAdapter extends BaseAdapter {
                 setLook(position, finalConvertView, holder.menu);
             } else if (event.getAction() == DragEvent.ACTION_DROP) {
                 // add group or hidden group selection
+                String name = appGroups.get(position);
+                List<String> appGroupsList = settingsProvider.getAppGroupsSorted(false);
+                if (appGroupsList.size() + 1 == position) {
+                    name = settingsProvider.addGroup();
+                } else if (appGroupsList.size() == position) {
+                    name = HIDDEN_GROUP;
+                }
+
+                // move app into group
                 String packageName = mainActivity.getSelectedPackage();
-                setGroup(mainActivity.getSelectedPackage(), position);
+                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
+                Map<String, String> apps = settingsProvider.getAppList();
+                apps.remove(packageName);
+                apps.put(packageName, name);
+                settingsProvider.setAppList(apps);
 
                 // false to dragged icon fly back
-                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
-                return !selectedGroup.contains(packageName);
+                return !selectedGroup.contains(name);
             }
             return true;
         });
@@ -235,5 +247,13 @@ public class GroupsAdapter extends BaseAdapter {
                 filler.setBackgroundColor(Color.TRANSPARENT);
         }
     }
+
 }
+    public void setGroup(String packageName, String groupName) {
+        Map<String, String> apps = settingsProvider.getAppList();
+        apps.remove(packageName);
+        apps.put(packageName, groupName);
+        settingsProvider.setAppList(apps);
+
+    }
 }

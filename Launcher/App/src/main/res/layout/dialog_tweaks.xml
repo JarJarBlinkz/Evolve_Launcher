@@ -48,6 +48,6 @@
             app:icon="@drawable/ic_updater"
             app:text="@string/service_os_updater"
             tools:ignore="UnusedAttribute" />
-    </LinearLayout>
+        </LinearLayout>
 
 </LinearLayout>

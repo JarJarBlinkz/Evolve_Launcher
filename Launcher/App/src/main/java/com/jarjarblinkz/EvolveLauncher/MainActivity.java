@@ -3,10 +3,14 @@ package com.jarjarblinkz.EvolveLauncher;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
@@ -20,6 +24,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -44,73 +49,82 @@ import com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import br.tiagohm.markdownview.MarkdownView;
 import br.tiagohm.markdownview.css.InternalStyleSheet;
 import br.tiagohm.markdownview.css.styles.Github;
 
-public class MainActivity extends Activity {
-    public static final int DEFAULT_SCALE = 2;
-    public static final int DEFAULT_STYLE = 0;
-    public static final int PICK_ICON_CODE = 450;
-    public static final int PICK_THEME_CODE = 95;
-    public static final String[] STYLES = {
-            "banners",
-            "icons",
-            "tenaldo_square"
-    };
-    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
+public class MainActivity extends Activity
+{
     private static final String CUSTOM_THEME = "theme.png";
     private static final boolean DEFAULT_NAMES = true;
     private static final int DEFAULT_OPACITY = 7;
+    public static final int DEFAULT_SCALE = 2;
     private static final int DEFAULT_THEME = 0;
+    public static final int DEFAULT_STYLE = 0;
+    public static final int PICK_ICON_CODE = 450;
+    public static final int PICK_THEME_CODE = 95;
+
     private static final int[] SCALES = {82, 99, 125, 165, 236};
     private static final int[] THEMES = {
             R.drawable.bkg_default,
             R.drawable.bkg_glass,
             R.drawable.bkg_rgb,
             R.drawable.bkg_skin,
-            R.drawable.bkg_underwater,
+            R.drawable.bkg_underwater
+    };
+
+    public static final String[] STYLES = {
+            "banners",
+            "icons",
+            "tenaldo_square"
     };
     private static final boolean DEFAULT_AUTORUN = true;
-    public static SharedPreferences sharedPreferences;
+    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
+
     private static ImageView[] selectedThemeImageViews;
-    private final Handler handler = new Handler();
     // Edit Mode
-    Set<String> currentSelectedApps = new HashSet<>();
     private GridView appGridView;
     private ImageView backgroundImageView;
     private GridView groupPanelGridView;
+
     @SuppressWarnings("unused")
     private boolean activityHasFocus;
+    public static SharedPreferences sharedPreferences;
     private SettingsProvider settingsProvider;
     private AppsAdapter.SORT_FIELD mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
     private AppsAdapter.SORT_ORDER mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
-    private long lastUpdateCheck = 0L;
-    private ImageView mSelectedImageView;
-    private boolean isSettingsLookOpen = false;
 
     public static void reset(Context context) {
         try {
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-            ((Activity) context).finish();
+            ((Activity)context).finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint({"SourceLockedOrientationActivity", "MissingInflatedId"})
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (AbstractPlatform.isMagicLeapHeadset()) {
@@ -127,19 +141,19 @@ public class MainActivity extends Activity {
         // Handle group click listener
         groupPanelGridView.setOnItemClickListener((parent, view, position, id) -> {
             List<String> groups = settingsProvider.getAppGroupsSorted(false);
-            if (!currentSelectedApps.isEmpty()) {
-                HashSet<String> moved = new HashSet<>();
-                // this is a little jank but it works
-                GroupsAdapter adapter = (GroupsAdapter) groupPanelGridView.getAdapter();
-                for (String app : currentSelectedApps) {
-                    // move the specified app to the group
-                    adapter.setGroup(app, position);
-                    moved.add(app);
+            if (hasSelection) {
+                GroupsAdapter groupsAdapter = (GroupsAdapter) groupPanelGridView.getAdapter();
+                if(position<groups.size()) {
+                    for (String app : currentSelectedApps) groupsAdapter.setGroup(app, groups.get(position));
                 }
-                // deselect all apps that were moved
-                currentSelectedApps.removeAll(moved);
+                else {
+                    for (String app : currentSelectedApps) groupsAdapter.setGroup(app, GroupsAdapter.HIDDEN_GROUP);
+                }
+                hasSelection = false;
                 updateSelectionHint();
+                reloadUI();
             } else {
+                //List<String> groups = settingsProvider.getAppGroupsSorted(false);
                 if (position == groups.size()) {
                     settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
                 } else if (position == groups.size() + 1) {
@@ -147,8 +161,9 @@ public class MainActivity extends Activity {
                 } else {
                     settingsProvider.selectGroup(groups.get(position));
                 }
+                reloadUI();
             }
-            reloadUI();
+
         });
 
         // Multiple group selection
@@ -247,49 +262,30 @@ public class MainActivity extends Activity {
         update.setVisibility(View.GONE);
         update.setOnClickListener(view -> showUpdateMain());
         checkForUpdates(update);
-    }
 
+        IntentFilter filter = new IntentFilter(FINISH_ACTION);
+        registerReceiver(finishReceiver, filter);
+    }
+    private long lastUpdateCheck = 0L;
+    // Stuff to finish the activity when it's in the background;
+    // More straightforward methods don't work on Quest.
+    private final BroadcastReceiver finishReceiver = new BroadcastReceiver() {
+        @Override public void onReceive(Context context, Intent intent) { finish();}
+    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(finishReceiver);
+    }
+    public static final String FINISH_ACTION = "com.threethan.launcher.FINISH";
     private void checkForUpdates(View update) {
         // disable all update checks
         if (true) {
             return;
         }
         //once every 4 hours
-        long updateInterval = 1000 * 60 * 60 * 4;
-        if (lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
-            return;
-        }
-        new Thread(() -> {
-            lastUpdateCheck = System.currentTimeMillis();
-            String string = "";
-            try {
-                URL url = new URL("https://www.oculus.com/experiences/quest/section/2735199833461641/");
-                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-                StringBuilder stringBuilder = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    stringBuilder.append(line);
-                    stringBuilder.append(System.lineSeparator());
-                }
-                reader.close();
-                string = stringBuilder.toString();
-            } catch (IOException e) {
-                // Handle the exception here
-            }
-            // Use the result here
-            int versionCode = BuildConfig.VERSION_CODE;
-            int newestVersion;
-            try {
-                newestVersion = Integer.parseInt(string.trim());
-            } catch (NumberFormatException e) {
-                // Handle the exception here
-                newestVersion = 0; // Set a default value
-            }
-            if (versionCode < newestVersion) {
-                runOnUiThread(() -> update.setVisibility(View.VISIBLE));
-            }
-        }).start();
-    }
+       return;
+   }
 
     @Override
     public void onBackPressed() {
@@ -325,6 +321,8 @@ public class MainActivity extends Activity {
             requestPermissions(permissions, 0);
         }
     }
+
+    private ImageView mSelectedImageView;
 
     public void setSelectedImageView(ImageView imageView) {
         mSelectedImageView = imageView;
@@ -422,6 +420,8 @@ public class MainActivity extends Activity {
         return dialog;
     }
 
+    private boolean isSettingsLookOpen = false;
+
     private void showSettingsMain() {
 
         Dialog dialog = showPopup(R.layout.dialog_settings);
@@ -452,6 +452,9 @@ public class MainActivity extends Activity {
                 showSettingsLook();
             }
         });
+
+
+
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
         dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
         //add webkit for new releases
@@ -485,8 +488,8 @@ public class MainActivity extends Activity {
         css.addRule("body", "color: #FFF", "background: rgba(0,0,0,0);");
         mMarkdownView.addStyleSheet(css);
         mMarkdownView.setBackgroundColor(Color.TRANSPARENT);
-        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/jarjarblinkz/EvolveLauncher/main/CHANGELOG.md",
-                "**Couldn't load changelog. Check [here](https://github.com/JarJarBlinkz/EvolveLauncher/releases) for the latest file.**");
+        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/Veticia/PiLauncherNext/main/CHANGELOG.md",
+            "**Couldn't load changelog. Check [here](https://github.com/Veticia/binaries/tree/main/releases) for the latest file.**");
     }
 
     private void showSettingsLook() {
@@ -521,12 +524,10 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         SeekBar scale = d.findViewById(R.id.bar_scale);
@@ -545,12 +546,10 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
@@ -579,9 +578,7 @@ public class MainActivity extends Activity {
             });
         }
         int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-        if (style >= STYLES.length) {
-            style = 0;
-        }
+        if (style >= STYLES.length) { style = 0; }
         ImageView[] styles = {
                 d.findViewById(R.id.style0),
                 d.findViewById(R.id.style1),
@@ -602,7 +599,15 @@ public class MainActivity extends Activity {
             editor.putBoolean(SettingsProvider.KEY_AUTORUN, value);
             editor.apply();
         });
+        d.findViewById(R.id.service_backup_settings).setOnClickListener(view -> {
+            saveSharedPreferencesToFile(new File("/sdcard/PiLauncherBackup.xml"));
+        });
+        d.findViewById(R.id.service_restore_settings).setOnClickListener(view -> {
+            loadSharedPreferencesFromFile(new File("/sdcard/PiLauncherBackup.xml"));
+            doRestart(getApplicationContext());
+        }); //setOnClickListener
     }
+
 
     private void showSettingsPlatforms() {
         Dialog d = showPopup(R.layout.dialog_platforms);
@@ -670,10 +675,12 @@ public class MainActivity extends Activity {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
+    private final Handler handler = new Handler();
+
     public boolean openApp(ApplicationInfo app) {
         settingsProvider.updateRecent(app.packageName, System.currentTimeMillis());
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
-        if (!platform.runApp(this, app, false)) {
+        if(!platform.runApp(this, app, false)){
             TextView toastText = findViewById(R.id.toast_text);
             toastText.setText(R.string.failed_to_launch);
             toastText.setVisibility(View.VISIBLE);
@@ -702,29 +709,123 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    // Edit Mode
+    Set<String> currentSelectedApps = new HashSet<>();
+    boolean hasSelection = false;
     public boolean selectApp(String app) {
 
         if (currentSelectedApps.contains(app)) {
             currentSelectedApps.remove(app);
+            if (currentSelectedApps.isEmpty()) hasSelection = false;
             updateSelectionHint();
             return false;
         } else {
             currentSelectedApps.add(app);
+            hasSelection = true;
             updateSelectionHint();
 
             return true;
         }
     }
-
     void updateSelectionHint() {
         TextView selectionHint = findViewById(R.id.SelectionHint);
 
         final int size = currentSelectedApps.size();
-        if (size == 1) {
-            selectionHint.setText(R.string.selection_hint_single);
-        } else {
-            selectionHint.setText(getResources().getString(R.string.selection_hint_multiple, size));
-        }
-        selectionHint.setVisibility(currentSelectedApps.isEmpty() ? View.INVISIBLE : View.VISIBLE);
+        if (size == 1) selectionHint.setText("Click a group to move the selected app.");
+        else selectionHint.setText(String.valueOf(size) +" apps selected. Click a group to move them.");
+        selectionHint.setVisibility(hasSelection ? View.VISIBLE : View.INVISIBLE);
     }
+
+    private boolean saveSharedPreferencesToFile(File dst) {
+        File ff = new File("/data/data/"
+                + MainActivity.this.getPackageName()
+                + "/shared_prefs/" + getPackageName() + "_preferences"+".xml");
+
+        Log.i("Backing up shared prefs", ff.getPath() + "");
+
+        try {
+            copyFile(ff, dst);
+        } catch (IOException e) {
+            //throw new RuntimeException(e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+    }
+    public static void copyFile(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                // Transfer bytes from in to out
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    out.write(buf, 0, len);
+                }
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
+    }
+
+    @SuppressWarnings({ "unchecked" })
+    private boolean loadSharedPreferencesFromFile(File src) {
+        File ff = new File("/data/data/"
+                + MainActivity.this.getPackageName()
+                + "/shared_prefs/" + getPackageName() + "_preferences"+".xml");
+
+        Log.i("Restoring shared prefs", ff.getPath() + "");
+
+        try {
+            copyFile(src, ff);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+    }
+    public static void doRestart(Context c) {
+        try {
+            //check if the context is given
+            if (c != null) {
+                //fetch the packagemanager so we can get the default launch activity
+                // (you can replace this intent with any other activity if you want
+                PackageManager pm = c.getPackageManager();
+                //check if we got the PackageManager
+                if (pm != null) {
+                    //create the intent with the default start activity for your application
+                    Intent mStartActivity = pm.getLaunchIntentForPackage(
+                            c.getPackageName()
+                    );
+                    if (mStartActivity != null) {
+                        mStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //create a pending intent so the application is restarted after System.exit(0) was called.
+                        // We use an AlarmManager to call this intent in 100ms
+                        int mPendingIntentId = 223344;
+                        PendingIntent mPendingIntent = PendingIntent
+                                .getActivity(c, mPendingIntentId, mStartActivity,
+                                        PendingIntent.FLAG_CANCEL_CURRENT);
+                        AlarmManager mgr = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+                        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                        //kill the application
+                        System.exit(0);
+                    } else {
+                        Log.e("PI", "Was not able to restart application, mStartActivity null");
+                    }
+                } else {
+                    Log.e("PI", "Was not able to restart application, PM null");
+                }
+            } else {
+                Log.e("PI", "Was not able to restart application, Context null");
+            }
+        } catch (Exception ex) {
+            Log.e("PI", "Was not able to restart application");
+        }
+    }
+
 }

@@ -2,7 +2,6 @@ package com.jarjarblinkz.EvolveLauncher;
 
 import static com.jarjarblinkz.EvolveLauncher.platforms.AbstractPlatform.isPico3Pro;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,9 +47,7 @@ public class SettingsProvider
     private final String KEY_SELECTED_GROUPS = "prefSelectedGroups";
     private final String SEPARATOR = "#@%";
 
-    @SuppressLint("StaticFieldLeak")
     private static SettingsProvider instance;
-    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     public static synchronized SettingsProvider getInstance (Context context)
@@ -413,5 +410,9 @@ public class SettingsProvider
             e.printStackTrace();
         }
         mRecents = outputMap;
+    }
+    public static boolean getAppLaunchOut(String pkg) {
+        //TODO:
+        return true;
     }
 }
