@@ -7,7 +7,6 @@ import static com.jarjarblinkz.EvolveLauncher.MainActivity.sharedPreferences;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -15,12 +14,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -317,7 +314,7 @@ public class AppsAdapter extends BaseAdapter
 
         //info action
         dialog.findViewById(R.id.info).setOnClickListener(view13 -> mainActivityContext.openAppDetails(actApp.packageName));
-        dialog.findViewById(R.id.uninstall).setOnClickListener(view -> mainActivityContext.uninstallapp(actApp.packageName));
+
         //set name
         PackageManager pm = mainActivityContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mainActivityContext, actApp.packageName, actApp.loadLabel(pm));
