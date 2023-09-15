@@ -317,7 +317,7 @@ public class AppsAdapter extends BaseAdapter
 
         //info action
         dialog.findViewById(R.id.info).setOnClickListener(view13 -> mainActivityContext.openAppDetails(actApp.packageName));
-
+        dialog.findViewById(R.id.uninstall).setOnClickListener(view -> mainActivityContext.uninstallApp(actApp.packageName));
         //set name
         PackageManager pm = mainActivityContext.getPackageManager();
         String name = SettingsProvider.getAppDisplayName(mainActivityContext, actApp.packageName, actApp.loadLabel(pm));
