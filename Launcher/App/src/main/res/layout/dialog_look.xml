@@ -180,7 +180,8 @@
                 android:text="@string/show_app_names"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color" />
+                android:trackTint="@color/switch_track_color"
+                tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -244,21 +245,26 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal">
+
             <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
                 android:id="@+id/service_backup_settings"
-                android:layout_width="120dp"
+                android:layout_width="123dp"
                 android:layout_height="120dp"
                 android:tooltipText="@string/service_backup_settings"
-                app:icon="@drawable/ic_updater"
+                app:icon="@drawable/ic_device"
                 app:text="@string/service_backup_settings"
-                tools:ignore="UnusedAttribute" />
+                tools:ignore="UnusedAttribute">
+
+            </com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup>
+
             <com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup
                 android:id="@+id/service_restore_settings"
-                android:layout_width="120dp"
+                android:layout_width="123dp"
                 android:layout_height="120dp"
                 android:tooltipText="@string/service_restore_settings"
-                app:icon="@drawable/ic_updater"
+                app:icon="@drawable/ic_device"
                 app:text="@string/service_restore_settings"
                 tools:ignore="UnusedAttribute" />
         </LinearLayout>

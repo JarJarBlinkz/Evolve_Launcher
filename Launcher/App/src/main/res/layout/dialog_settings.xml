@@ -116,8 +116,8 @@
         android:tooltipText="@string/settings_sideload"
         app:icon="@drawable/ic_sideload"
         app:text="@string/settings_sideload"
-        tools:ignore="UnusedAttribute">
+        tools:ignore="UnusedAttribute" />
 
-    </com.jarjarblinkz.EvolveLauncher.ui.SettingsGroup>
     </LinearLayout>
+
 </LinearLayout>

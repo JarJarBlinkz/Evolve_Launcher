@@ -64,6 +64,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import br.tiagohm.markdownview.MarkdownView;
 import br.tiagohm.markdownview.css.InternalStyleSheet;
@@ -121,7 +123,7 @@ public class MainActivity extends Activity
         }
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity", "MissingInflatedId"})
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -600,10 +602,10 @@ public class MainActivity extends Activity
             editor.apply();
         });
         d.findViewById(R.id.service_backup_settings).setOnClickListener(view -> {
-            saveSharedPreferencesToFile(new File("/sdcard/PiLauncherBackup.xml"));
+            saveSharedPreferencesToFile(new File("/sdcard/EvolveLauncherBackup.xml"));
         });
         d.findViewById(R.id.service_restore_settings).setOnClickListener(view -> {
-            loadSharedPreferencesFromFile(new File("/sdcard/PiLauncherBackup.xml"));
+            loadSharedPreferencesFromFile(new File("/sdcard/EvolveLauncherBackup.xml"));
             doRestart(getApplicationContext());
         }); //setOnClickListener
     }
