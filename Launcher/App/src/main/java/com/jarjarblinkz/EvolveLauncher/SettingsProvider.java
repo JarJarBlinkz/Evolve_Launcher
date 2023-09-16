@@ -415,8 +415,8 @@ public class SettingsProvider
         }
         mRecents = outputMap;
     }
-    // public static boolean getAppLaunchOut(String pkg) {
+     public static boolean getAppLaunchOut(String pkg) {
         //TODO:
-      // return true;
+      return true;
     }
-
+}
