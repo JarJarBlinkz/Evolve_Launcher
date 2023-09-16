@@ -2,6 +2,7 @@ package com.jarjarblinkz.EvolveLauncher;
 
 import static com.jarjarblinkz.EvolveLauncher.platforms.AbstractPlatform.isPico3Pro;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,7 +48,9 @@ public class SettingsProvider
     private final String KEY_SELECTED_GROUPS = "prefSelectedGroups";
     private final String SEPARATOR = "#@%";
 
+    @SuppressLint("StaticFieldLeak")
     private static SettingsProvider instance;
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     public static synchronized SettingsProvider getInstance (Context context)
@@ -161,6 +164,7 @@ public class SettingsProvider
                 if (pkg.startsWith("com.oculus.remotedesktop")) isSystemApp = true;
                 if (pkg.startsWith("com.oculus.systemutilities")) isSystemApp = true;
                 if (pkg.startsWith("com.meta.AccountsCenter.pwa")) isSystemApp = true;
+                if (pkg.startsWith("com.oculus.vrprivacycheckup")) isSystemApp = true;
                 if (pkg.startsWith("com.pico")) isSystemApp = true;
                 if (pkg.startsWith("com.pico.playsys")) isSystemApp = false;                //X
                 if (pkg.startsWith("com.pico.browser")) isSystemApp = false;                //X
@@ -411,8 +415,8 @@ public class SettingsProvider
         }
         mRecents = outputMap;
     }
-    public static boolean getAppLaunchOut(String pkg) {
+    // public static boolean getAppLaunchOut(String pkg) {
         //TODO:
-        return true;
+      // return true;
     }
-}
+
