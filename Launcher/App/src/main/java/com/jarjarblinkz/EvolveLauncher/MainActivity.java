@@ -710,6 +710,11 @@ public class MainActivity extends Activity
         intent.setData(Uri.parse("package:" + pkg));
         startActivity(intent);
     }
+    public void uninstallApp(String pkg) {
+        Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
+        intent.setData(Uri.parse("package:" + pkg));
+        startActivity(intent);
+    }
 
     // Edit Mode
     Set<String> currentSelectedApps = new HashSet<>();
