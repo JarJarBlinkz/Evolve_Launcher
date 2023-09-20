@@ -48,4 +48,5 @@ dependencies {
     implementation 'com.github.bkhezry:android-image-picker:1.4.0'
     implementation 'com.github.stephenc.java-iso-tools:loopy-vfs:1.2.2'
     implementation 'com.github.Veticia.MarkdownView:library:a17137d215'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }

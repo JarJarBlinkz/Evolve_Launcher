@@ -7,7 +7,8 @@
     <string name="add_group">Add group</string>
     <string name="delete_group">Delete group</string>
     <string name="edit_group">Edit group</string>
-    <string name="app_details">App details</string>
+    <string name="app_details">App details &amp; Uninstall</string>
+    <string name="app_uninstall">Uninstall App/Game</string>
     <string name="apps_hidden">Hidden</string>
 
     <string name="settings_apps_enable">Enable editing</string>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -15,54 +16,65 @@
         android:paddingLeft="0dp">
 
         <android.widget.TextView
-            android:layout_width="0dp"
+            android:id="@+id/textView"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:paddingBottom="20dp"
             android:text="@string/app_details"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="InefficientWeight,TextSizeCheck" />
 
         <Button
             android:id="@+id/uninstall"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="45dp"
             android:layout_gravity="end"
             android:layout_marginEnd="0dp"
             android:background="@drawable/ic_uninstall"
             android:backgroundTint="#FFFFFF"
             android:gravity="left"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/info"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/ic_info"
-            android:padding="0dp" />
+            android:contentDescription="@string/app_uninstall"
+            android:padding="0dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="178dp"
+        android:layout_height="149dp"
+        android:layout_gravity="clip_horizontal|center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/app_icon"
-            android:layout_width="120dp"
-            android:layout_height="67.5dp"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="10dp" />
 
-        <EditText
-            android:id="@+id/app_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:autofillHints="text"
-            android:backgroundTint="@android:color/white"
-            android:inputType="text"
-            android:textColor="@android:color/white" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/app_name"
+        android:layout_width="370dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_weight="1"
+        android:autofillHints="text"
+        android:backgroundTint="@android:color/white"
+        android:inputType="text"
+        android:textColor="@android:color/white"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <LinearLayout
         style="?android:attr/buttonBarStyle"
@@ -71,14 +83,30 @@
         android:layout_gravity="end"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/ok"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/bkg_dialog"
-            android:text="@android:string/ok"
-            android:textColor="@android:color/white" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ok"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/bkg_dialog"
+        android:drawablePadding="20dp"
+        android:text="@android:string/ok"
+        android:textColor="@android:color/white" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_weight="1"
+        android:visibility="invisible" />
+
 </LinearLayout>

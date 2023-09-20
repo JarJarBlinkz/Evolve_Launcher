@@ -16,10 +16,16 @@
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 
-    <WebView
-        android:id="@+id/new_releases_webview"
-        android:layout_width="800dp"
-        android:layout_height="650dp"
-        tools:ignore="VisualLintBounds" />
+    <LinearLayout
+        android:layout_width="1225dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <WebView
+            android:id="@+id/new_releases_webview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintBounds" />
+    </LinearLayout>
 
 </LinearLayout>
