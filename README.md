@@ -1,15 +1,28 @@
-# EvolveLauncher
-This is a fork, and spiritual succesor of [lvonasek's piLauncher](https://github.com/lvonasek/QuestPiLauncher). An alternative launcher for Pico VR headsets (might also work in Oculus) supporting official/sideloaded apps and games.
+EvolveLauncher: Elevating Your Oculus VR Experience with a 2D Interface, in Tribute to [lvonasek's piLauncher](https://github.com/lvonasek/QuestPiLauncher)
 
-[Builds](https://github.com/Veticia/binaries/tree/main/releases)
+Enriching 2D VR on Oculus
 
-![Screenshot](https://github.com/Veticia/Pilaunchernext/blob/main/SCREENSHOT.png?raw=true)
+EvolveLauncher redefines how users interact with their Oculus VR headsets, delivering an exceptional 2D virtual reality experience. Rooted in the spirit of piLauncher, this project pays homage to its predecessor while introducing innovation and accessibility.
 
-## Compile the launcher
-* Open **Launcher** in Android Studio
-* Ensure USB debugging is enabled on your headset
-* Add your signing key settings to ./App/build.gradle (or remove it completely in ./build.gradle)
-* Hit play button in Android Studio
+Universal Compatibility
+
+Originally designed for Oculus VR headsets by Meta Quest, EvolveLauncher seamlessly enhances 2D VR experience for Oculus device users.
+
+Seamless Access to Applications
+
+EvolveLauncher remains true to lvonasek's piLauncher vision, effortlessly bridging the gap between official and sideloaded 2D VR apps and games, allowing users to delve into an expansive virtual world.
+
+Immersive Interface
+
+EvolveLauncher's intuitive 2D interface captivates users with its harmonious blend of aesthetics and functionality. A visual preview of this experience is provided in our screenshot.
+
+Development Made Easy
+
+For those eager to contribute or explore the inner workings, EvolveLauncher simplifies the compilation process. Open the "Launcher" project in Android Studio, enable USB debugging on your Oculus headset, and configure your signing key settings in ./App/build.gradle. With a single click in Android Studio, you're poised to elevate your 2D VR development to new heights.
+
+[Builds](https://github.com/JarJarBlinkz/Evolve_Launcher/releases)
+
+![Screenshot](https://github.com/JarJarBlinkz/Evolve_Launcher/blob/main/Screenshot.png))
 
 ## Similar Projects
 * [DreamGrid](https://github.com/basti564/DreamGrid), a more Oculus-centric fork of piLauncher
