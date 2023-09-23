@@ -2,7 +2,9 @@ EvolveLauncher:
 
 Elevating Your Oculus VR Experience with a 2D Interface, in Tribute to [lvonasek's piLauncher](https://github.com/lvonasek/QuestPiLauncher)
 
-![Screenshot](https://github.com/JarJarBlinkz/Evolve_Launcher/blob/main/Screenshot.png)[Builds](https://github.com/JarJarBlinkz/Evolve_Launcher/releases)
+[Builds](https://github.com/JarJarBlinkz/Evolve_Launcher/releases)
+
+![Screenshot](https://github.com/JarJarBlinkz/Evolve_Launcher/blob/main/Screenshot.png)
 
 * Enriching 2D VR on Oculus
 
