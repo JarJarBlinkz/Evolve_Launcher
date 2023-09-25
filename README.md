@@ -33,5 +33,7 @@ For those eager to contribute or explore the inner workings, EvolveLauncher simp
 * Hit play button in Android Studio
   
 ## Similar Projects
+
+* [piLauncherNG](https://github.com/ValentineShilov/PiLauncherNG), This is a fork of Veticia's piLauncherNext
 * [DreamGrid](https://github.com/basti564/DreamGrid), a more Oculus-centric fork of piLauncher
 * [PicoZen](https://github.com/barnabwhy/PicoZen), launcher made to look more like a native Pico app
