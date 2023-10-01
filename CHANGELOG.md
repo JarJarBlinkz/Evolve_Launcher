@@ -1,4 +1,4 @@
-# Latest version: [v117](https://github.com/JarJarBlinkz/EvolveLauncher/releases/download/v117/EvolveLauncher.v117+1.1.7.apk))
+# Latest version: [v117](https://github.com/JarJarBlinkz/EvolveLauncher/releases/download/v117/EvolveLauncher.v117+1.1.7.apk)
 
 ## Changelog
 
